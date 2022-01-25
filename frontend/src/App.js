@@ -1,7 +1,10 @@
+import LoginSignupPage from "./pages/LoginSignupPage";
+import "./App_style.css";
+
 function App() {
   return (
-    <div className="App">
-      <h1> Social media Clone Start</h1>
+    <div className="app">
+      <LoginSignupPage />
     </div>
   );
 }
