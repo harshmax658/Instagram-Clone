@@ -59,6 +59,7 @@ export const Container = styled.div`
   align-items: center;
   background-color: #fafafa;
   height: 100%;
+  overflow-x: auto;
 `;
 export const Section = styled.section`
   width: 80%;
@@ -77,7 +78,7 @@ export const InstaPhoneImage = styled.div`
 `;
 export const RenderdImages = styled.div`
   position: relative;
-  /* width: 54.5%; */
+  width: 55.2%;
   top: 95.7px;
   left: 146px;
   height: 69.7%;

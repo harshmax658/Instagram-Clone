@@ -1,11 +1,16 @@
 import LoginSignupPage from "./pages/LoginSignupPage";
-import "./App_style.css";
+import { AppStyle, GlobalStyleCss } from "./AppStyle";
 
 function App() {
   return (
-    <div className="app">
-      <LoginSignupPage />
-    </div>
+    <>
+      {/* Add Component inside App Block */}
+      <AppStyle>
+        <LoginSignupPage />
+      </AppStyle>
+      {/* Style  */}
+      <GlobalStyleCss />
+    </>
   );
 }
 
