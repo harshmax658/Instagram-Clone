@@ -1,6 +1,58 @@
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 
+export const LoginButton = styled.div`
+  margin: 15px 0;
+`;
+
+export const FacebookLogin = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #385185;
+  margin: 25px 0;
+  cursor: pointer;
+
+  &::selection {
+    user-select: none;
+  }
+
+  .fbIcon {
+    font-size: 1px;
+    margin-right: 5px;
+  }
+`;
+
+export const FormContainer = styled.div`
+  width: 34%;
+  height: 537px;
+`;
+
+export const Form = styled.div`
+  height: 69%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px;
+  border: 1px solid lightgray;
+
+  input {
+    margin: 4px 0;
+    border-radius: 5px;
+  }
+
+  .instaLogo {
+    text-align: center;
+  }
+  a {
+    text-align: center;
+    text-decoration: none;
+    font-size: 13.6px;
+    color: #8b8888;
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -9,24 +61,26 @@ export const Container = styled.div`
   height: 100%;
 `;
 export const Section = styled.section`
-  border: 2px solid;
   width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: 33px;
+  left: -28px;
 `;
 export const InstaPhoneImage = styled.div`
   background-image: ${({ image }) => `url(${image})`};
   background-size: cover;
-  width: 400px;
+  width: 42%;
   height: 600px;
 `;
 export const RenderdImages = styled.div`
   position: relative;
-  width: 58%;
-  top: 97px;
-  left: 147px;
-  height: 69.3%;
+  width: 54.5%;
+  top: 95.7px;
+  left: 146px;
+  height: 69.7%;
 `;
 
 export const GlobalCssForLoginSignup = createGlobalStyle`
@@ -36,6 +90,26 @@ export const GlobalCssForLoginSignup = createGlobalStyle`
 .visible{
   display: block;
  
+}
+.or{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+
+  .first,.third{
+border-bottom: 1px solid lightgray;
+width: 100%;
+height: 1px;
+  }
+
+  .first{
+    margin-right: 22px;
+  }
+  .third{
+    margin-left: 22px;
+  }
 }
 .fade-appear{
   opacity: 0;    
