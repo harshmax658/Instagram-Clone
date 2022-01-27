@@ -77,7 +77,7 @@ export const InstaPhoneImage = styled.div`
 `;
 export const RenderdImages = styled.div`
   position: relative;
-  width: 54.5%;
+  /* width: 54.5%; */
   top: 95.7px;
   left: 146px;
   height: 69.7%;

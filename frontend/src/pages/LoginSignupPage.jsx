@@ -60,7 +60,7 @@ const LoginSignupPage = () => {
                   key={index}
                   image={url}
                   alt=""
-                  width="100%"
+                  width="54.5%"
                   height="100%"
                 />
               ))}
