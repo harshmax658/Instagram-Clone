@@ -18,9 +18,15 @@ import {
 // Material UI
 import FacebookIcon from "@mui/icons-material/Facebook";
 
+// custom Hooks
+import useLoginSignup from "../Custom Hooks/useLoginSignup";
 const LoginSignupPage = () => {
   const [imageNumber, setImageNumber] = useState(1);
   const [images, setImages] = useState([]);
+
+  const [loginData, setLoginData] = useLoginSignup("login");
+  const { username, password } = loginData;
+
   useEffect(() => {
     setImages([
       { url: "/images/screenshot1.jpg", index: 1 },
@@ -60,7 +66,7 @@ const LoginSignupPage = () => {
                   key={index}
                   image={url}
                   alt=""
-                  width="54.5%"
+                  width="100%"
                   height="100%"
                 />
               ))}
@@ -78,11 +84,15 @@ const LoginSignupPage = () => {
                 label="Phone number, username, or email"
                 name="username"
                 type="text"
+                value={username}
+                onChange={setLoginData}
               />
               <FormInputComponent
                 label="Password"
                 name="password"
                 type="password"
+                value={password}
+                onChange={setLoginData}
               />
               <LoginButton>
                 <CustomButtonComponent
