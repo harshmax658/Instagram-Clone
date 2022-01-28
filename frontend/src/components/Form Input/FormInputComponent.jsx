@@ -5,7 +5,14 @@ const FormInputComponent = ({ onchange, label, ...otherprops }) => {
   return (
     <FormInputGroup>
       <FormInput onchange={onchange} {...otherprops} />
-      {label ? <FormLabel>{label}</FormLabel> : null}
+      {label ? (
+        <FormLabel
+          // className={otherprops.value ? "shrink" : ""}
+          shrink={otherprops.value ? true : false}
+        >
+          {label}
+        </FormLabel>
+      ) : null}
     </FormInputGroup>
   );
 };

@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const shrink = css`
+  top: 6px;
+  font-size: 13px;
+`;
 
 export const FormInputGroup = styled.div`
   position: relative;
@@ -6,7 +11,8 @@ export const FormInputGroup = styled.div`
 
 export const FormInput = styled.input`
   width: 100%;
-  padding: 10px;
+  padding: 13px;
+  padding-bottom: 8px;
   background: none;
   outline: none;
   border: 1px solid lightgray;
@@ -14,10 +20,12 @@ export const FormInput = styled.input`
 
 export const FormLabel = styled.label`
   position: absolute;
-  left: 11px;
+  left: 12px;
   pointer-events: none;
   color: gray;
-  font-size: 13px;
+  font-size: 14px;
   width: 100%;
-  top: 14px;
+  top: 16px;
+  transition: all 100ms ease-out;
+  ${(props) => (props.shrink ? shrink : "")}
 `;

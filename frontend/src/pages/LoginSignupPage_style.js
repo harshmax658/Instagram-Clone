@@ -1,14 +1,49 @@
 import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
+const border = css`
+  border: 1px solid lightgray;
+`;
+const displayFlexJCAIC = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const GetTheApp = styled.div`
+  text-align: center;
+  margin: 25px 0;
+`;
+
+export const StoreLink = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+
+  img {
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
+  }
+`;
+export const Signup = styled.div`
+  ${border}
+  height: 66px;
+  margin: 10px 0;
+
+  ${displayFlexJCAIC}
+  span {
+    color: #0095f6;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+`;
 export const LoginButton = styled.div`
   margin: 15px 0;
 `;
 
 export const FacebookLogin = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${displayFlexJCAIC}
   width: 100%;
   color: #385185;
   margin: 25px 0;
@@ -30,16 +65,19 @@ export const FormContainer = styled.div`
 `;
 
 export const Form = styled.div`
-  height: 69%;
+  ${border}
+  height: 67%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 36px;
-  border: 1px solid lightgray;
 
   input {
     margin: 4px 0;
     border-radius: 5px;
+    padding-top: 16px;
+    padding-bottom: 4px;
+    font-size: 12px;
   }
 
   .instaLogo {
@@ -53,19 +91,15 @@ export const Form = styled.div`
   }
 `;
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const LoginSignupContainer = styled.div`
+  ${displayFlexJCAIC}
   background-color: #fafafa;
   height: 100%;
   overflow-x: auto;
 `;
 export const Section = styled.section`
+  ${displayFlexJCAIC}
   width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   top: 33px;
   left: -28px;
@@ -85,6 +119,7 @@ export const RenderdImages = styled.div`
 `;
 
 export const GlobalCssForLoginSignup = createGlobalStyle`
+
 .invisible{
   display: none;
 }
@@ -93,10 +128,8 @@ export const GlobalCssForLoginSignup = createGlobalStyle`
  
 }
 .or{
-  display: flex;
+  ${displayFlexJCAIC}
   width: 100%;
-  align-items: center;
-  justify-content: center;
   color: gray;
 
   .first,.third{
@@ -114,16 +147,9 @@ height: 1px;
 }
 .fade-appear{
   opacity: 0;    
-  /* animation-duration: 2s; */
-  /* transition-delay: 1s;
-  animation-timing-function: ease-in-out; */
 }
 .fade-appear-active{
-  /* opacity: 1;
-  transition: opacity 500ms ease-out;     */
-  /* animation: fadeIn; */
   animation: fadeOut;
-  /* transition-delay: 2s; */
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
 }

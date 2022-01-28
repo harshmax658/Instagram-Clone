@@ -4,7 +4,7 @@ import ImageComponent from "../components/IMG/ImageComponent";
 import FormInputComponent from "../components/Form Input/FormInputComponent";
 import CustomButtonComponent from "../components/custom button/CustomButtonComponent";
 import {
-  Container,
+  LoginSignupContainer,
   InstaPhoneImage,
   Section,
   RenderdImages,
@@ -13,6 +13,9 @@ import {
   Form,
   FormContainer,
   LoginButton,
+  Signup,
+  GetTheApp,
+  StoreLink,
 } from "./LoginSignupPage_style";
 
 // Material UI
@@ -51,7 +54,7 @@ const LoginSignupPage = () => {
 
   return (
     <>
-      <Container>
+      <LoginSignupContainer>
         <Section>
           <GlobalCssForLoginSignup />
           <InstaPhoneImage image="https://www.instagram.com/static/images/homepage/home-phones@2x.png/9364675fb26a.png">
@@ -117,9 +120,21 @@ const LoginSignupPage = () => {
 
               <a href="#">Forgot password?</a>
             </Form>
+
+            <Signup>
+              Don't have an account? <span>Sign up</span>
+            </Signup>
+
+            <GetTheApp>
+              <span>Get the app.</span>
+              <StoreLink>
+                <ImageComponent image={"/images/appStore.jpg"} />
+                <ImageComponent image={"/images/playStore.jpg"} />
+              </StoreLink>
+            </GetTheApp>
           </FormContainer>
         </Section>
-      </Container>
+      </LoginSignupContainer>
     </>
   );
 };
