@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ImageComponent from "../components/IMG/ImageComponent";
+import ImageComponent from "../../components/IMG/ImageComponent";
 
-import FormInputComponent from "../components/Form Input/FormInputComponent";
-import CustomButtonComponent from "../components/custom button/CustomButtonComponent";
+import FormInputComponent from "../../components/Form Input/FormInputComponent";
+import CustomButtonComponent from "../../components/custom button/CustomButtonComponent";
 import {
   LoginSignupContainer,
   InstaPhoneImage,
@@ -22,7 +22,7 @@ import {
 import FacebookIcon from "@mui/icons-material/Facebook";
 
 // custom Hooks
-import useLoginSignup from "../Custom Hooks/useLoginSignup";
+import useLoginSignup from "../../Custom Hooks/useLoginSignup";
 const LoginSignupPage = () => {
   const [imageNumber, setImageNumber] = useState(1);
   const [images, setImages] = useState([]);
