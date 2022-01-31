@@ -6,22 +6,24 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "../Home Page/HomePage";
 import ProfilePage from "../Profile page/ProfilePage";
 import Inbox from "../Inbox/Inbox";
-import { useLocation } from "react-router-dom";
+
+import { Outlet } from "react-router-dom";
 
 const RouterHandler = () => {
-  const { pathname } = useLocation();
-  console.log(pathname);
-  console.log("aya");
+  console.log("router Handler");
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <MainPage>
         <Routes>
-          <Route path={`${pathname}/profile`} exact element={<ProfilePage />} />
-          {/* <Route path="/a" element={<ProfilePage />}>
-            <Route path="/inbox" element={<Inbox />} />
-          </Route> */}
+          <Route path="/" index element={<HomePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/inbox" element={<Inbox />}>
+            {/* <Route path="*" element={<p> Found</p>} /> */}
+          </Route>
         </Routes>
+
+        <Outlet />
       </MainPage>
     </>
   );
