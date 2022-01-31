@@ -1,7 +1,14 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 const ProfilePage = () => {
-  return <div>Profile Page</div>;
+  console.log("Profile");
+  return (
+    <div>
+      Profile Page
+      {/* <Outlet /> */}
+    </div>
+  );
 };
 
 export default ProfilePage;

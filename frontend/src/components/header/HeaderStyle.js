@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const IconStyle = styled.div`
-   background-color:red;
-`
+  background-color: red;
+`;
 
 export const Container = styled.div`
+
   background-color:skyblue;
   display:flex;
 
