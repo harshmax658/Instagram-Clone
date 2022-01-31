@@ -1,4 +1,11 @@
 import styled from "styled-components";
+import { css } from "styled-components";
+
+const DisplayFlexJcAC = css`
+  display: flex;
+  align-items: center;
+  justify-items: center;
+`;
 
 export const PostComponent = styled.div`
   border: 1px solid gray;
@@ -25,10 +32,24 @@ export const PostImage = styled.div`
   height: 500px;
 `;
 
-export const PostActionButtons = styled.div``;
+export const PostActionButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  .savedBtn {
+    margin: 0 10px;
+  }
+`;
 
 export const PostReactButton = styled.div`
-  .div {
-    transform: scale(1.5);
+  display: flex;
+  align-items: center;
+  .btn {
+    ${DisplayFlexJcAC}
+    transform: scale(1);
+    margin-left: 16px;
+
+    svg {
+      /* color: #8e8e8e; */
+    }
   }
 `;

@@ -11,10 +11,10 @@ import {
   PostReactButton,
 } from "./PostStyle";
 
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-
-import { BsChat } from "react-icons/bs";
-import { FiSend } from "react-icons/fi";
+import SavedSvg from "../../svg/SavedSvg";
+import LoveSvg from "../../svg/LoveSvg";
+import CommentsSvg from "../../svg/CommentsSvg";
+import SendSvg from "../../svg/SendSvd";
 const PostComponets = () => {
   return (
     <PostComponent>
@@ -29,12 +29,19 @@ const PostComponets = () => {
       {/* sas */}
       <PostActionButtons>
         <PostReactButton>
-          <div>
-            <FavoriteBorderIcon />
-            <BsChat />
-            <FiSend />
+          <div className="btn">
+            <LoveSvg />
+          </div>
+          <div className="btn">
+            <CommentsSvg />
+          </div>
+          <div className="btn">
+            <SendSvg />
           </div>
         </PostReactButton>
+        <div className="savedBtn btn">
+          <SavedSvg />
+        </div>
       </PostActionButtons>
     </PostComponent>
   );
