@@ -10,22 +10,22 @@ export const Container = styled.div`
 
 `
 
-export const SearchContainer  = styled.div`
- flex:1;
- display:flex;
- justify-content:center;
+export const Center  = styled.div`
+//  flex:1;
+//  display:flex;
+//  justify-content:center;
 `
 
-export const IconsContainer  = styled.div`
-  flex:1;
-  display:flex;
-  justify-content:space-evenly;
+export const Right  = styled.div`
+  // flex:1;
+  // display:flex;
+  // justify-content:space-evenly;
 `
 
-export const ImgContainer = styled.div`
- display:flex;
- flex:1;
- justify-content:center;
+export const Left = styled.div`
+//  display:flex;
+//  flex:1;
+//  justify-content:center;
 `
 
 export const Image = styled.img`

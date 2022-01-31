@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container , SearchContainer , Image , Input , ImgContainer , IconsContainer} from './HeaderStyle';
+import { Container , Center , Image , Input , Left , Right} from './HeaderStyle';
 import LinkItem from './LinkItem';
 import HomeIcon from '@mui/icons-material/Home';
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
@@ -11,19 +11,19 @@ const Header = () => {
   return (
       <>
         <Container>
-            <ImgContainer>
+            <Left>
                 <Image src='https://hemsingh780.github.io/hosted-assest/instagram.png' />
-            </ImgContainer>
-            <SearchContainer>
+            </Left>
+            <Center>
                <Input placeholder='search'/>
-            </SearchContainer>
-            <IconsContainer>
+            </Center>
+            <Right>
                 <LinkItem Icon = {<HomeIcon />} />
                 <LinkItem Icon = {<MessageOutlinedIcon /> } />
                 <LinkItem Icon = {<AddBoxOutlinedIcon /> } />
                 <LinkItem Icon = {<FavoriteBorderIcon /> } />
                 <LinkItem Icon = {<AccountCircleOutlinedIcon /> } /> 
-            </IconsContainer>
+            </Right>
         </Container>
       </>
     );
