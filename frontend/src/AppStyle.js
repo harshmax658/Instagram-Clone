@@ -9,10 +9,10 @@ export const GlobalStyleCss = createGlobalStyle`
   box-sizing: border-box;
 }
 /* html, */
-body,
-#root {
+body {
   width: 100vw;
   height: 100vh;
+
 }
 
 `;

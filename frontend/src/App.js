@@ -29,9 +29,9 @@ function App() {
           <Route path="/login" element={<LoginSignupPage />} /> */}
       {/* <Route path="*" element={<LoginSignupPage />} /> */}
       {/* </Routes> */}
+      <GlobalStyleCss />
     </AppStyle>
     // {/* Style  */}
-    // <GlobalStyleCss />
     // </BrowserRouter>
   );
 }
