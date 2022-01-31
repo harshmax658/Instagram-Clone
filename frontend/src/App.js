@@ -1,19 +1,18 @@
 import LoginSignupPage from "./pages/LoginSignup/LoginSignupPage";
 import Header from "./components/header/Header";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AppStyle, GlobalStyleCss } from "./AppStyle";
-
-import RouterHandler from "./pages/InstaHome/RouterHandler";
+// import RouterHandler from "./pages/InstaHome/RouterHandler";
 import ProfilePage from "./pages/Profile page/ProfilePage";
 import Inbox from "./pages/Inbox/Inbox";
 
 function App() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <AppStyle>
+        
         <Header />
-        <Routes>
+        {/* <Routes> */}
           {/* Add Component inside App Block */}
           {/* <Route path="/" element={<RouterHandler />}>
             <Route path="/h" exact element={<ProfilePage />} />
@@ -21,11 +20,11 @@ function App() {
           </Route>
           <Route path="/login" element={<LoginSignupPage />} /> */}
           {/* <Route path="*" element={<LoginSignupPage />} /> */}
-        </Routes>
+        {/* </Routes> */}
       </AppStyle>
-      {/* Style  */}
-      <GlobalStyleCss />
-    </BrowserRouter>
+      // {/* Style  */}
+      // <GlobalStyleCss />
+    // </BrowserRouter>
   );
 }
 
