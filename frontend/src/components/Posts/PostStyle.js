@@ -1,5 +1,11 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { css } from "styled-components";
+
+export const GlobaLCss = createGlobalStyle`
+.cursorPointer{
+  cursor: pointer;
+}
+`;
 
 const DisplayFlexJcAC = css`
   display: flex;
@@ -15,14 +21,23 @@ export const PostOwner = styled.div`
   display: flex;
   justify-content: space-between;
 
-  padding: 0 15px;
+  padding: 14px 15px;
 `;
 export const PostOwnerData = styled.div`
   display: flex;
+  align-items: center;
+  img {
+    border-radius: 50%;
+  }
 `;
 
-export const PostOwnerName = styled.p``;
-export const PostAction = styled.div``;
+export const PostOwnerName = styled.p`
+  margin-left: 15px;
+`;
+export const PostAction = styled.div`
+  transform: scale(2);
+  font-weight: bold;
+`;
 
 export const PostImage = styled.div`
   background: url("https://images.unsplash.com/photo-1643273038626-59942bbad9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
@@ -35,15 +50,11 @@ export const PostImage = styled.div`
 export const PostActionButtons = styled.div`
   display: flex;
   justify-content: space-between;
-  .savedBtn {
-    margin: 0 10px;
-  }
 
   .btn {
     ${DisplayFlexJcAC}
     transform: scale(1);
-    margin-left: 16px;
-    cursor: pointer;
+    margin-right: 14px;
 
     svg {
       /* color: #8e8e8e; */
@@ -94,4 +105,8 @@ export const TextArea = styled.textarea`
 
 export const PostDetails = styled.div`
   padding: 10px;
+`;
+
+export const PostSummary = styled.div`
+  padding: 15px 0;
 `;
