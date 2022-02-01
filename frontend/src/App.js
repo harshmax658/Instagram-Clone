@@ -14,11 +14,13 @@ import Inbox from "./pages/Inbox/Inbox";
 import HomePage from "./pages/Home Page/HomePage";
 import CustomButtonComponent from "./components/custom button/CustomButtonComponent";
 
+import PostPage from "./pages/Post Page/PostPage";
 function App() {
   return (
     // <BrowserRouter>
     <AppStyle>
       <Header />
+      <PostPage />
       {/* <Routes> */}
       {/* Add Component inside App Block */}
       {/* <Route path="/" element={<RouterHandler />}>
