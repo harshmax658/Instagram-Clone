@@ -38,18 +38,60 @@ export const PostActionButtons = styled.div`
   .savedBtn {
     margin: 0 10px;
   }
-`;
 
-export const PostReactButton = styled.div`
-  display: flex;
-  align-items: center;
   .btn {
     ${DisplayFlexJcAC}
     transform: scale(1);
     margin-left: 16px;
+    cursor: pointer;
 
     svg {
       /* color: #8e8e8e; */
     }
   }
+`;
+
+export const PostReactButton = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const LikesCount = styled.div``;
+
+export const PostDescription = styled.div``;
+
+export const CommnetCout = styled.div``;
+export const PostTimeDate = styled.div``;
+
+export const AddCommentOnPost = styled.div`
+  ${DisplayFlexJcAC}
+  border-top: 1px solid gray;
+  position: relative;
+  height: 60px;
+  .commentText {
+    flex-grow: 1;
+  }
+  .emoji {
+    margin: 0 20px;
+  }
+  .post {
+    position: absolute;
+    right: 14px;
+    align-items: center;
+    align-content: flex-start;
+    top: 3px;
+  }
+`;
+
+export const TextArea = styled.textarea`
+  height: 36px;
+  resize: none;
+  width: 100%;
+  border: none;
+  outline: none;
+  /* overflow-y: hidden; */
+`;
+
+export const PostDetails = styled.div`
+  padding: 10px;
 `;
