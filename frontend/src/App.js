@@ -1,6 +1,5 @@
 import LoginSignupPage from "./pages/LoginSignup/LoginSignupPage";
 import Header from "./components/header/Header";
-
 import {
   BrowserRouter as Router,
   Routes,

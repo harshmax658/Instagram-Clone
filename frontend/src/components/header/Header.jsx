@@ -1,11 +1,12 @@
 import React from "react";
-import { Container, Center, Image, Input, Left, Right } from "./HeaderStyle";
+import { Container, SearchContainer , IconsContainer , Image, Input, Left, Right } from "./HeaderStyle";
 import LinkItem from "./LinkItem";
 import HomeIcon from "@mui/icons-material/Home";
 import MessageOutlinedIcon from "@mui/icons-material/MessageOutlined";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import SearchIcon from '@mui/icons-material/Search';
 
 const Header = () => {
   return (
@@ -14,16 +15,19 @@ const Header = () => {
         <Left>
           <Image src="https://hemsingh780.github.io/hosted-assest/instagram.png" />
         </Left>
-        <Center>
-          <Input placeholder="search" />
-        </Center>
         <Right>
-          <LinkItem Icon={<HomeIcon />} />
-          <LinkItem Icon={<MessageOutlinedIcon />} />
-          <LinkItem Icon={<AddBoxOutlinedIcon />} />
-          <LinkItem Icon={<FavoriteBorderIcon />} />
-          <LinkItem Icon={<AccountCircleOutlinedIcon />} />
+          <SearchContainer>
+          <SearchIcon style={{color: "rgb(142, 142, 142)"}}/>
+              <Input placeholder="search" />
+          </SearchContainer>
         </Right>
+        <IconsContainer>
+            <LinkItem Icon={<HomeIcon style={{color:"black"}}/>} />
+            <LinkItem Icon={<MessageOutlinedIcon style={{color:"black"}}/>} />
+            <LinkItem Icon={<AddBoxOutlinedIcon style={{color:"black"}}/>} />
+            <LinkItem Icon={<FavoriteBorderIcon style={{color:"black"}}/>} />
+            <LinkItem Icon={<AccountCircleOutlinedIcon style={{color:"black"}}/>} />
+        </IconsContainer>
       </Container>
     </>
   );

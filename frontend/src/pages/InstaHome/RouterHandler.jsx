@@ -6,7 +6,6 @@ import Header from "../../components/header/Header";
 // import HomePage from "../Home Page/HomePage";
 // import ProfilePage from "../Profile page/ProfilePage";
 // import Inbox from "../Inbox/Inbox";
-
 // import { Outlet } from "react-router-dom";
 
 const RouterHandler = () => {

@@ -4,11 +4,11 @@ import { IconStyle } from './HeaderStyle';
 
 const LinkItem = ({Icon}) => {
   return (
+  <IconStyle>
     <Link>
-      <IconStyle>
            {Icon}
-       </IconStyle>  
     </Link>
+  </IconStyle>  
   );
 };
 
