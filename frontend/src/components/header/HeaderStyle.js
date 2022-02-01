@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const HeaderDownSpace = styled.div`
+  height:90px;
+
+`
 export const IconStyle = styled.div`
   // background-color: red;
 `;
@@ -8,6 +12,10 @@ export const Container = styled.div`
 
   // background-color:skyblue;
   // display:flex;
+   position:fixed;
+   width:100%;
+   background:white;
+   z-index:100;
   display: flex;
   padding: 1%;
   box-shadow: 1px 1px 1px 1px #e3dede;

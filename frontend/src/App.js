@@ -6,7 +6,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-
+import { HeaderDownSpace } from "./components/header/HeaderStyle";
 import { AppStyle, GlobalStyleCss } from "./AppStyle";
 // import RouterHandler from "./pages/InstaHome/RouterHandler";
 import ProfilePage from "./pages/Profile page/ProfilePage";
@@ -20,6 +20,7 @@ function App() {
     // <BrowserRouter>
     <AppStyle>
       <Header />
+      <HeaderDownSpace />
       <PostPage />
       {/* <Routes> */}
       {/* Add Component inside App Block */}
