@@ -15,6 +15,7 @@ const DisplayFlexJcAC = css`
 
 export const PostComponent = styled.div`
   border: 1px solid gray;
+  width: 100%;
 `;
 
 export const PostOwner = styled.div`
@@ -67,18 +68,32 @@ export const PostReactButton = styled.div`
   align-items: center;
 `;
 
-export const LikesCount = styled.div``;
+export const LikesCount = styled.div`
+  font-weight: bold;
+`;
 
-export const PostDescription = styled.div``;
+export const PostDescription = styled.div`
+  span {
+    font-weight: bold;
+  }
+`;
 
-export const CommnetCout = styled.div``;
-export const PostTimeDate = styled.div``;
+export const CommnetCount = styled.div`
+  color: gray;
+`;
+export const PostTimeDate = styled.div`
+  font-size: 0.7rem;
+  font-weight: 100;
+  color: gray;
+`;
 
 export const AddCommentOnPost = styled.div`
   ${DisplayFlexJcAC}
   border-top: 1px solid gray;
   position: relative;
-  height: 60px;
+  min-height: 50px;
+  height: auto;
+
   .commentText {
     flex-grow: 1;
   }
@@ -87,18 +102,21 @@ export const AddCommentOnPost = styled.div`
   }
   .post {
     position: absolute;
-    right: 14px;
+    right: 10px;
     align-items: center;
     align-content: flex-start;
-    top: 3px;
+    top: 12px;
+    font-size: 1.1rem;
+    color: #0095f6;
   }
 `;
 
 export const TextArea = styled.textarea`
-  height: 36px;
+  height: 18px;
   resize: none;
-  width: 100%;
+  width: 90%;
   border: none;
+  /* padding: 10px 0; */
   outline: none;
   /* overflow-y: hidden; */
 `;
@@ -109,4 +127,9 @@ export const PostDetails = styled.div`
 
 export const PostSummary = styled.div`
   padding: 15px 0;
+
+  & :nth-child(even) {
+    margin: 5px 0;
+  }
+  padding-bottom: 0;
 `;

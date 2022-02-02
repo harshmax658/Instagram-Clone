@@ -1,11 +1,7 @@
+import React from "react";
 import LoginSignupPage from "./pages/LoginSignup/LoginSignupPage";
 import Header from "./components/header/Header";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HeaderDownSpace } from "./components/header/HeaderStyle";
 import { AppStyle, GlobalStyleCss } from "./AppStyle";
 // import RouterHandler from "./pages/InstaHome/RouterHandler";
@@ -14,26 +10,29 @@ import Inbox from "./pages/Inbox/Inbox";
 import HomePage from "./pages/Home Page/HomePage";
 import CustomButtonComponent from "./components/custom button/CustomButtonComponent";
 
-import PostPage from "./pages/Post Page/PostPage";
+import PostPage from "./pages/Post Page/FeedSection";
 function App() {
   return (
     // <BrowserRouter>
-    <AppStyle>
-      <Header />
-      <HeaderDownSpace />
-      <PostPage />
-      {/* <Routes> */}
-      {/* Add Component inside App Block */}
-      {/* <Route path="/" element={<RouterHandler />}>
+    <React.StrictMode>
+      <AppStyle>
+        <Header />
+        <HeaderDownSpace />
+        <PostPage />
+        {/* <Routes>
+          {/* Add Component inside App Block */}
+        {/* <Route path="/" element={<RouterHandler />}>
             <Route path="/h" exact element={<ProfilePage />} />
             <Route path="/inbox" element={<Inbox />} />
-          </Route>
-          <Route path="/login" element={<LoginSignupPage />} /> */}
-      {/* <Route path="*" element={<LoginSignupPage />} /> */}
-      {/* </Routes> */}
-      <GlobalStyleCss />
-    </AppStyle>
-    // {/* Style  */}
+          </Route> */}
+        {/* <Route path="*" element={<LoginSignupPage />} />
+          <Route path="/login" element={<LoginSignupPage />} /> */}{" "}
+        {/* </Routes> */}
+        <GlobalStyleCss />
+        {/* Style */}
+      </AppStyle>
+    </React.StrictMode>
+
     // </BrowserRouter>
   );
 }

@@ -11,7 +11,7 @@ import {
   PostReactButton,
   PostDescription,
   LikesCount,
-  CommnetCout,
+  CommnetCount,
   PostTimeDate,
   AddCommentOnPost,
   TextArea,
@@ -66,8 +66,10 @@ const PostComponets = () => {
         </PostActionButtons>
         <PostSummary>
           <LikesCount>44,801 likes</LikesCount>
-          <PostDescription>rvcjinsta In Hindi Belt... more</PostDescription>
-          <CommnetCout>View all 194 comments</CommnetCout>
+          <PostDescription>
+            <span>rvcjinsta</span> In Hindi Belt... more
+          </PostDescription>
+          <CommnetCount>View all 194 comments</CommnetCount>
           <PostTimeDate>11 MINUTES AGO</PostTimeDate>
         </PostSummary>
       </PostDetails>
@@ -76,7 +78,7 @@ const PostComponets = () => {
           <SmilyEmojiSvg />
         </div>
         <div className="commentText">
-          <TextArea cols="30" rows="10" placeholder="Add a comment…"></TextArea>
+          <TextArea placeholder="Add a comment…"></TextArea>
           <div className="post">Post</div>
         </div>
       </AddCommentOnPost>
