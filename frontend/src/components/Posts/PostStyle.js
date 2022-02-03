@@ -16,6 +16,7 @@ const DisplayFlexJcAC = css`
 export const PostComponent = styled.div`
   border: 1px solid gray;
   width: 100%;
+  margin: 25px 0;
 `;
 
 export const PostOwner = styled.div`
