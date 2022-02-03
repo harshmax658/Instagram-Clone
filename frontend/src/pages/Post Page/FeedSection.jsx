@@ -14,11 +14,11 @@ const FeedSection = () => {
         <UserPost>
           <AllPost>
             <PostComponets />
+            {/* <PostComponets />
             <PostComponets />
             <PostComponets />
             <PostComponets />
-            <PostComponets />
-            <PostComponets />
+            <PostComponets /> */}
           </AllPost>
           <CurrentUser>
             <UserSuggestionComponent />

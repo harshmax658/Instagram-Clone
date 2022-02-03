@@ -15,21 +15,12 @@ function App() {
   return (
     <BrowserRouter>
       <AppStyle>
-        {/* <Header />
-          <HeaderDownSpace />
-          <PostPage /> */}
         <Routes>
-          {/* Add Component inside App Block */}
-          <Route path="/*" element={<RouterHandler />}>
-            {/* <Route path="/*" element={<RouterHandler />} /> */}
-          </Route>
-          {/* <Route path="/h" exact element={<ProfilePage />} /> */}
-          {/* </Route>
-        {/* <Route path="*" element={<LoginSignupPage />} />*/}
+          <Route path="/*" element={<RouterHandler />} />
           <Route path="/login" element={<LoginSignupPage />} />
         </Routes>
-        <GlobalStyleCss />
         {/* Style */}
+        <GlobalStyleCss />
       </AppStyle>
     </BrowserRouter>
   );

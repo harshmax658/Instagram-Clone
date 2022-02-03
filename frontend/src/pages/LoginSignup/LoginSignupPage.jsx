@@ -1,34 +1,19 @@
 import React, { useEffect, useState } from "react";
 import ImageComponent from "../../components/IMG/ImageComponent";
 
-import FormInputComponent from "../../components/Form Input/FormInputComponent";
-import CustomButtonComponent from "../../components/custom button/CustomButtonComponent";
 import {
   LoginSignupContainer,
   InstaPhoneImage,
   Section,
   RenderdImages,
   GlobalCssForLoginSignup,
-  FacebookLogin,
-  Form,
-  FormContainer,
-  LoginButton,
-  Signup,
-  GetTheApp,
-  StoreLink,
 } from "./LoginSignupPage_style";
 
-// Material UI
-import FacebookIcon from "@mui/icons-material/Facebook";
+import LoginComponent from "../../components/login component/LoginComponent";
 
-// custom Hooks
-import useLoginSignup from "../../Custom Hooks/useLoginSignup";
 const LoginSignupPage = () => {
   const [imageNumber, setImageNumber] = useState(1);
   const [images, setImages] = useState([]);
-
-  const [loginData, setLoginData] = useLoginSignup("login");
-  const { username, password } = loginData;
 
   useEffect(() => {
     setImages([
@@ -75,64 +60,8 @@ const LoginSignupPage = () => {
               ))}
             </RenderdImages>
           </InstaPhoneImage>
-          <FormContainer>
-            <Form>
-              <div className="instaLogo">
-                <ImageComponent
-                  image={`/images/instagram.jpg`}
-                  style={{ width: 183, height: 60 }}
-                />
-              </div>
-              <FormInputComponent
-                label="Phone number, username, or email"
-                name="username"
-                type="text"
-                value={username}
-                onChange={setLoginData}
-              />
-              <FormInputComponent
-                label="Password"
-                name="password"
-                type="password"
-                value={password}
-                onChange={setLoginData}
-              />
-              <LoginButton>
-                <CustomButtonComponent
-                  disabled={"disabled"}
-                  // onClick={() => console.log("da")}
-                >
-                  Log in
-                </CustomButtonComponent>
-              </LoginButton>
-
-              <div className="or">
-                <div className="first"></div>
-                <div className="sec">OR</div>
-                <div className="third"></div>
-              </div>
-              <FacebookLogin>
-                <span className="fbIcon">
-                  <FacebookIcon />
-                </span>
-                <span className="fbLogin">Log in with Facebook</span>
-              </FacebookLogin>
-
-              <a href="#">Forgot password?</a>
-            </Form>
-
-            <Signup>
-              Don't have an account? <span>Sign up</span>
-            </Signup>
-
-            <GetTheApp>
-              <span>Get the app.</span>
-              <StoreLink>
-                <ImageComponent image={"/images/appStore.jpg"} />
-                <ImageComponent image={"/images/playStore.jpg"} />
-              </StoreLink>
-            </GetTheApp>
-          </FormContainer>
+          {/* LoginComponent */}
+          <LoginComponent />
         </Section>
       </LoginSignupContainer>
     </>

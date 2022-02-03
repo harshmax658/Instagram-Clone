@@ -15,7 +15,7 @@ const RouterHandler = () => {
       <Header />
       <MainPage>
         <Routes>
-          <Route path="*" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="inbox" element={<Inbox />} />
         </Routes>
@@ -25,3 +25,4 @@ const RouterHandler = () => {
 };
 
 export default RouterHandler;
+// harsh

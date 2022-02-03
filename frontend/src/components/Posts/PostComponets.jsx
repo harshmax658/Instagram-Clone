@@ -22,8 +22,6 @@ import {
 
 import ImageComponent from "../../components/IMG/ImageComponent";
 
-import FormInputComponent from "../../components/Form Input/FormInputComponent";
-
 import SavedSvg from "../../svg/SavedSvg";
 import LoveSvg from "../../svg/LoveSvg";
 import CommentsSvg from "../../svg/CommentsSvg";
@@ -88,3 +86,4 @@ const PostComponets = () => {
 };
 
 export default PostComponets;
+// harsh
