@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import ContainerComponent from "../../components/container/ContainerComponent";
 
 const border = css`
   border: 1px solid lightgray;
@@ -15,7 +16,6 @@ export const FormContainer = styled.div`
 `;
 
 export const Form = styled.div`
-  ${border}
   height: 67%;
   display: flex;
   flex-direction: column;
@@ -63,11 +63,13 @@ export const FacebookLogin = styled.div`
 `;
 
 export const Signup = styled.div`
-  ${border}
-  height: 66px;
-  margin: 10px 0;
+  div {
+    height: 66px;
+    margin: 10px 0;
+    width: 100%;
+    ${displayFlexJCAIC}
+  }
 
-  ${displayFlexJCAIC}
   span {
     color: #0095f6;
     cursor: pointer;
