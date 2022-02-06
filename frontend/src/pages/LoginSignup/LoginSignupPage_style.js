@@ -43,24 +43,7 @@ export const GlobalCssForLoginSignup = createGlobalStyle`
   display: block;
  
 }
-.or{
-  ${displayFlexJCAIC}
-  width: 100%;
-  color: gray;
 
-  .first,.third{
-border-bottom: 1px solid lightgray;
-width: 100%;
-height: 1px;
-  }
-
-  .first{
-    margin-right: 22px;
-  }
-  .third{
-    margin-left: 22px;
-  }
-}
 .fade-appear{
   opacity: 0;    
 }

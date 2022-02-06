@@ -1,13 +1,30 @@
-import styled, { css } from "styled-components";
-import ContainerComponent from "../../components/container/ContainerComponent";
+import styled, { css, createGlobalStyle } from "styled-components";
 
-const border = css`
-  border: 1px solid lightgray;
-`;
 const displayFlexJCAIC = css`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const GlobalCssForLogin = createGlobalStyle`
+  .or{
+   ${displayFlexJCAIC} 
+  width: 100%;
+  color: gray;
+
+  .first,.third{
+border-bottom: 1px solid lightgray;
+width: 100%;
+height: 1px;
+  }
+
+  .first{
+    margin-right: 22px;
+  }
+  .third{
+    margin-left: 22px;
+  }
+}
 `;
 
 export const FormContainer = styled.div`

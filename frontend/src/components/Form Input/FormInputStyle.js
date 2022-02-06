@@ -7,6 +7,7 @@ const shrink = css`
 
 export const FormInputGroup = styled.div`
   position: relative;
+  width: 100%;
 `;
 
 export const FormInput = styled.input`

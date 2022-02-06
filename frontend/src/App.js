@@ -11,12 +11,14 @@ import HomePage from "./pages/Home Page/HomePage";
 import CustomButtonComponent from "./components/custom button/CustomButtonComponent";
 
 import PostPage from "./pages/Post Page/FeedSection";
+import SignUpComponent from "./components/signup component/SignUpComponent";
 function App() {
   return (
     <BrowserRouter>
       <AppStyle>
         <Routes>
           <Route path="/*" element={<RouterHandler />} />
+          <Route path="/emailsignup" element={<SignUpComponent />} />
           <Route path="/login" element={<LoginSignupPage />} />
         </Routes>
         {/* Style */}

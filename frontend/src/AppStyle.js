@@ -12,7 +12,8 @@ export const GlobalStyleCss = createGlobalStyle`
 body {
   width: 100%;
   height: 100vh;
-
 }
-
+#root{
+  height: 100%;
+}
 `;
