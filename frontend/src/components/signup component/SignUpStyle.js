@@ -6,6 +6,92 @@ const displayFlexJCAIC = css`
   align-items: center;
 `;
 
+const margin = (x, y, a = 0, b = 0) => {
+  if (a > 0) {
+    if (b > 0) {
+      return `margin:${x} ${y} ,${a},${b};`;
+    } else {
+      return `margin:${x} ${y} ,${a};`;
+    }
+  } else if (y) {
+    return `margin:${x} ${y}; `;
+  } else {
+    return `margin:${x}; `;
+  }
+};
+export const Box = styled.div`
+  width: 355px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 35px;
+`;
+
+export const H2 = styled.h2`
+  position: relative;
+  font-size: 17px;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #8e8e8e;
+`;
+export const Signup = styled.div`
+  width: 100%;
+`;
+export const P = styled.p`
+  font-size: 14px;
+  text-align: center;
+`;
+export const Login = styled.div`
+  width: 100%;
+  div {
+    height: 66px;
+    margin: 10px 0;
+    width: 100%;
+    ${displayFlexJCAIC}
+  }
+
+  span {
+    color: #0095f6;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+`;
+export const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+export const Form = styled.form`
+  padding: 10px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  ${margin("22px", "0")}
+
+  input {
+    width: 100%;
+    margin: 4px 0;
+    border-radius: 3px;
+  }
+  button {
+    ${displayFlexJCAIC}
+    background-color:#0095f6;
+    margin: 20px 0;
+    .fbLogin {
+      font-size: 0.8rem;
+      margin: 0 6px;
+    }
+  }
+`;
+export const OrPartation = styled.div`
+  display: flex;
+  color: #a7a7a7;
+`;
 export const GlobalCssForSignup = createGlobalStyle`
   .or{
   ${displayFlexJCAIC}
@@ -13,7 +99,7 @@ export const GlobalCssForSignup = createGlobalStyle`
   color: gray;
 
   .first,.third{
-border-bottom: 1px solid lightgray;
+border-bottom: 1.4px solid lightgray;
 width: 100%;
 height: 1px;
   }
@@ -26,49 +112,18 @@ height: 1px;
   }
 }
 `;
-export const Signup = styled.div`
-  width: 350px;
+export const GetTheApp = styled.div`
+  text-align: center;
+  ${margin("10px", "0")}
 `;
-
-export const Center = styled.div`
+export const StoreLink = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  /* height: 100vh; */
-`;
-export const Form = styled.form`
-  padding: 0 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  position: relative;
+  justify-content: space-evenly;
+  padding: 20px;
 
-  input {
-    width: 100%;
-    margin: 4px 0;
-    border-radius: 3px;
-  }
-`;
-export const OrPartation = styled.div`
-  content: "OR";
-  color: #a7a7a7;
-  &::before {
-    content: "";
-    background-color: #a7a7a7;
-    height: 1px;
-    width: 30%;
-    position: absolute;
-    top: 8px;
-    left: 41px;
-  }
-  &::after {
-    content: "";
-    background-color: #a7a7a7;
-    height: 1px;
-    width: 30%;
-    position: absolute;
-    top: 8px;
-    right: 41px;
+  img {
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
   }
 `;
