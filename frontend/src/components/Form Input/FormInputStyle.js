@@ -12,8 +12,8 @@ export const FormInputGroup = styled.div`
 
 export const FormInput = styled.input`
   width: 100%;
-  padding: 13px;
-  padding-bottom: 8px;
+  padding: 13px 13px 0 13px;
+  /* padding-bottom: 10px; */
   background: none;
   outline: none;
   border: 1px solid lightgray;
