@@ -20,10 +20,19 @@ import CustomButtonComponent from "../custom button/CustomButtonComponent";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import ImageComponent from "../IMG/ImageComponent";
 
-const SignUpComponent = () => {
+import useLoginSignup from "../../Custom Hooks/useLoginSignup";
+
+const SignUpComponent = ({ login }) => {
+  const [signUpData, setSignUpData] = useLoginSignup({
+    email: "",
+    fullName: "",
+    userName: "",
+    password: "",
+  });
+  const { email, fullName, userName, password } = signUpData;
   return (
-    <Center className="center">
-      <Box className="box">
+    <>
+      <Box>
         <ContainerComponent>
           <Signup>
             <Form>
@@ -45,10 +54,32 @@ const SignUpComponent = () => {
                 <div className="sec">OR</div>
                 <div className="third"></div>
               </div>
-              <FormInputComponent label="Mobile Number or Email" />
-              <FormInputComponent label="Full Name" />
-              <FormInputComponent label="Username" />
-              <FormInputComponent label="Password" />
+              <FormInputComponent
+                label="Mobile Number or Email"
+                name="email"
+                value={email}
+                onChange={setSignUpData}
+              />
+              <FormInputComponent
+                label="Full Name"
+                name="fullName"
+                onChange={setSignUpData}
+                value={fullName}
+              />
+              <FormInputComponent
+                label="Username"
+                name="userName"
+                onChange={setSignUpData}
+                value={userName}
+              />
+              <FormInputComponent
+                label="Password"
+                name="password"
+                type="password"
+                autoComplete="off"
+                onChange={setSignUpData}
+                value={password}
+              />
               <CustomButtonComponent>
                 <span className="fbLogin">Sign up</span>
               </CustomButtonComponent>
@@ -63,7 +94,7 @@ const SignUpComponent = () => {
         <Login>
           <ContainerComponent>
             <div>
-              Have an account? <span>Log in </span>
+              Have an account? <span onClick={() => login(true)}> Log in </span>
             </div>
           </ContainerComponent>
         </Login>
@@ -76,7 +107,7 @@ const SignUpComponent = () => {
         </GetTheApp>
       </Box>
       <GlobalCssForSignup />
-    </Center>
+    </>
   );
 };
 

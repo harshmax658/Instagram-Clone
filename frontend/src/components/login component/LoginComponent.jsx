@@ -22,8 +22,14 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 // custom Hooks
 import useLoginSignup from "../../Custom Hooks/useLoginSignup";
 
-const LoginComponent = () => {
-  const [loginData, setLoginData] = useLoginSignup("login");
+import { useNavigate } from "react-router-dom";
+
+const LoginComponent = ({ login }) => {
+  const navigate = useNavigate();
+  const [loginData, setLoginData] = useLoginSignup({
+    username: "",
+    password: "",
+  });
   const { username, password } = loginData;
 
   return (
@@ -47,6 +53,7 @@ const LoginComponent = () => {
             label="Password"
             name="password"
             type="password"
+            autoComplete="off"
             value={password}
             onChange={setLoginData}
           />
@@ -77,7 +84,12 @@ const LoginComponent = () => {
       <Signup>
         <ContainerComponent>
           <div>
-            Don't have an account? <span>Sign up</span>
+            Don't have an account?{" "}
+            <span
+              onClick={() => (login ? login(false) : navigate("/emailsignup"))}
+            >
+              Sign up
+            </span>
           </div>
         </ContainerComponent>
       </Signup>

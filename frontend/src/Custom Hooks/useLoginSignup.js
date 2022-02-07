@@ -1,24 +1,15 @@
 import { useState } from "react";
 
 const useLoginSignup = (value) => {
-  const [loginData, setLoginData] = useState({
-    username: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState(value);
 
   const formDataHandler = (e) => {
-    if (value === "login") {
-      setLoginData((prev) => {
-        return { ...prev, [e.target.name]: e.target.value };
-      });
-    } else {
-    }
+    setFormData((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
   };
 
-  if (value === "login") {
-    return [loginData, formDataHandler];
-  } else {
-  }
+  return [formData, formDataHandler];
 };
 
 export default useLoginSignup;

@@ -28,11 +28,12 @@ height: 1px;
 `;
 
 export const FormContainer = styled.div`
-  width: 34%;
+  /* width: 34%; */
+  width: 355px;
   height: 537px;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
   height: 67%;
   display: flex;
   flex-direction: column;

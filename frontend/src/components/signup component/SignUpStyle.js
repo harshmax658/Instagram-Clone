@@ -23,8 +23,6 @@ export const Box = styled.div`
   width: 355px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: 35px;
 `;
 
 export const H2 = styled.h2`
@@ -58,12 +56,7 @@ export const Login = styled.div`
     margin: 0 5px;
   }
 `;
-export const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
+
 export const Form = styled.form`
   padding: 10px 40px;
   display: flex;
@@ -75,7 +68,7 @@ export const Form = styled.form`
 
   input {
     width: 100%;
-    margin: 4px 0;
+    ${margin("4px", "0")}
     border-radius: 3px;
   }
   button {
