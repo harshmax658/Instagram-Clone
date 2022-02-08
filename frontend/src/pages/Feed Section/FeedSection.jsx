@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   UserPost,
   FeedSectionDiv,
@@ -8,17 +8,15 @@ import {
 import PostComponets from "../../components/Posts/PostComponets";
 import UserSuggestionComponent from "../../components/User Suggection/UserSuggestionComponent";
 const FeedSection = () => {
+  const a = [1, 2, 3, 4, 5, 6];
   return (
     <>
       <FeedSectionDiv>
         <UserPost>
           <AllPost>
-            <PostComponets />
-            {/* <PostComponets />
-            <PostComponets />
-            <PostComponets />
-            <PostComponets />
-            <PostComponets /> */}
+            {a.map((props) => (
+              <PostComponets key={props} id={props} />
+            ))}
           </AllPost>
           <CurrentUser>
             <UserSuggestionComponent />

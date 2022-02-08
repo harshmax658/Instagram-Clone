@@ -1,6 +1,6 @@
 import React from "react";
 
-import FeedSection from "../Post Page/FeedSection";
+import FeedSection from "../Feed Section/FeedSection";
 
 const HomePage = () => {
   return (

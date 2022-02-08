@@ -20,6 +20,8 @@ import {
   PostSummary,
 } from "./PostStyle";
 
+import { useNavigate } from "react-router-dom";
+
 import ImageComponent from "../../components/IMG/ImageComponent";
 
 import SavedSvg from "../../svg/SavedSvg";
@@ -28,7 +30,8 @@ import CommentsSvg from "../../svg/CommentsSvg";
 import SendSvg from "../../svg/SendSvg";
 import SmilyEmojiSvg from "../../svg/SmilyEmojiSvg";
 
-const PostComponets = () => {
+const PostComponets = ({ id }) => {
+  const navigate = useNavigate();
   return (
     <PostComponent>
       <PostOwner>
@@ -51,7 +54,10 @@ const PostComponets = () => {
             <div className="btn cursorPointer">
               <LoveSvg />
             </div>
-            <div className="btn cursorPointer">
+            <div
+              className="btn cursorPointer"
+              onClick={() => navigate(`/p/${id}`)}
+            >
               <CommentsSvg />
             </div>
             <div className="btn cursorPointer">
