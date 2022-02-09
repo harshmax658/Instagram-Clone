@@ -1,8 +1,6 @@
 import React from "react";
 import LoginSignupPage from "./pages/LoginSignup/LoginSignupPage";
-import Header from "./components/header/Header";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { HeaderDownSpace } from "./components/header/HeaderStyle";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppStyle, GlobalStyleCss } from "./AppStyle";
 import RouterHandler from "./pages/InstaHome/RouterHandler";
 import ProfilePage from "./pages/Profile page/ProfilePage";

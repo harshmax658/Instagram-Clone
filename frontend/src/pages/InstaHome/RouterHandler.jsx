@@ -5,10 +5,11 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "../Home Page/HomePage";
 import ProfilePage from "../Profile page/ProfilePage";
 import Inbox from "../Inbox/Inbox";
-// import { Outlet } from "react-router-dom";
 
+import NotFoundPage from "../Notfound Page/NotFoundPage";
+
+import PostPage from "../Post Page/PostPage";
 const RouterHandler = () => {
-  console.log("router Handler");
   return (
     <>
       <Header />
@@ -17,6 +18,9 @@ const RouterHandler = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="inbox" element={<Inbox />} />
+          <Route path="p" element={<PostPage />}>
+            <Route path="a" element={<NotFoundPage />} />
+          </Route>
         </Routes>
       </MainPage>
     </>
