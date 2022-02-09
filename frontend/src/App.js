@@ -9,10 +9,10 @@ import ProfilePage from "./pages/Profile page/ProfilePage";
 import Inbox from "./pages/Inbox/Inbox";
 import HomePage from "./pages/Home Page/HomePage";
 import CustomButtonComponent from "./components/custom button/CustomButtonComponent";
-
 import PostPage from "./pages/Post Page/FeedSection";
 import SignUpComponent from "./components/signup component/SignUpComponent";
 import EmailSignupPage from "./pages/Email Signup Page/EmailSignupPage";
+
 function App() {
   return (
     <BrowserRouter>

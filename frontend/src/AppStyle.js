@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-
 export const AppStyle = styled.div``;
 export const GlobalStyleCss = createGlobalStyle`
 * {
