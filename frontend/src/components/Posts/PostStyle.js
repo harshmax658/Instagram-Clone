@@ -1,12 +1,15 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { css } from "styled-components";
 
+let callByPostPage = false;
+console.log(callByPostPage);
+
 export const GlobaLCss = createGlobalStyle`
+${({ callByPost }) => (callByPostPage = callByPost)}
 .cursorPointer{
   cursor: pointer;
 }
 `;
-
 const DisplayFlexJcAC = css`
   display: flex;
   align-items: center;
@@ -14,11 +17,16 @@ const DisplayFlexJcAC = css`
 `;
 
 export const PostComponent = styled.div`
-  border: 1px solid gray;
+  ${!callByPostPage && "border: 1px solid gray"};
+  height: 100%;
   width: 100%;
   margin: 25px 0;
+  ${({ callByPostPage }) => callByPostPage && `display:flex ;margin: 0;`};
 `;
-
+export const CallByPostPage = styled.div`
+  ${({ callByPostPage }) => callByPostPage && `width:50%`};
+  ${({ callByPostPage }) => console.log(callByPostPage)};
+`;
 export const PostOwner = styled.div`
   display: flex;
   justify-content: space-between;
@@ -45,8 +53,9 @@ export const PostImage = styled.div`
   background: url("https://images.unsplash.com/photo-1643273038626-59942bbad9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
     center center/cover;
   background-size: cover;
-  width: 100%;
-  height: 500px;
+  width: ${({ callByPostPage }) => (callByPostPage ? "50%" : "100%")};
+
+  height: ${({ callByPostPage }) => (callByPostPage ? "auto" : "500px")};
 `;
 
 export const PostActionButtons = styled.div`

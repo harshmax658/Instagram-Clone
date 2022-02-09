@@ -1,19 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Section } from "./PostPageStyle";
+import PostComponents from "../../components/Posts/PostComponets";
+import { Section, Post } from "./PostPageStyle";
 
 const PostPage = ({ call }) => {
-  console.log(call);
   const param = useParams();
-  console.log(param.postId);
 
   return (
-    <Section>
-      section Load
-      <br />
-      {call ? "true" : "false"}
+    <Section call={call}>
+      <Post>
+        <PostComponents callByPostPage={true} />
+      </Post>
     </Section>
   );
 };
 
 export default PostPage;
+// Harsh
