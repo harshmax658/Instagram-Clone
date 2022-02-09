@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import {
   PostComponent,
@@ -30,7 +30,13 @@ import CommentsSvg from "../../svg/CommentsSvg";
 import SendSvg from "../../svg/SendSvg";
 import SmilyEmojiSvg from "../../svg/SmilyEmojiSvg";
 
+import { PostCalling } from "../../pages/InstaHome/RouterHandler";
+
 const PostComponets = ({ id }) => {
+  const pp = useContext(PostCalling);
+
+  const { directCallPostPage, setDirectCallPostPage } = pp;
+
   const navigate = useNavigate();
   return (
     <PostComponent>
@@ -56,7 +62,10 @@ const PostComponets = ({ id }) => {
             </div>
             <div
               className="btn cursorPointer"
-              onClick={() => navigate(`/p/${id}`)}
+              onClick={() => {
+                setDirectCallPostPage(!directCallPostPage);
+                navigate(`/p/${id}`);
+              }}
             >
               <CommentsSvg />
             </div>
