@@ -23,7 +23,6 @@ export const PostComponent = styled.div`
 `;
 export const CallByPostPage = styled.div`
   ${({ callByPostPage }) => callByPostPage && `width:50%`};
-  ${({ callByPostPage }) => console.log(callByPostPage)};
 `;
 export const PostOwner = styled.div`
   display: flex;

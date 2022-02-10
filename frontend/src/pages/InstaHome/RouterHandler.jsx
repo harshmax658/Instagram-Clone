@@ -31,11 +31,27 @@ const RouterHandler = () => {
 
           <Route path="profile" element={<ProfilePage />} />
           <Route path="inbox" element={<Inbox />} />
-          <Route
-            path="p/:postId"
-            element={<PostPage call={directCallPostPage} />}
-          />
-          <Route path="*" element={<NotFoundPage />} />
+          {!directCallPostPage && (
+            <Route
+              path="p/:postId"
+              element={
+                !directCallPostPage && <PostPage call={directCallPostPage} />
+              }
+            />
+          )}
+          {/* <Route path="*" element={<NotFoundPage />} /> */}
+          {directCallPostPage && (
+            <Route
+              path="*"
+              element={
+                <PostCalling.Provider
+                  value={{ directCallPostPage, setDirectCallPostPage }}
+                >
+                  <HomePage />
+                </PostCalling.Provider>
+              }
+            />
+          )}
         </Routes>
       </MainPage>
     </>
