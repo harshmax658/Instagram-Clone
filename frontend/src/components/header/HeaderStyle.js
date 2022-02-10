@@ -13,7 +13,7 @@ export const Container = styled.div`
   position: fixed;
   width: 100%;
   background: white;
-  z-index: -2;
+  z-index: 3;
   display: flex;
   padding: 1%;
   box-shadow: 1px 1px 1px 1px #e3dede;

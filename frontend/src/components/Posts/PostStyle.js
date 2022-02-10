@@ -1,11 +1,8 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { css } from "styled-components";
 
-let callByPostPage = false;
-console.log(callByPostPage);
-
 export const GlobaLCss = createGlobalStyle`
-${({ callByPost }) => (callByPostPage = callByPost)}
+${({ callByPost }) => (callByPost = callByPost)}
 .cursorPointer{
   cursor: pointer;
 }
@@ -17,8 +14,9 @@ const DisplayFlexJcAC = css`
 `;
 
 export const PostComponent = styled.div`
-  ${!callByPostPage && "border: 1px solid gray"};
-  height: 100%;
+  ${({ callByPostPage }) => !callByPostPage && "border: 1px solid gray"};
+  ${({ callByPostPage }) => callByPostPage && "height: 100%;"};
+
   width: 100%;
   margin: 25px 0;
   ${({ callByPostPage }) => callByPostPage && `display:flex ;margin: 0;`};

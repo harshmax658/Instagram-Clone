@@ -17,4 +17,9 @@ body {
 #root{
   height: 100%;
 }
+
+#overlay{
+  display: flex;
+  justify-content:center;
+}
 `;
