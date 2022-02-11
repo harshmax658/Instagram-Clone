@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 import { MainPage } from "./RouterHandlerStyle";
 import Header from "../../components/header/Header";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "../Home Page/HomePage";
 import ProfilePage from "../Profile page/ProfilePage";
 import Inbox from "../Inbox/Inbox";
@@ -11,41 +11,64 @@ import NotFoundPage from "../Notfound Page/NotFoundPage";
 import PostPage from "../Post Page/PostPage";
 const PostCalling = createContext();
 const RouterHandler = () => {
-  const [directCallPostPage, setDirectCallPostPage] = useState(false);
+  const navigate = useNavigate();
+  const [directCallPostPage, setDirectCallPostPage] = useState({
+    useBtn: false,
+    direct: false,
+  });
+
+  const closeBackDropOfPost = (event) => {
+    console.log(event);
+    setDirectCallPostPage((prev) => {
+      return { ...prev, direct: !prev.direct, useBtn: true };
+    });
+
+    navigate(-1);
+  };
 
   return (
     <>
-      <Header />
+      <Header call={directCallPostPage} />
       <MainPage>
         <Routes>
           <Route
             path="/"
             element={
               <PostCalling.Provider
-                value={{ directCallPostPage, setDirectCallPostPage }}
+                value={{
+                  directCallPostPage,
+                  setDirectCallPostPage,
+                }}
               >
                 <HomePage />
               </PostCalling.Provider>
             }
           />
-
           <Route path="profile" element={<ProfilePage />} />
           <Route path="inbox" element={<Inbox />} />
-          {!directCallPostPage && (
+          {!directCallPostPage.direct && !directCallPostPage.useBtn && (
             <Route
               path="p/:postId"
               element={
-                !directCallPostPage && <PostPage call={directCallPostPage} />
+                !directCallPostPage.direct && (
+                  <PostPage call={directCallPostPage.direct} />
+                )
               }
             />
           )}
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
-          {directCallPostPage && (
+          {!directCallPostPage.direct && !directCallPostPage.useBtn && (
+            <Route path="*" element={<NotFoundPage />} />
+          )}
+          {directCallPostPage.direct && (
             <Route
               path="*"
               element={
                 <PostCalling.Provider
-                  value={{ directCallPostPage, setDirectCallPostPage }}
+                  value={{
+                    directCallPostPage,
+                    setDirectCallPostPage,
+                    closeBackDropOfPost,
+                  }}
                 >
                   <HomePage />
                 </PostCalling.Provider>

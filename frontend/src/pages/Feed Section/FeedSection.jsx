@@ -12,10 +12,12 @@ import { PostCalling } from "../InstaHome/RouterHandler";
 import PostPage from "../Post Page/PostPage";
 const FeedSection = () => {
   const postCalling = useContext(PostCalling);
+
   const a = [1, 2, 3, 4, 5, 6];
+
   return (
     <>
-      <FeedSectionDiv>
+      <FeedSectionDiv call={postCalling.directCallPostPage.direct}>
         <UserPost>
           <AllPost>
             {a.map((props) => (
@@ -27,8 +29,11 @@ const FeedSection = () => {
           </CurrentUser>
         </UserPost>
       </FeedSectionDiv>
-      {postCalling.directCallPostPage && (
-        <PostPage call={postCalling.directCallPostPage} />
+      {postCalling.directCallPostPage.direct && (
+        <PostPage
+          call={postCalling.directCallPostPage.direct}
+          closeBtn={postCalling.closeBackDropOfPost}
+        />
       )}
     </>
   );

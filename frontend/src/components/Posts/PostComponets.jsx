@@ -67,9 +67,12 @@ const PostComponets = ({ id, callByPostPage }) => {
                   className="btn cursorPointer"
                   onClick={() => {
                     postCalling &&
-                      postCalling.setDirectCallPostPage(
-                        !postCalling.directCallPostPage
-                      );
+                      postCalling.setDirectCallPostPage((prev) => {
+                        return {
+                          ...prev,
+                          direct: !postCalling.directCallPostPage.direct,
+                        };
+                      });
                     navigate(`/p/${id}`);
                   }}
                 >

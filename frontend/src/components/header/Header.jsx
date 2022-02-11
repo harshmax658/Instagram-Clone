@@ -16,10 +16,10 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 
-const Header = () => {
+const Header = ({ call }) => {
   return (
     <>
-      <Container>
+      <Container call={call}>
         <Left>
           <Image src="https://hemsingh780.github.io/hosted-assest/instagram.png" />
         </Left>

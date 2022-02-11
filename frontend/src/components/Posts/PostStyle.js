@@ -2,7 +2,6 @@ import styled, { createGlobalStyle } from "styled-components";
 import { css } from "styled-components";
 
 export const GlobaLCss = createGlobalStyle`
-${({ callByPost }) => (callByPost = callByPost)}
 .cursorPointer{
   cursor: pointer;
 }
@@ -53,6 +52,7 @@ export const PostImage = styled.div`
   width: ${({ callByPostPage }) => (callByPostPage ? "50%" : "100%")};
 
   height: ${({ callByPostPage }) => (callByPostPage ? "auto" : "500px")};
+  ${({ callByPostPage }) => callByPostPage && "border-radius:5px 0"};
 `;
 
 export const PostActionButtons = styled.div`

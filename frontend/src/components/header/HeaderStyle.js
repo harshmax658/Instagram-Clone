@@ -13,7 +13,7 @@ export const Container = styled.div`
   position: fixed;
   width: 100%;
   background: white;
-  z-index: 3;
+  z-index: ${({ call }) => (call ? "3" : "30")};
   display: flex;
   padding: 1%;
   box-shadow: 1px 1px 1px 1px #e3dede;

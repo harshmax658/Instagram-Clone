@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const FeedSectionDiv = styled.div`
+  ${({ call }) => call && "position:fixed;"}
   width: 100%;
   display: flex;
   justify-content: center;
