@@ -3,7 +3,12 @@ import { Container } from './MessageStyle';
 const Message = () => {
   return (
        <Container>
-           
+            <div>
+
+            </div>
+            <div>
+              
+            </div>
        </Container>
     );
 };
