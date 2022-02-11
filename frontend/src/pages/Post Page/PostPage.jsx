@@ -8,8 +8,8 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const Backdrop = ({ call, closeBtn }) => {
   return (
-    <Section call={call}>
-      <CloseBtn onClick={closeBtn}>
+    <Section call={call} onClick={closeBtn}>
+      <CloseBtn>
         <CloseIcon />
       </CloseBtn>
     </Section>

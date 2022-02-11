@@ -18,11 +18,9 @@ const RouterHandler = () => {
   });
 
   const closeBackDropOfPost = (event) => {
-    console.log(event);
     setDirectCallPostPage((prev) => {
-      return { ...prev, direct: !prev.direct, useBtn: true };
+      return { ...prev, direct: false, useBtn: true };
     });
-
     navigate(-1);
   };
 

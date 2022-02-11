@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const CloseBtn = styled.div`
+export const CloseBtn = styled.button`
+  background: none;
+  outline: none;
+  border: none;
   color: #ffffff;
   position: absolute;
   top: 20px;
