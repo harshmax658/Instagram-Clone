@@ -1,15 +1,14 @@
 import React from "react";
 import { Image } from "./imageStyle";
 
-const ImageComponent = ({ image, alt, width, height, className, style }) => {
+const ImageComponent = ({ image, alt, className, style, ...otherProps }) => {
   return (
     <Image
       style={style}
       className={className ? className : ""}
       src={image}
-      alt={alt ? { alt } : "image"}
-      width={width}
-      height={height}
+      alt={alt ? alt : "image"}
+      {...otherProps}
     />
   );
 };

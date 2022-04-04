@@ -1,9 +1,29 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import {
+  UserProfilePage,
+  UserProfile,
+  UserData,
+  UserInformation,
+  EditProfileButton,
+} from "./ProfilePageStyle";
+import LogedUserImage from "../../components/LogedUserImage/LogedUserImage";
+import SettingProfileSvg from "../../svg/SettingProfileSvg";
 
 const ProfilePage = () => {
-  console.log("Profile");
-  return <div>Profile Page</div>;
+  return (
+    <UserProfilePage>
+      <UserProfile>
+        <UserData>
+          <LogedUserImage height="140px" width="140px" />
+          <UserInformation>
+            harshk1611
+            <EditProfileButton>Edit Profile</EditProfileButton>
+            <SettingProfileSvg />
+          </UserInformation>
+        </UserData>
+      </UserProfile>
+    </UserProfilePage>
+  );
 };
 
 export default ProfilePage;
