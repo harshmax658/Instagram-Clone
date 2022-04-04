@@ -2,7 +2,6 @@ import React from "react";
 import ImageComponent from "../IMG/ImageComponent";
 
 const LogedUserImage = ({ style, ...props }) => {
-  console.log(props);
   return (
     <ImageComponent
       style={{ borderRadius: "50%", ...style }}
@@ -13,3 +12,4 @@ const LogedUserImage = ({ style, ...props }) => {
 };
 
 export default LogedUserImage;
+//Harsh

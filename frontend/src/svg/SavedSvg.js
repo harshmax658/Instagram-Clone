@@ -5,7 +5,6 @@ const SavedSvg = () => {
     <svg
       aria-label="Save"
       className="_8-yf5 "
-      color="#262626"
       fill="#262626"
       height="24"
       role="img"

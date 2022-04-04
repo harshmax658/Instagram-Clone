@@ -9,6 +9,7 @@ import Inbox from "../Inbox/Inbox";
 import NotFoundPage from "../Notfound Page/NotFoundPage";
 
 import PostPage from "../Post Page/PostPage";
+import UserPost from "../../components/UserPosts/UserPost";
 const PostCalling = createContext();
 const RouterHandler = () => {
   const navigate = useNavigate();
@@ -42,7 +43,11 @@ const RouterHandler = () => {
               </PostCalling.Provider>
             }
           />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route path="profile" element={<ProfilePage />}>
+            {/* <Route path="/" element={<UserPost />} /> */}
+            <Route path="tagged" element={<UserPost />} />
+            <Route path="saved" element={<UserPost />} />
+          </Route>
           <Route path="inbox" element={<Inbox />} />
           {!directCallPostPage.direct && !directCallPostPage.useBtn && (
             <Route
