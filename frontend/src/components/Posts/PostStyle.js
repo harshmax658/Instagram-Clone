@@ -17,7 +17,7 @@ export const PostComponent = styled.div`
   ${({ callByPostPage }) => callByPostPage && "height: 100%;"};
 
   width: 100%;
-  margin: 25px 0;
+  margin-top: ${({ userPost }) => (userPost ? "0px" : "25px")};
   ${({ callByPostPage }) => callByPostPage && `display:flex ;margin: 0;`};
 `;
 export const CallByPostPage = styled.div`
@@ -51,7 +51,8 @@ export const PostImage = styled.div`
   background-size: cover;
   width: ${({ callByPostPage }) => (callByPostPage ? "50%" : "100%")};
 
-  height: ${({ callByPostPage }) => (callByPostPage ? "auto" : "500px")};
+  height: ${({ callByPostPage, userPost }) =>
+    callByPostPage ? "auto" : userPost ? "280px" : "500px"};
   ${({ callByPostPage }) => callByPostPage && "border-radius:5px 0"};
 `;
 

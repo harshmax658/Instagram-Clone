@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 import CustomButtonComponent from "../../components/custom button/CustomButtonComponent";
 
+export const GlobalStyleCss = createGlobalStyle`
+  .acti{
+    color: yellow !important;
+  }
+`;
 const dFJCAc = `display: flex;
 justify-content: center;
 align-items: center;`;
@@ -101,7 +106,7 @@ const commanProperty = `
 font-size: .89rem;
 cursor:pointer;
  & span {
-    color: #8e8e8e;
+   
     display: flex;
     
     & svg {
@@ -113,7 +118,9 @@ export const UserPost = styled.div`
   display: flex;
   text-transform: uppercase;
   justify-content: center;
-  margin: 16px 0;
+  margin-top: 16px;
+  position: relative;
+  top: -16px;
 `;
 export const SavedPost = styled.div`
   margin-right: 50px;
@@ -132,6 +139,22 @@ export const Post = styled.div`
 `;
 export const PostLinks = styled(NavLink)`
   margin-right: 50px;
+  color: #8e8e8e;
+  text-decoration: none;
+  ${dFJCAc}
+  ${commanProperty}
+  height: 55px;
+
+  &.active {
+    color: black !important;
+    border-top: 1px solid;
+    margin-top: 0px;
+    border-spacing: 1cm 2em;
+  }
+`;
+export const PostLinksDiv = styled.div`
+  margin-right: 50px;
+  color: #8e8e8e;
   text-decoration: none;
   ${dFJCAc}
   ${commanProperty}

@@ -1,12 +1,15 @@
 import React from "react";
 import PostComponets from "../Posts/PostComponets";
 
+import { Post, AllPostGrid } from "./UserPostStyle";
+
 const UserPost = (props) => {
-  console.log(props);
   return (
-    <div>
-      <PostComponets />
-    </div>
+    <AllPostGrid>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+    </AllPostGrid>
   );
 };
 
