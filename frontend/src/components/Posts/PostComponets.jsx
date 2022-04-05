@@ -38,8 +38,19 @@ import LogedUserImage from "../LogedUserImage/LogedUserImage";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 const PostComponets = ({ id, callByPostPage, userPost }) => {
   const postCalling = useContext(PostCalling);
-  console.log(userPost, "userPost");
+
   const navigate = useNavigate();
+
+  const ProfilePostRedirect = (id = 1) => {
+    postCalling &&
+      postCalling.setDirectCallPostPage((prev) => {
+        return {
+          ...prev,
+          direct: !postCalling.directCallPostPage.direct,
+        };
+      });
+    navigate(`/p/${id}`);
+  };
   return (
     <>
       <GlobaLCss callByPost={callByPostPage} />
@@ -66,17 +77,17 @@ const PostComponets = ({ id, callByPostPage, userPost }) => {
               <PostImage userPost={userPost}>
                 <ShadowOverlay className="ShadowOverlay" />
                 <OverlayButtons className="hiddenBtn">
-                  <span>
+                  <span onClick={() => ProfilePostRedirect(2)}>
                     <FavoriteIcon /> 23
                   </span>
-                  <span>
+                  <span onClick={() => ProfilePostRedirect(2)}>
                     <CommentsSvg /> 1
                   </span>
                 </OverlayButtons>
               </PostImage>
             </>
           ) : (
-            <PostImage userPost={userPost} />
+            !callByPostPage && <PostImage userPost={userPost} />
           )}
           {!userPost && (
             <PostDetails>
@@ -89,12 +100,16 @@ const PostComponets = ({ id, callByPostPage, userPost }) => {
                     className="btn cursorPointer"
                     onClick={() => {
                       postCalling &&
-                        postCalling.setDirectCallPostPage((prev) => {
-                          return {
-                            ...prev,
-                            direct: !postCalling.directCallPostPage.direct,
-                          };
-                        });
+                        console.log(
+                          !postCalling.directCallPostPage.direct,
+                          "!postCalling.directCallPostPage.direct"
+                        );
+                      postCalling.setDirectCallPostPage((prev) => {
+                        return {
+                          ...prev,
+                          direct: !postCalling.directCallPostPage.direct,
+                        };
+                      });
                       navigate(`/p/${id}`);
                     }}
                   >

@@ -11,16 +11,18 @@ import NotFoundPage from "../Notfound Page/NotFoundPage";
 import PostPage from "../Post Page/PostPage";
 import UserPost from "../../components/UserPosts/UserPost";
 const PostCalling = createContext();
+const ProfilePageCalling = createContext();
 const RouterHandler = () => {
   const navigate = useNavigate();
   const [directCallPostPage, setDirectCallPostPage] = useState({
-    useBtn: false,
+    profilePage: false,
+    profilePageDirect: false,
     direct: false,
   });
 
   const closeBackDropOfPost = () => {
     setDirectCallPostPage((prev) => {
-      return { ...prev, direct: false, useBtn: true };
+      return { ...prev, direct: false, profilePage: false };
     });
     navigate(-1);
   };
@@ -43,23 +45,33 @@ const RouterHandler = () => {
               </PostCalling.Provider>
             }
           />
-          <Route path="profile" element={<ProfilePage />}>
+
+          <Route
+            path="profile"
+            element={
+              <ProfilePageCalling.Provider
+                value={{
+                  directCallPostPage,
+                  setDirectCallPostPage,
+                }}
+              >
+                <ProfilePage />
+              </ProfilePageCalling.Provider>
+            }
+          >
             <Route path="" element={<UserPost />} />
             <Route path="tagged" element={<UserPost />} />
             <Route path="saved" element={<UserPost />} />
           </Route>
           <Route path="inbox" element={<Inbox />} />
-          {!directCallPostPage.direct && !directCallPostPage.useBtn && (
+
+          {!directCallPostPage.direct && !directCallPostPage.profilePage && (
             <Route
               path="p/:postId"
-              element={
-                !directCallPostPage.direct && (
-                  <PostPage call={directCallPostPage.direct} />
-                )
-              }
+              element={<PostPage call={directCallPostPage.direct} />}
             />
           )}
-          {!directCallPostPage.direct && !directCallPostPage.useBtn && (
+          {!directCallPostPage.direct && !directCallPostPage.profilePage && (
             <Route path="*" element={<NotFoundPage />} />
           )}
           {directCallPostPage.direct && (
@@ -78,6 +90,22 @@ const RouterHandler = () => {
               }
             />
           )}
+          {directCallPostPage.postPage && (
+            <Route
+              path="*"
+              element={
+                <ProfilePageCalling.Provider
+                  value={{
+                    directCallPostPage,
+                    setDirectCallPostPage,
+                    closeBackDropOfPost,
+                  }}
+                >
+                  <PostPage />
+                </ProfilePageCalling.Provider>
+              }
+            />
+          )}
         </Routes>
       </MainPage>
     </>
@@ -85,5 +113,5 @@ const RouterHandler = () => {
 };
 
 export default RouterHandler;
-export { PostCalling };
+export { PostCalling, ProfilePageCalling };
 // harsh

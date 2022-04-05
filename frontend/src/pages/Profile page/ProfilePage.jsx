@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import {
   UserProfilePage,
   UserProfile,
@@ -29,11 +29,22 @@ import GridOnIcon from "@mui/icons-material/GridOn";
 import SavedSvg from "../../svg/SavedSvg";
 import TagSvg from "../../svg/TagSvg";
 import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
-
+import PostPage from "../Post Page/PostPage";
+import { ProfilePageCalling } from "../../pages/InstaHome/RouterHandler";
 const ProfilePage = () => {
   const nav = useNavigate();
   const location = useLocation();
+  const postCalling = useContext(ProfilePageCalling);
 
+  useEffect(() => {
+    postCalling?.setDirectCallPostPage((prev) => {
+      return {
+        ...prev,
+        profilePage: !postCalling?.directCallPostPage?.profilePage,
+      };
+    });
+    // console.log(!postCalling?.directCallPostPage?.profilePage);
+  }, []);
   return (
     <>
       <UserProfilePage>
@@ -114,6 +125,12 @@ const ProfilePage = () => {
         </UserProfile>
       </UserProfilePage>
       <GlobalStyleCss />
+      {postCalling.directCallPostPage.profilePageDirect && (
+        <PostPage
+          call={postCalling.directCallPostPage.direct}
+          closeBtn={postCalling.closeBackDropOfPost}
+        />
+      )}
     </>
   );
 };

@@ -24,8 +24,6 @@ const PostOverlay = ({ call }) => {
 };
 
 const PostPage = ({ call, closeBtn }) => {
-  // const param = useParams();
-
   return (
     <React.Fragment>
       {call &&
