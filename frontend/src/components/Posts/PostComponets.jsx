@@ -33,14 +33,22 @@ import CommentsSvg from "../../svg/CommentsSvg";
 import SendSvg from "../../svg/SendSvg";
 import SmilyEmojiSvg from "../../svg/SmilyEmojiSvg";
 
-import { PostCalling } from "../../pages/InstaHome/RouterHandler";
+import {
+  PostCalling,
+  ProfilePageCalling,
+} from "../../pages/InstaHome/RouterHandler";
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 const PostComponets = ({ id, callByPostPage, userPost }) => {
   const postCalling = useContext(PostCalling);
+  const profilePageCalling = useContext(ProfilePageCalling);
 
   const navigate = useNavigate();
 
+  console.log(
+    profilePageCalling.directCallPostPage.profilePage,
+    "PostCalling.profilePage"
+  );
   const ProfilePostRedirect = (id = 1) => {
     postCalling &&
       postCalling.setDirectCallPostPage((prev) => {
