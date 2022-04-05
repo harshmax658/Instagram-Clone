@@ -19,6 +19,8 @@ import {
   GlobaLCss,
   PostSummary,
   CallByPostPage,
+  ShadowOverlay,
+  OverlayButtons,
 } from "./PostStyle";
 
 import { useNavigate } from "react-router-dom";
@@ -33,7 +35,7 @@ import SmilyEmojiSvg from "../../svg/SmilyEmojiSvg";
 
 import { PostCalling } from "../../pages/InstaHome/RouterHandler";
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
-
+import FavoriteIcon from "@mui/icons-material/Favorite";
 const PostComponets = ({ id, callByPostPage, userPost }) => {
   const postCalling = useContext(PostCalling);
   console.log(userPost, "userPost");
@@ -59,7 +61,23 @@ const PostComponets = ({ id, callByPostPage, userPost }) => {
               </div>
             </PostOwner>
           )}
-          {!callByPostPage && <PostImage userPost={userPost} />}
+          {!callByPostPage && userPost ? (
+            <>
+              <PostImage userPost={userPost}>
+                <ShadowOverlay className="ShadowOverlay" />
+                <OverlayButtons className="hiddenBtn">
+                  <span>
+                    <FavoriteIcon /> 23
+                  </span>
+                  <span>
+                    <CommentsSvg /> 1
+                  </span>
+                </OverlayButtons>
+              </PostImage>
+            </>
+          ) : (
+            <PostImage userPost={userPost} />
+          )}
           {!userPost && (
             <PostDetails>
               <PostActionButtons>

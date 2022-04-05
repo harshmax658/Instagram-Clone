@@ -6,7 +6,7 @@ const LoveSvg = () => {
       aria-label="Like"
       className="_8-yf5 "
       color="#262626"
-      fill="#262626"
+      fill=""
       height="24"
       role="img"
       viewBox="0 0 24 24"

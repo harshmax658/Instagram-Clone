@@ -1,15 +1,63 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { css } from "styled-components";
+const DisplayFlexJcAC = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export const GlobaLCss = createGlobalStyle`
 .cursorPointer{
   cursor: pointer;
 }
 `;
-const DisplayFlexJcAC = css`
-  display: flex;
-  align-items: center;
-  justify-items: center;
+
+export const ShadowOverlay = styled.div`
+  height: 280px;
+  width: 100%;
+`;
+export const OverlayButtons = styled.div`
+  position: absolute;
+  z-index: 33;
+  top: ${250 / 2}px;
+  left: 25%;
+  color: white;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1.2rem;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+    transform: scale(1);
+    svg {
+      margin: 0 5px;
+    }
+  }
+`;
+export const PostImage = styled.div`
+  background: url("https://images.unsplash.com/photo-1643273038626-59942bbad9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
+    center center/cover;
+  background-size: cover;
+  width: ${({ callByPostPage }) => (callByPostPage ? "50%" : "100%")};
+  z-index: 3;
+
+  height: ${({ callByPostPage, userPost }) =>
+    callByPostPage ? "auto" : userPost ? "280px" : "500px"};
+  ${({ callByPostPage }) => callByPostPage && "border-radius:5px 0"};
+  &:hover {
+    .ShadowOverlay {
+      background-color: black;
+      opacity: 0.3;
+      cursor: pointer;
+    }
+    .hiddenBtn {
+      display: flex;
+    }
+  }
 `;
 
 export const PostComponent = styled.div`
@@ -44,17 +92,6 @@ export const PostOwnerName = styled.p`
 export const PostAction = styled.div`
   transform: scale(2);
   font-weight: bold;
-`;
-
-export const PostImage = styled.div`
-  background: url("https://images.unsplash.com/photo-1643273038626-59942bbad9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
-    center center/cover;
-  background-size: cover;
-  width: ${({ callByPostPage }) => (callByPostPage ? "50%" : "100%")};
-
-  height: ${({ callByPostPage, userPost }) =>
-    callByPostPage ? "auto" : userPost ? "280px" : "500px"};
-  ${({ callByPostPage }) => callByPostPage && "border-radius:5px 0"};
 `;
 
 export const PostActionButtons = styled.div`

@@ -13,4 +13,7 @@ export const Post = styled.div`
   width: 300px;
   height: 300px;
   margin-right: 23.5px;
+  top: 0;
+  left: 0;
+  position: relative;
 `;
