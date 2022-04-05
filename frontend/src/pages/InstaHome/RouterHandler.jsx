@@ -44,7 +44,7 @@ const RouterHandler = () => {
             }
           />
           <Route path="profile" element={<ProfilePage />}>
-            {/* <Route path="/" element={<UserPost />} /> */}
+            <Route path="" element={<UserPost />} />
             <Route path="tagged" element={<UserPost />} />
             <Route path="saved" element={<UserPost />} />
           </Route>

@@ -19,7 +19,7 @@ export const UserProfilePage = styled.div`
 export const UserProfile = styled.div`
   /* border: 2px solid; */
   height: 100%;
-  width: 70%;
+  width: 75%;
   margin: 10px 0;
   display: flex;
   flex-direction: column;

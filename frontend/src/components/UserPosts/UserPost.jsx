@@ -9,6 +9,45 @@ const UserPost = (props) => {
       <Post>
         <PostComponets userPost={true} />
       </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
+      <Post>
+        <PostComponets userPost={true} />
+      </Post>
     </AllPostGrid>
   );
 };

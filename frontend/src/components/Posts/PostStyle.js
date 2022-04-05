@@ -13,7 +13,8 @@ const DisplayFlexJcAC = css`
 `;
 
 export const PostComponent = styled.div`
-  ${({ callByPostPage }) => !callByPostPage && "border: 1px solid gray"};
+  ${({ callByPostPage, userPost }) =>
+    !callByPostPage && !userPost && "border: 1px solid gray"};
   ${({ callByPostPage }) => callByPostPage && "height: 100%;"};
 
   width: 100%;

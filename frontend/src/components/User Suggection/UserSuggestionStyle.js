@@ -17,7 +17,10 @@ export const CurrentUserData = styled.div`
 `;
 export const CurrentUserName = styled.div`
   margin-left: 15px;
-  cursor: pointer;
+
+  & :first-child {
+    cursor: pointer;
+  }
 `;
 export const UserSwitchButton = styled.div`
   display: flex;

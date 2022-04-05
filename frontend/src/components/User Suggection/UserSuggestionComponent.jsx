@@ -9,15 +9,21 @@ import {
 } from "./UserSuggestionStyle";
 
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
+import { useNavigate } from "react-router-dom";
 
 const UserSuggestionComponent = () => {
+  const navigate = useNavigate();
   return (
     <UserSuggestion>
       <CurrentUser>
         <CurrentUserData>
-          <LogedUserImage height="55px" width="56px" />
+          <LogedUserImage
+            onClick={() => navigate("profile")}
+            height="55px"
+            width="56px"
+          />
           <CurrentUserName>
-            <p>harshk1611</p>
+            <p onClick={() => navigate("profile")}>harshk1611</p>
             <p>Harsh</p>
           </CurrentUserName>
         </CurrentUserData>
