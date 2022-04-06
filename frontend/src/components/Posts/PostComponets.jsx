@@ -46,7 +46,7 @@ const PostComponets = ({ id, callByPostPage, userPost }) => {
   const navigate = useNavigate();
 
   console.log(
-    profilePageCalling.directCallPostPage.profilePage,
+    profilePageCalling?.directCallPostPage.profilePage,
     "PostCalling.profilePage"
   );
   const ProfilePostRedirect = (id = 1) => {
