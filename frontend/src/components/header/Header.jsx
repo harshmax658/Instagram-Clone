@@ -4,6 +4,7 @@ import HomeSvg from "../../svg/HomeSvg";
 import LoveSvg from "../../svg/LoveSvg";
 import ExploreSvg from "../../svg/ExploreSvg";
 import MessageSvg from "../../svg/MessageSvg";
+import LinkItem from "./LinkItem";
 import {
   Container,
   SearchContainer,
@@ -14,8 +15,11 @@ import {
   Right,
 } from "./HeaderStyle";
 import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
 
-const Header = ({ call }) => {
+const Header = ({ call, setNewPost }) => {
+  const [value,setValue]  = useState(false);
+    console.log(value);
   return (
     <>
       <Container call={call}>
@@ -31,38 +35,13 @@ const Header = ({ call }) => {
           </SearchContainer>
         </Right>
         <IconsContainer>
-          {/* <LinkItem Icon={<HomeIcon  to="\" style={{ color: "black" }} />} />
-          <LinkItem Icon={<MessageOutlinedIcon style={{ color: "black" }} />} />
-          <LinkItem Icon={<AddBoxOutlinedIcon style={{ color: "black" }} />} />
-          <LinkItem Icon={<FavoriteBorderIcon style={{ color: "black" }} />} /> */}
-          {/* <LinkItem
-            Icon={<AccountCircleOutlinedIcon style={{ color: "black" }} />}
-          /> */}
-           <div>
-              <span>
-                  <AddSvg />
-              </span>
-           </div>
-           <div>
-              <span>
-                  <HomeSvg />
-              </span>
-           </div>
-           <div>
-              <span>
-                  <MessageSvg />
-              </span>
-           </div>
-           <div>
-              <span>
-                  <ExploreSvg />
-              </span>
-           </div>           
-           <div>
-              <span>
-                  <LoveSvg />
-              </span>
-           </div>
+             <div>
+              <AddSvg />
+            </div> 
+            <LinkItem Icon={<HomeSvg />} pathname="/" />
+            <LinkItem Icon={<MessageSvg  />} pathname="/" onClick={() => setValue(true)}/>
+            <LinkItem Icon={<ExploreSvg />} pathname="/" />
+            <LinkItem Icon={<LoveSvg />} pathname="/" />
         </IconsContainer>
       </Container>
     </>

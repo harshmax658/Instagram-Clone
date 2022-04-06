@@ -52,14 +52,12 @@ const PostComponets = ({ id, callByPostPage, userPost }) => {
         return {
           ...prev,
           direct: !postCalling.directCallPostPage.direct,
-          profilePageDirect: true,
         };
       });
     profilePageCalling &&
-      profilePageCalling.setDirectCallPostPage((prev) => {
+      profilePageCalling?.setDirectCallPostPage((prev) => {
         return {
           ...prev,
-          // direct: !postCalling.directCallPostPage.direct,
           profilePageDirect: true,
         };
       });

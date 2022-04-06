@@ -5,4 +5,6 @@ export const MainPage = styled.div`
   padding-top: 85px;
   /* top: 85px; */
   height: 100%;
+  ${({ newPost }) => newPost && " position: fixed;"}
+  width: 100%;
 `;
