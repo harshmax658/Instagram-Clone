@@ -4,7 +4,7 @@ const HomeSvg = () => {
   return (
     <svg
       aria-label="Home"
-      class="_8-yf5 "
+      className="_8-yf5 "
       color="#262626"
       fill="#262626"
       height="24"

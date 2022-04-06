@@ -18,12 +18,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
 const Header = ({ call, setNewPost }) => {
-  const [value,setValue]  = useState(false);
-    console.log(value);
+  const [value, setValue] = useState(false);
+  console.log(value);
   return (
     <>
       <Container call={call}>
-        <Left >
+        <Left>
           <a href="\">
             <Image src="https://hemsingh780.github.io/hosted-assest/instagram.png" />
           </a>
@@ -35,13 +35,18 @@ const Header = ({ call, setNewPost }) => {
           </SearchContainer>
         </Right>
         <IconsContainer>
-             <div>
+          {/* <div>
               <AddSvg />
-            </div> 
-            <LinkItem Icon={<HomeSvg />} pathname="/" />
-            <LinkItem Icon={<MessageSvg  />} pathname="/" onClick={() => setValue(true)}/>
-            <LinkItem Icon={<ExploreSvg />} pathname="/" />
-            <LinkItem Icon={<LoveSvg />} pathname="/" />
+            </div>  */}
+          <LinkItem Icon={<HomeSvg />} pathname="/" />
+          <LinkItem
+            Icon={<MessageSvg />}
+            pathname="/"
+            onClick={() => setValue(true)}
+          />
+          <LinkItem Icon={<AddSvg />} pathname="/" setNewPost={setNewPost} />
+          <LinkItem Icon={<ExploreSvg />} pathname="/" />
+          <LinkItem Icon={<LoveSvg />} pathname="/" />
         </IconsContainer>
       </Container>
     </>
