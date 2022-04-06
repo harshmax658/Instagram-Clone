@@ -14,6 +14,7 @@ export const UserProfilePage = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
+  ${({ call }) => call && "position:fixed;"}
 `;
 
 export const UserProfile = styled.div`
@@ -114,7 +115,7 @@ cursor:pointer;
     }
   }`;
 
-export const UserPost = styled.div`
+export const UserPosts = styled.div`
   display: flex;
   text-transform: uppercase;
   justify-content: center;

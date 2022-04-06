@@ -22,7 +22,12 @@ const RouterHandler = () => {
 
   const closeBackDropOfPost = () => {
     setDirectCallPostPage((prev) => {
-      return { ...prev, direct: false, profilePage: false };
+      return {
+        ...prev,
+        direct: false,
+        profilePageDirect: false,
+        profilePage: false,
+      };
     });
     navigate(-1);
   };
@@ -59,9 +64,9 @@ const RouterHandler = () => {
               </ProfilePageCalling.Provider>
             }
           >
-            <Route path="" element={<UserPost />} />
-            <Route path="tagged" element={<UserPost />} />
-            <Route path="saved" element={<UserPost />} />
+            <Route path="" element={null} />
+            <Route path="tagged" element={null} />
+            <Route path="saved" element={null} />
           </Route>
           <Route path="inbox" element={<Inbox />} />
 
@@ -71,9 +76,11 @@ const RouterHandler = () => {
               element={<PostPage call={directCallPostPage.direct} />}
             />
           )}
-          {!directCallPostPage.direct && !directCallPostPage.profilePage && (
-            <Route path="*" element={<NotFoundPage />} />
-          )}
+          {!directCallPostPage.direct &&
+            (!directCallPostPage.profilePage ||
+              !directCallPostPage.profilePageDirect) && (
+              <Route path="*" element={<NotFoundPage />} />
+            )}
           {directCallPostPage.direct && (
             <Route
               path="*"
@@ -90,7 +97,8 @@ const RouterHandler = () => {
               }
             />
           )}
-          {directCallPostPage.postPage && (
+          {(directCallPostPage.profilePage ||
+            directCallPostPage.profilePageDirect) && (
             <Route
               path="*"
               element={
@@ -101,7 +109,7 @@ const RouterHandler = () => {
                     closeBackDropOfPost,
                   }}
                 >
-                  <PostPage />
+                  <ProfilePage />
                 </ProfilePageCalling.Provider>
               }
             />

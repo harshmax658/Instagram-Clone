@@ -18,7 +18,7 @@ import {
   P,
   UserBioData,
   UserPostsData,
-  UserPost,
+  UserPosts,
   PostLinks,
   GlobalStyleCss,
   PostLinksDiv,
@@ -31,6 +31,7 @@ import TagSvg from "../../svg/TagSvg";
 import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import PostPage from "../Post Page/PostPage";
 import { ProfilePageCalling } from "../../pages/InstaHome/RouterHandler";
+import UserPost from "../../components/UserPosts/UserPost";
 const ProfilePage = () => {
   const nav = useNavigate();
   const location = useLocation();
@@ -43,11 +44,10 @@ const ProfilePage = () => {
         profilePage: !postCalling?.directCallPostPage?.profilePage,
       };
     });
-    // console.log(!postCalling?.directCallPostPage?.profilePage);
   }, []);
   return (
     <>
-      <UserProfilePage>
+      <UserProfilePage call={postCalling.directCallPostPage.profilePageDirect}>
         <UserProfile>
           <UserData>
             <UserProfileImage>
@@ -90,7 +90,7 @@ const ProfilePage = () => {
           </UserData>
           <UserPostsData>
             {/* Conditional Rendering */}
-            <UserPost>
+            <UserPosts>
               {location.pathname === "/profile" ? (
                 <PostLinks to="">
                   <span>
@@ -118,16 +118,20 @@ const ProfilePage = () => {
                 </span>
                 Tagged
               </PostLinks>
-            </UserPost>
+            </UserPosts>
           </UserPostsData>
 
-          <Outlet />
+          <UserPost />
         </UserProfile>
       </UserProfilePage>
       <GlobalStyleCss />
+      {console.log(
+        postCalling.directCallPostPage.profilePageDirect,
+        "postCalling.directCallPostPage.profilePageDirect"
+      )}
       {postCalling.directCallPostPage.profilePageDirect && (
         <PostPage
-          call={postCalling.directCallPostPage.direct}
+          call={postCalling.directCallPostPage.profilePageDirect}
           closeBtn={postCalling.closeBackDropOfPost}
         />
       )}

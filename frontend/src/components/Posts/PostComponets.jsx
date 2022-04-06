@@ -45,16 +45,22 @@ const PostComponets = ({ id, callByPostPage, userPost }) => {
 
   const navigate = useNavigate();
 
-  console.log(
-    profilePageCalling?.directCallPostPage.profilePage,
-    "PostCalling.profilePage"
-  );
   const ProfilePostRedirect = (id = 1) => {
+    console.log("call");
     postCalling &&
       postCalling.setDirectCallPostPage((prev) => {
         return {
           ...prev,
           direct: !postCalling.directCallPostPage.direct,
+          profilePageDirect: true,
+        };
+      });
+    profilePageCalling &&
+      profilePageCalling.setDirectCallPostPage((prev) => {
+        return {
+          ...prev,
+          // direct: !postCalling.directCallPostPage.direct,
+          profilePageDirect: true,
         };
       });
     navigate(`/p/${id}`);
