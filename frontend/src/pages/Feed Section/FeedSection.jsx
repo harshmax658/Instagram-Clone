@@ -3,7 +3,7 @@ import {
   UserPost,
   FeedSectionDiv,
   AllPost,
-  CurrentUser,
+  CurrentUser,h
 } from "./FeedSectionStyle";
 import PostComponets from "../../components/Posts/PostComponets";
 import UserSuggestionComponent from "../../components/User Suggection/UserSuggestionComponent";

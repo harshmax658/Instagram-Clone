@@ -6,9 +6,11 @@ const HomePage = () => {
   return (
     <div>
       <FeedSection />
+      
     </div>
   );
 };
+
 
 export default HomePage;
 // Harsh
