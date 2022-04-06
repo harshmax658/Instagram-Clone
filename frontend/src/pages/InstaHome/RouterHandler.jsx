@@ -9,11 +9,12 @@ import Inbox from "../Inbox/Inbox";
 import NotFoundPage from "../Notfound Page/NotFoundPage";
 
 import PostPage from "../Post Page/PostPage";
-import UserPost from "../../components/UserPosts/UserPost";
+import CreateNewPost from "../../components/Create new Post/CreateNewPost";
 const PostCalling = createContext();
 const ProfilePageCalling = createContext();
 const RouterHandler = () => {
   const navigate = useNavigate();
+  const [newPost, setNewPost] = useState(false);
   const [directCallPostPage, setDirectCallPostPage] = useState({
     profilePage: false,
     profilePageDirect: false,
@@ -31,11 +32,15 @@ const RouterHandler = () => {
     });
     navigate(-1);
   };
+  const closeCreateNewPostPopUp = () => {
+    setNewPost(false);
+  };
 
   return (
     <>
-      <Header call={directCallPostPage} />
-      <MainPage>
+      {newPost && <CreateNewPost close={closeCreateNewPostPopUp} />}
+      <Header call={directCallPostPage} setNewPost={setNewPost} />
+      <MainPage newPost={newPost}>
         <Routes>
           <Route
             path="/"

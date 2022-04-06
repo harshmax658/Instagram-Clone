@@ -1,15 +1,12 @@
 import React from "react";
 import { FormInputGroup, FormInput, FormLabel } from "./FormInputStyle";
 
-const FormInputComponent = ({ onchange, label, ...otherprops }) => {
+const FormInputComponent = ({ onchange, labelFor, label, ...otherprops }) => {
   return (
     <FormInputGroup>
       <FormInput onchange={onchange} {...otherprops} />
       {label ? (
-        <FormLabel
-          // className={otherprops.value ? "shrink" : ""}
-          shrink={otherprops.value ? true : false}
-        >
+        <FormLabel htmlFor={labelFor} shrink={otherprops.value ? true : false}>
           {label}
         </FormLabel>
       ) : null}

@@ -22,7 +22,7 @@ export const FormInput = styled.input`
 export const FormLabel = styled.label`
   position: absolute;
   left: 12px;
-  pointer-events: none;
+  /* pointer-events: none; */
   color: gray;
   font-size: 14px;
   width: 100%;

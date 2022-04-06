@@ -16,7 +16,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 
-const Header = ({ call }) => {
+const Header = ({ call, setNewPost }) => {
   return (
     <>
       <Container call={call}>
@@ -32,7 +32,10 @@ const Header = ({ call }) => {
         <IconsContainer>
           <LinkItem Icon={<HomeIcon style={{ color: "black" }} />} />
           <LinkItem Icon={<MessageOutlinedIcon style={{ color: "black" }} />} />
-          <LinkItem Icon={<AddBoxOutlinedIcon style={{ color: "black" }} />} />
+          <LinkItem
+            setNewPost={setNewPost}
+            Icon={<AddBoxOutlinedIcon style={{ color: "black" }} />}
+          />
           <LinkItem Icon={<FavoriteBorderIcon style={{ color: "black" }} />} />
           <LinkItem
             Icon={<AccountCircleOutlinedIcon style={{ color: "black" }} />}

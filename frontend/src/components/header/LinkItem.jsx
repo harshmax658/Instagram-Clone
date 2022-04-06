@@ -1,14 +1,12 @@
-import React from 'react';
-import { Link } from '@mui/material';
-import { IconStyle } from './HeaderStyle';
+import React from "react";
+import { Link } from "@mui/material";
+import { IconStyle } from "./HeaderStyle";
 
-const LinkItem = ({Icon}) => {
+const LinkItem = ({ Icon, setNewPost }) => {
   return (
-  <IconStyle>
-    <Link>
-           {Icon}
-    </Link>
-  </IconStyle>  
+    <IconStyle onClick={() => setNewPost(true)}>
+      <Link>{Icon}</Link>
+    </IconStyle>
   );
 };
 

@@ -1,27 +1,10 @@
 import React from "react";
 import ReactDom from "react-dom";
-// import { useParams } from "react-router-dom";
+
 import PostComponents from "../../components/Posts/PostComponets";
-import { Section, Post, CloseBtn } from "./PostPageStyle";
 
-import CloseIcon from "@mui/icons-material/Close";
-
-const Backdrop = ({ call, closeBtn }) => {
-  return (
-    <Section call={call} onClick={closeBtn}>
-      <CloseBtn>
-        <CloseIcon />
-      </CloseBtn>
-    </Section>
-  );
-};
-const PostOverlay = ({ call }) => {
-  return (
-    <Post call={call}>
-      <PostComponents callByPostPage={true} />
-    </Post>
-  );
-};
+import Backdrop from "../../components/BackDrop/BackDrop";
+import OverLay from "../../components/BackDrop/OverLay";
 
 const PostPage = ({ call, closeBtn }) => {
   return (
@@ -34,11 +17,15 @@ const PostPage = ({ call, closeBtn }) => {
 
       {call ? (
         ReactDom.createPortal(
-          <PostOverlay call={call} />,
+          <OverLay call={call}>
+            <PostComponents callByPostPage={true} />
+          </OverLay>,
           document.getElementById("overlay")
         )
       ) : (
-        <PostOverlay call={call} />
+        <OverLay call={call}>
+          <PostComponents callByPostPage={true} />
+        </OverLay>
       )}
     </React.Fragment>
   );
