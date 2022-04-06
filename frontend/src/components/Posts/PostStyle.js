@@ -43,7 +43,7 @@ export const PostImage = styled.div`
     center center/cover;
   background-size: cover;
   width: ${({ callByPostPage }) => (callByPostPage ? "50%" : "100%")};
-  z-index: 3;
+  z-index: 2;
 
   height: ${({ callByPostPage, userPost }) =>
     callByPostPage ? "auto" : userPost ? "280px" : "500px"};
