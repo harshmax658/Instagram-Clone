@@ -9,7 +9,6 @@ import {
   Container,
   SearchContainer,
   IconsContainer,
-  Image,
   Input,
   Left,
   Right,
@@ -53,12 +52,16 @@ const Header = ({ call, setNewPost }) => {
             <LinkItem Icon={<HomeSvg />} pathname="/" />
             <LinkItem
               Icon={<MessageSvg />}
-              pathname="/"
+              pathname="/message"
               onClick={() => setValue(true)}
             />
-            <LinkItem Icon={<AddSvg />} pathname="/" setNewPost={setNewPost} />
-            <LinkItem Icon={<ExploreSvg />} pathname="/" />
-            <LinkItem Icon={<LoveSvg />} pathname="/" />
+            <LinkItem
+              Icon={<AddSvg />}
+              pathname="/ss"
+              setNewPost={setNewPost}
+            />
+            <LinkItem Icon={<ExploreSvg />} pathname="/explore" />
+            <LinkItem Icon={<LoveSvg />} pathname="/ello" />
           </IconsContainer>
         </Center>
       </Container>
