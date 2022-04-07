@@ -18,9 +18,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
 import ImageComponent from "../IMG/ImageComponent";
+import { useLocation } from "react-router-dom";
 
 const Header = ({ call, setNewPost }) => {
   const [value, setValue] = useState(false);
+  const location = useLocation();
+  const checkActive = (value) => {
+    return location.pathname === value;
+  };
   console.log(value);
   return (
     <>
@@ -49,19 +54,28 @@ const Header = ({ call, setNewPost }) => {
             {/* <div>
               <AddSvg />
             </div>  */}
-            <LinkItem Icon={<HomeSvg />} pathname="/" />
             <LinkItem
-              Icon={<MessageSvg />}
-              pathname="/message"
+              Icon={<HomeSvg location={checkActive("/")} />}
+              pathname="/"
+            />
+            <LinkItem
+              Icon={<MessageSvg location={checkActive("/inbox")} />}
+              pathname="/inbox"
               onClick={() => setValue(true)}
             />
             <LinkItem
-              Icon={<AddSvg />}
+              Icon={<AddSvg location={checkActive("/")} />}
               pathname="/ss"
               setNewPost={setNewPost}
             />
-            <LinkItem Icon={<ExploreSvg />} pathname="/explore" />
-            <LinkItem Icon={<LoveSvg />} pathname="/ello" />
+            <LinkItem
+              Icon={<ExploreSvg location={checkActive("/explore")} />}
+              pathname="/explore"
+            />
+            <LinkItem
+              Icon={<LoveSvg location={checkActive("/likes")} />}
+              pathname="/likes"
+            />
           </IconsContainer>
         </Center>
       </Container>

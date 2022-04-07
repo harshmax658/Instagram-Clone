@@ -1,12 +1,12 @@
 import React from "react";
 
-const MessageSvg = () => {
+const MessageSvg = ({ location }) => {
   return (
     <svg
       aria-label="Messenger"
       className="_8-yf5 "
       color="#262626"
-      fill="#262626"
+      fill={location ? "white" : "#262626"}
       height="24"
       role="img"
       viewBox="0 0 24 24"
@@ -14,7 +14,7 @@ const MessageSvg = () => {
     >
       <path
         d="M12.003 2.001a9.705 9.705 0 110 19.4 10.876 10.876 0 01-2.895-.384.798.798 0 00-.533.04l-1.984.876a.801.801 0 01-1.123-.708l-.054-1.78a.806.806 0 00-.27-.569 9.49 9.49 0 01-3.14-7.175 9.65 9.65 0 0110-9.7z"
-        fill="none"
+        fill={location ? "black" : "none"}
         stroke="currentColor"
         strokeMiterlimit="10"
         strokeWidth="1.739"
