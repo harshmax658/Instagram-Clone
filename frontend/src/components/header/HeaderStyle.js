@@ -8,75 +8,54 @@ export const IconStyle = styled.div`
 `;
 
 export const Container = styled.div`
-  // background-color:skyblue;
-  // display:flex;
   position: fixed;
   width: 100%;
   background: white;
   z-index: ${({ call }) => (call ? "3" : "30")};
   display: flex;
-  padding: 1%;
-  box-shadow: 1px 1px 1px 1px #e3dede;
-`;
-
-export const SearchContainer = styled.div`
-  //  flex:1;
-  //  display:flex;
-  //  justify-content:center;
-  // display: flex;
-  // background: #e5dada;
-  background: #ebe8e8;
+  padding: 10px 0px 7px 0px;
+  border-bottom: 1px solid lightgray;
   display: flex;
-  padding: 1%;
-  width: 60%;
-  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
 `;
-export const IconsContainer = styled.div`
-  //  flex:1;
-  //  display:flex;
-  //  justify-content:center;
-  // display: flex;
-  // grid-gap: 19%;
-  display: flex;
-  flex: 1;
-  // background: red;
-  grid-gap: -8px;
-  grid-gap: 21px;
-`;
-
-export const Right = styled.div`
-  // flex:1;
-  // display:flex;
-  // justify-content:space-evenly;
-  // display: flex;
-  // background: darkred;
-  // width: 79%;
-  // grid-gap: 9%;
-
-  flex: 1;
-  // background: burlywood;
-  text-align: center;
-`;
-
-export const Left = styled.div`
-  //  display:flex;
-  //  flex:1;
-  //  justify-content:center;
-  // background: blue;
-  // width: 55%;
-  // display: flex;
-  // justify-content: center;
-  flex: 1;
-  // background: burlywood;
-  text-align: center;
-`;
-
-export const Image = styled.img``;
 
 export const Input = styled.input`
   outline: none;
   border: none;
   background: inherit;
 `;
+export const SearchContainer = styled.div`
+  background: #efefef;
 
+  display: flex;
+  padding: 6px 10px;
+  border-radius: 6px;
+`;
+export const IconsContainer = styled.div`
+  display: flex;
+  width: 36%;
+  justify-content: space-evenly;
+  padding: 0px 22px 0 55px;
+`;
+
+export const Right = styled.div`
+  width: 28%;
+`;
+
+export const Left = styled.div`
+  margin-top: 7px;
+  width: 36%;
+`;
+
+export const Center = styled.div`
+  display: flex;
+  width: 80%;
+  max-width: 975px;
+  padding: 0 20px;
+  -webkit-transition: height 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out;
+  width: 100%;
+  align-items: center;
+`;
 //hem

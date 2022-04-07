@@ -13,9 +13,12 @@ import {
   Input,
   Left,
   Right,
+  Center,
 } from "./HeaderStyle";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
+
+import ImageComponent from "../IMG/ImageComponent";
 
 const Header = ({ call, setNewPost }) => {
   const [value, setValue] = useState(false);
@@ -23,31 +26,41 @@ const Header = ({ call, setNewPost }) => {
   return (
     <>
       <Container call={call}>
-        <Left>
-          <a href="\">
-            <Image src="https://hemsingh780.github.io/hosted-assest/instagram.png" />
-          </a>
-        </Left>
-        <Right>
-          <SearchContainer>
-            <SearchIcon style={{ color: "rgb(142, 142, 142)" }} />
-            <Input placeholder="search" />
-          </SearchContainer>
-        </Right>
-        <IconsContainer>
-          {/* <div>
+        <Center>
+          <Left>
+            <LinkItem
+              Icon={
+                <ImageComponent
+                  src="/images/instagram.jpg"
+                  width="100px"
+                  height="30px"
+                />
+              }
+              pathname="/"
+            />
+          </Left>
+          <Right className="right">
+            <SearchContainer>
+              <SearchIcon style={{ color: "rgb(142, 142, 142)" }} />
+              <Input placeholder="search" />
+            </SearchContainer>
+          </Right>
+
+          <IconsContainer className="icons">
+            {/* <div>
               <AddSvg />
             </div>  */}
-          <LinkItem Icon={<HomeSvg />} pathname="/" />
-          <LinkItem
-            Icon={<MessageSvg />}
-            pathname="/"
-            onClick={() => setValue(true)}
-          />
-          <LinkItem Icon={<AddSvg />} pathname="/" setNewPost={setNewPost} />
-          <LinkItem Icon={<ExploreSvg />} pathname="/" />
-          <LinkItem Icon={<LoveSvg />} pathname="/" />
-        </IconsContainer>
+            <LinkItem Icon={<HomeSvg />} pathname="/" />
+            <LinkItem
+              Icon={<MessageSvg />}
+              pathname="/"
+              onClick={() => setValue(true)}
+            />
+            <LinkItem Icon={<AddSvg />} pathname="/" setNewPost={setNewPost} />
+            <LinkItem Icon={<ExploreSvg />} pathname="/" />
+            <LinkItem Icon={<LoveSvg />} pathname="/" />
+          </IconsContainer>
+        </Center>
       </Container>
     </>
   );
