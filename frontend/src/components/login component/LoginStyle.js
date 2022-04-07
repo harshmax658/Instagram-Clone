@@ -110,3 +110,4 @@ export const GetTheApp = styled.div`
   text-align: center;
   margin: 25px 0;
 `;
+//Harsh

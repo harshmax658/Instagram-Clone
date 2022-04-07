@@ -1,17 +1,14 @@
-import React from 'react';
-import { Container } from './MessageStyle';
+import React from "react";
+import { Container } from "./MessageStyle";
 
 const Message = () => {
   return (
-       <Container>
-            <div>
-
-            </div>
-            <div>
-                   
-           </div>
-       </Container>
-    );
+    <Container>
+      <div></div>
+      <div></div>
+    </Container>
+  );
 };
 
 export default Message;
+//Hem
