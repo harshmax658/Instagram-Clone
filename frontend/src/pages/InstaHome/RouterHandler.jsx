@@ -52,12 +52,12 @@ const RouterHandler = () => {
                   setDirectCallPostPage,
                 }}
               >
-                {/* <HomePage /> */}
-                <Message />
+                <HomePage />
               </PostCalling.Provider>
             }
           />
 
+          <Route path="inbox" element={<Message />} />
           <Route
             path="profile"
             element={
@@ -98,7 +98,9 @@ const RouterHandler = () => {
                     setDirectCallPostPage,
                     closeBackDropOfPost,
                   }}
-                ></PostCalling.Provider>
+                >
+                  <HomePage />
+                </PostCalling.Provider>
               }
             />
           )}

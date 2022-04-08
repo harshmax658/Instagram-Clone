@@ -26,7 +26,7 @@ const Header = ({ call, setNewPost }) => {
   const checkActive = (value) => {
     return location.pathname === value;
   };
-  console.log(value);
+
   return (
     <>
       <Container call={call}>

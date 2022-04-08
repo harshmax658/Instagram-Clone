@@ -2,15 +2,9 @@ import styled from "styled-components";
 export const HeaderDownSpace = styled.div`
   height: 90px;
 `;
-<<<<<<< HEAD
-export const IconStyle = styled.div`
-`;
-export const Container = styled.div`
-  
-=======
+
 export const IconStyle = styled.div``;
 export const Container = styled.div`
->>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
   position: fixed;
   width: 100%;
   background: white;
@@ -28,37 +22,14 @@ export const Input = styled.input`
   background: inherit;
 `;
 export const SearchContainer = styled.div`
-<<<<<<< HEAD
-  
-  background: #ebe8e8;
-=======
   background: #efefef;
->>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
   display: flex;
   padding: 6px 10px;
   border-radius: 6px;
 `;
 export const IconsContainer = styled.div`
   display: flex;
-<<<<<<< HEAD
-  flex: 1;
-  grid-gap: -8px;
-  grid-gap: 21px;
-`;
-export const Right = styled.div`
-  flex: 1;
-  text-align: center;
-`;
-export const Left = styled.div`
-  flex: 1;
-  text-align: center;
-`;
-export const Image = styled.img``;
-export const Input = styled.input`
-  outline: none;
-  border: none;
-  background: inherit;
-=======
+
   width: 36%;
   justify-content: space-evenly;
   padding: 0px 22px 0 55px;
@@ -77,6 +48,5 @@ export const Center = styled.div`
   padding: 0 20px;
   width: 100%;
   align-items: center;
->>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
 `;
 //hem

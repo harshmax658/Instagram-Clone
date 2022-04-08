@@ -46,7 +46,6 @@ const PostComponets = ({ id, callByPostPage, userPost }) => {
   const navigate = useNavigate();
 
   const ProfilePostRedirect = (id = 1) => {
-    console.log("call");
     postCalling &&
       postCalling.setDirectCallPostPage((prev) => {
         return {
@@ -112,16 +111,12 @@ const PostComponets = ({ id, callByPostPage, userPost }) => {
                     className="btn cursorPointer"
                     onClick={() => {
                       postCalling &&
-                        console.log(
-                          !postCalling.directCallPostPage.direct,
-                          "!postCalling.directCallPostPage.direct"
-                        );
-                      postCalling.setDirectCallPostPage((prev) => {
-                        return {
-                          ...prev,
-                          direct: !postCalling.directCallPostPage.direct,
-                        };
-                      });
+                        postCalling.setDirectCallPostPage((prev) => {
+                          return {
+                            ...prev,
+                            direct: !postCalling.directCallPostPage.direct,
+                          };
+                        });
                       navigate(`/p/${id}`);
                     }}
                   >

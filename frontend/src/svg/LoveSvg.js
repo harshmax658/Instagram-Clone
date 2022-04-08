@@ -1,7 +1,6 @@
 import React from "react";
 
 const LoveSvg = ({ location }) => {
-  console.log(location);
   return (
     <svg
       aria-label="Like"
