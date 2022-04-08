@@ -42,7 +42,7 @@ const Header = ({ call, setNewPost }) => {
           <LinkItem
             Icon={<MessageSvg />}
             pathname="/"
-            onClick={() => setValue(true)}
+            
           />
           <LinkItem Icon={<AddSvg />} pathname="/" setNewPost={setNewPost} />
           <LinkItem Icon={<ExploreSvg />} pathname="/" />

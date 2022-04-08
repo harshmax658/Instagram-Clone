@@ -10,6 +10,7 @@ import NotFoundPage from "../Notfound Page/NotFoundPage";
 
 import PostPage from "../Post Page/PostPage";
 import CreateNewPost from "../../components/Create new Post/CreateNewPost";
+import Message from "../Message/Message";
 const PostCalling = createContext();
 const ProfilePageCalling = createContext();
 const RouterHandler = () => {
@@ -51,7 +52,8 @@ const RouterHandler = () => {
                   setDirectCallPostPage,
                 }}
               >
-                <HomePage />
+                {/* <HomePage /> */}
+                <Message />
               </PostCalling.Provider>
             }
           />
@@ -97,7 +99,8 @@ const RouterHandler = () => {
                     closeBackDropOfPost,
                   }}
                 >
-                  <HomePage />
+                  {/* <HomePage /> */}
+                  {/* <Message /> */}
                 </PostCalling.Provider>
               }
             />
