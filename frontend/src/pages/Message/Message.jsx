@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import { 
   SOContent,
@@ -21,18 +20,13 @@ import {
 } from './MessageStyle';
 import DownSvg from '../../svg/DownSvg';
 import NewMessageSvg from '../../svg/NewMessageSvg';
-=======
-import React from "react";
-import { Container } from "./MessageStyle";
 
->>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
 const Message = () => {
   // const user = [
   //   name:"Hem singh dhoni",
   // ]
   // https://hemsingh780.github.io/hosted-assest/image1.jpeg
   return (
-<<<<<<< HEAD
        <Container> {/* parent */}
        <First>
               <FirstinnerOne> 
@@ -185,13 +179,6 @@ const Message = () => {
         </Second>
        </Container>
     );
-=======
-    <Container>
-      <div></div>
-      <div></div>
-    </Container>
-  );
->>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
 };
 
 export default Message;

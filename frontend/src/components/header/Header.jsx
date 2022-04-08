@@ -54,18 +54,7 @@ const Header = ({ call, setNewPost }) => {
             {/* <div>
               <AddSvg />
             </div>  */}
-<<<<<<< HEAD
-          <LinkItem Icon={<HomeSvg />} pathname="/" />
-          <LinkItem
-            Icon={<MessageSvg />}
-            pathname="/"
-            
-          />
-          <LinkItem Icon={<AddSvg />} pathname="/" setNewPost={setNewPost} />
-          <LinkItem Icon={<ExploreSvg />} pathname="/" />
-          <LinkItem Icon={<LoveSvg />} pathname="/" />
-        </IconsContainer>
-=======
+
             <LinkItem
               Icon={<HomeSvg location={checkActive("/")} />}
               pathname="/"
@@ -90,7 +79,6 @@ const Header = ({ call, setNewPost }) => {
             />
           </IconsContainer>
         </Center>
->>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
       </Container>
     </>
   );

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-<<<<<<< HEAD
 export const Container = styled.div`
  height: 97%;
  width: 100%;
@@ -108,7 +107,3 @@ export const PsecondTwo  = styled.p`
 export const SOContent = styled.div`
   padding:10px;
 `
-=======
-export const Container = styled.div``;
-//Hem
->>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
