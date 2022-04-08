@@ -4,7 +4,7 @@ import Header from "../../components/header/Header";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "../Home Page/HomePage";
 import ProfilePage from "../Profile page/ProfilePage";
-import Inbox from "../Inbox/Inbox";
+// import Inbox from "../Inbox/Inbox";
 
 import NotFoundPage from "../Notfound Page/NotFoundPage";
 
@@ -75,7 +75,7 @@ const RouterHandler = () => {
             <Route path="tagged" element={null} />
             <Route path="saved" element={null} />
           </Route>
-          <Route path="inbox" element={<Inbox />} />
+          {/* <Route path="inbox" element={<Inbox />} /> */}
 
           {!directCallPostPage.direct && !directCallPostPage.profilePage && (
             <Route

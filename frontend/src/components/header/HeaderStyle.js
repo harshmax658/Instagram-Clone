@@ -1,30 +1,46 @@
 import styled from "styled-components";
-
 export const HeaderDownSpace = styled.div`
   height: 90px;
 `;
+<<<<<<< HEAD
 export const IconStyle = styled.div`
 `;
 export const Container = styled.div`
   
+=======
+export const IconStyle = styled.div``;
+export const Container = styled.div`
+>>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
   position: fixed;
   width: 100%;
   background: white;
   z-index: ${({ call }) => (call ? "3" : "30")};
   display: flex;
-  padding: 1%;
-  box-shadow: 1px 1px 1px 1px #e3dede;
+  padding: 10px 0px 7px 0px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const Input = styled.input`
+  outline: none;
+  border: none;
+  background: inherit;
 `;
 export const SearchContainer = styled.div`
+<<<<<<< HEAD
   
   background: #ebe8e8;
+=======
+  background: #efefef;
+>>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
   display: flex;
-  padding: 1%;
-  width: 60%;
-  border-radius: 5px;
+  padding: 6px 10px;
+  border-radius: 6px;
 `;
 export const IconsContainer = styled.div`
   display: flex;
+<<<<<<< HEAD
   flex: 1;
   grid-gap: -8px;
   grid-gap: 21px;
@@ -42,6 +58,25 @@ export const Input = styled.input`
   outline: none;
   border: none;
   background: inherit;
+=======
+  width: 36%;
+  justify-content: space-evenly;
+  padding: 0px 22px 0 55px;
 `;
-
+export const Right = styled.div`
+  width: 28%;
+`;
+export const Left = styled.div`
+  margin-top: 7px;
+  width: 36%;
+`;
+export const Center = styled.div`
+  display: flex;
+  width: 80%;
+  max-width: 975px;
+  padding: 0 20px;
+  width: 100%;
+  align-items: center;
+>>>>>>> b1c54bd7aa20c6406ac0fc6eb7746a0bb8644f51
+`;
 //hem

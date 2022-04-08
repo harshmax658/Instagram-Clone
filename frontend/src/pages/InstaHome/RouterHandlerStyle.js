@@ -8,3 +8,4 @@ export const MainPage = styled.div`
   ${({ newPost }) => newPost && " position: fixed;"}
   width: 100%;
 `;
+//Harsh
