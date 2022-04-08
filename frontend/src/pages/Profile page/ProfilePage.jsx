@@ -28,7 +28,7 @@ import SettingProfileSvg from "../../svg/SettingProfileSvg";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import SavedSvg from "../../svg/SavedSvg";
 import TagSvg from "../../svg/TagSvg";
-import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import PostPage from "../Post Page/PostPage";
 import { ProfilePageCalling } from "../../pages/InstaHome/RouterHandler";
 import UserPost from "../../components/UserPosts/UserPost";
@@ -125,10 +125,7 @@ const ProfilePage = () => {
         </UserProfile>
       </UserProfilePage>
       <GlobalStyleCss />
-      {console.log(
-        postCalling.directCallPostPage.profilePageDirect,
-        "postCalling.directCallPostPage.profilePageDirect"
-      )}
+
       {postCalling.directCallPostPage.profilePageDirect && (
         <PostPage
           call={postCalling.directCallPostPage.profilePageDirect}

@@ -2,6 +2,10 @@ import styled from "styled-components";
 export const HeaderDownSpace = styled.div`
   height: 90px;
 `;
+<<<<<<< HEAD
+=======
+
+>>>>>>> fddafaeddd2aa725a89f0f5c9ad268670e0d30df
 export const IconStyle = styled.div``;
 export const Container = styled.div`
   position: fixed;
@@ -23,6 +27,7 @@ export const SearchContainer = styled.div`
 `;
 export const IconsContainer = styled.div`
   display: flex;
+<<<<<<< HEAD
   flex: 1;
   grid-gap: -8px;
   grid-gap: 21px;
@@ -33,6 +38,9 @@ export const Input = styled.input`
   outline: none;
   border: none;
   background: inherit;
+=======
+
+>>>>>>> fddafaeddd2aa725a89f0f5c9ad268670e0d30df
   width: 36%;
   justify-content: space-evenly;
   padding: 0px 22px 0 55px;
