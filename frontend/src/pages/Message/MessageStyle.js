@@ -100,12 +100,7 @@ export const PsecondTwo = styled.p`
   margin: 6px;
 `;
 export const SOContent = styled.div`
-<<<<<<< HEAD
-  padding:10px;
-`
-=======
   padding: 10px;
 `;
 
 //Hem
->>>>>>> fddafaeddd2aa725a89f0f5c9ad268670e0d30df

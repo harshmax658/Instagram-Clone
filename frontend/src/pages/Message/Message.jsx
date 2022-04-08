@@ -7,22 +7,19 @@ import {
   ImageDiv,
   ImageSpan,
   First,
-  FirstinnerOne ,
-  Image , 
-  FirstinnerTwo, 
-  Second ,
-  SecondOne, 
-  Psecond, 
-  PsecondTwo , 
-  SOContentName , 
-  SOContentDetail ,
-  SoSpan
-} from './MessageStyle';
-import DownSvg from '../../svg/DownSvg';
-import NewMessageSvg from '../../svg/NewMessageSvg';
+  FirstinnerOne,
+  Image,
+  FirstinnerTwo,
+  Second,
+  SecondOne,
+  Psecond,
+  PsecondTwo,
+  SOContentName,
+  SOContentDetail,
+  SoSpan,
+} from "./MessageStyle";
 import DownSvg from "../../svg/DownSvg";
 import NewMessageSvg from "../../svg/NewMessageSvg";
-
 
 const Message = () => {
   // const user = [
