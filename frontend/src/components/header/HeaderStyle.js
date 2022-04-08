@@ -15,6 +15,11 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
+export const Input = styled.input`
+  outline: none;
+  border: none;
+  background: inherit;
+`;
 export const SearchContainer = styled.div`
   background: #efefef;
   display: flex;
@@ -23,10 +28,6 @@ export const SearchContainer = styled.div`
 `;
 export const IconsContainer = styled.div`
   display: flex;
-`;
-
-export const Image = styled.img``;
-export const Input = styled.input`
   width: 36%;
   justify-content: space-evenly;
   padding: 0px 22px 0 55px;

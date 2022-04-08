@@ -11,8 +11,10 @@ import NotFoundPage from "../Notfound Page/NotFoundPage";
 import PostPage from "../Post Page/PostPage";
 import CreateNewPost from "../../components/Create new Post/CreateNewPost";
 import Message from "../Message/Message";
+
 const PostCalling = createContext();
 const ProfilePageCalling = createContext();
+
 const RouterHandler = () => {
   const navigate = useNavigate();
   const [newPost, setNewPost] = useState(false);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginSignupPage from "./pages/LoginSignup/LoginSignupPage";
 import { Routes, Route } from "react-router-dom";
 import { AppStyle, GlobalStyleCss } from "./AppStyle";
