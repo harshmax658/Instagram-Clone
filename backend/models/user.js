@@ -37,7 +37,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       max: 20,
     },
-    desc: {
+    descreption: {
       type: String,
       max: 50,
     },
