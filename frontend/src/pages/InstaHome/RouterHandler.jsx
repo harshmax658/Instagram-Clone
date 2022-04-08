@@ -98,10 +98,7 @@ const RouterHandler = () => {
                     setDirectCallPostPage,
                     closeBackDropOfPost,
                   }}
-                >
-                  {/* <HomePage /> */}
-                  {/* <Message /> */}
-                </PostCalling.Provider>
+                ></PostCalling.Provider>
               }
             />
           )}
