@@ -1,4 +1,5 @@
 import styled, { css, createGlobalStyle } from "styled-components";
+import { Image } from "../../pages/Message/MessageStyle";
 
 const displayFlexJCAIC = css`
   display: flex;
@@ -136,8 +137,76 @@ export const FormLayer = styled.div`
 `;
 export const Birthday = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  .btn {
+    margin: 12px 0;
+    width: 90%;
+  }
+  .goBack {
+    margin-top: 10px;
+    color: #0095f6;
+  }
+
+  .addBird {
+    margin: 12px 0;
+
+    P {
+      color: black;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+  .description {
+    text-align: center;
+    margin: 10px 0;
+    span {
+      display: block;
+      margin-bottom: 3px;
+    }
+    & :nth-child(2) {
+      color: #0095f6;
+    }
+  }
+  .user_selection {
+    .select {
+      select {
+        height: 36px;
+        border: 1px solid lightgray;
+        outline: none;
+        margin: 0 10px;
+        padding: 0 5px;
+        border-radius: 3px;
+        color: gray;
+        font-size: 12px;
+      }
+    }
+  }
+  .why {
+    color: gray;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    div {
+      margin: 12px 0;
+    }
+  }
 `;
 export const Date = styled.div`
   display: flex;
+`;
+export const ImageBackGround = styled.div`
+  background: url(${({ image }) => image});
+  background-size: 528px 523px;
+  height: 95px;
+  width: 143px;
+  background-position: 0 0;
+
+  /* display: flex; */
 `;
 //Harsh

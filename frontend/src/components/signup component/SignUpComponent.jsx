@@ -14,6 +14,7 @@ import {
   FormLayer,
   Birthday,
   Date,
+  ImageBackGround,
 } from "./SignUpStyle";
 import ContainerComponent from "../container/ContainerComponent";
 
@@ -44,20 +45,21 @@ const SignUpComponent = ({ login }) => {
     "November",
     "December",
   ];
+  const date = new window.Date();
   const [data] = useState({
-    day: new Date().getDate(),
-    // month: monthsArray[new Date().getMonth()],
-    // year: new Date().getFullYear(),
+    day: date.getDate(),
+    month: monthsArray[date.getMonth()],
+    year: date.getFullYear(),
   });
-  const monthi = new window.Date();
+
   const [signUpData, setSignUpData] = useLoginSignup({
     emailOrPhone: "",
     fullName: "",
     userName: "",
     password: "",
-    // day: new Date().getDate(),
-    month: monthsArray[monthi.getMonth()],
-    // year: new Date().getFullYear(),
+    day: date.getDate(),
+    month: monthsArray[date.getMonth()],
+    year: date.getFullYear(),
   });
 
   const { emailOrPhone, fullName, userName, password, day, month, year } =
@@ -81,14 +83,13 @@ const SignUpComponent = ({ login }) => {
     }
   };
   const onSelectData = (data) => {
-    // return datesGenerator(data).map((data, id) => {
-    //   return (
-    //     <option value={data} key={id}>
-    //       {data}
-    //     </option>
-    //   );
-    // });
-    // return "Hello"
+    return datesGenerator(data).map((data, id) => {
+      return (
+        <option value={data} key={id}>
+          {data}
+        </option>
+      );
+    });
   };
   const dispatch = useDispatch();
   const createUserAccount = (event) => {
@@ -193,9 +194,10 @@ const SignUpComponent = ({ login }) => {
             </Form> */}
           </Signup>
           <Birthday>
-            <div className="image">img</div>
+            <ImageBackGround image="/images/allInOne.jpg" />
+
             <div className="addBird">
-              <H2>Add Your Birthday</H2>
+              <P>Add Your Birthday</P>
             </div>
             <div className="description">
               <span>This won't be a part of your public profile.</span>
@@ -203,18 +205,8 @@ const SignUpComponent = ({ login }) => {
             </div>
             <Date>
               <div className="user_selection">
-                <p>Birthday</p>
                 <div className="select">
                   <select
-                    name="day"
-                    id="day"
-                    className="selectItem"
-                    // value={day}
-                    // onChange={setSignUpData}
-                  >
-                    {/* {onSelectData("day")} */}
-                  </select>
-                  {/* <select
                     name="month"
                     id="month"
                     className="selectItem"
@@ -224,6 +216,15 @@ const SignUpComponent = ({ login }) => {
                     {onSelectData("month")}
                   </select>
                   <select
+                    name="day"
+                    id="day"
+                    className="selectItem"
+                    value={day}
+                    onChange={setSignUpData}
+                  >
+                    {onSelectData("day")}
+                  </select>
+                  <select
                     name="year"
                     id="year"
                     className="selectItem"
@@ -231,10 +232,24 @@ const SignUpComponent = ({ login }) => {
                     value={year}
                   >
                     {onSelectData("year")}
-                  </select> */}
+                  </select>
                 </div>
               </div>
             </Date>
+
+            <div className="why">
+              <div> You need to enter the date you were born</div>
+              <div>
+                Use your own birthday, even if this account is for a business, a
+                pet, or something else
+              </div>
+            </div>
+            <div className="btn">
+              <CustomButtonComponent>
+                <span className="fbLogin">Next</span>
+              </CustomButtonComponent>
+            </div>
+            <div className="goBack">Go Back</div>
           </Birthday>
         </ContainerComponent>
         <Login>
