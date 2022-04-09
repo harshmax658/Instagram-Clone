@@ -120,4 +120,24 @@ export const StoreLink = styled.div`
     cursor: pointer;
   }
 `;
+
+export const FormLayer = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  span {
+    position: absolute;
+    right: 5px;
+    top: 12px;
+    color: #bbbaba;
+  }
+`;
+export const Birthday = styled.div`
+  display: flex;
+`;
+export const Date = styled.div`
+  display: flex;
+`;
 //Harsh

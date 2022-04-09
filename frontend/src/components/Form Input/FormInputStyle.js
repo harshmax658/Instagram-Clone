@@ -12,17 +12,21 @@ export const FormInputGroup = styled.div`
 
 export const FormInput = styled.input`
   width: 100%;
-  padding: 13px 13px 0 13px;
+  padding: 0 11px;
+  height: 40px;
   /* padding-bottom: 10px; */
   background: none;
   outline: none;
   border: 1px solid lightgray;
+  ${({ value }) => value && "padding: 14px 28px 2px 8px"};
 `;
 
 export const FormLabel = styled.label`
   position: absolute;
-  left: 12px;
+  left: 11px;
   /* pointer-events: none; */
+  cursor: text;
+
   color: gray;
   font-size: 14px;
   width: 100%;
