@@ -31,6 +31,8 @@ import { useDispatch } from "react-redux";
 import { signUpStart } from "../../redux/user/action";
 
 const SignUpComponent = ({ login }) => {
+  const [takeBirthday, setTakeBirthday] = useState(false);
+
   const monthsArray = [
     "January",
     "February",
@@ -46,6 +48,7 @@ const SignUpComponent = ({ login }) => {
     "December",
   ];
   const date = new window.Date();
+
   const [data] = useState({
     day: date.getDate(),
     month: monthsArray[date.getMonth()],
@@ -94,163 +97,169 @@ const SignUpComponent = ({ login }) => {
   const dispatch = useDispatch();
   const createUserAccount = (event) => {
     event.preventDefault();
-    console.log("run");
-    dispatch(signUpStart(signUpData));
+    if (takeBirthday) {
+      dispatch(signUpStart(signUpData));
+    } else {
+      setTakeBirthday(true);
+    }
   };
   return (
     <>
       <Box>
         <ContainerComponent>
-          <Signup>
-            {/* <Form onSubmit={createUserAccount}>
-              <div className="instaLogo">
-                <ImageComponent
-                  image={`/images/instagram.jpg`}
-                  style={{ width: 183, height: 60 }}
-                />
-              </div>
-              <H2>Sign up to see photos and videos from your friends.</H2>
-              <CustomButtonComponent>
-                <span className="fbIcon">
-                  <FacebookIcon />
-                </span>
-                <span className="fbLogin">Log in with Facebook</span>
-              </CustomButtonComponent>
-              <div className="or">
-                <div className="first"></div>
-                <div className="sec">OR</div>
-                <div className="third"></div>
-              </div>
-              <FormLayer>
-                <FormInputComponent
-                  label="Mobile Number or Email"
-                  name="emailOrPhone"
-                  value={emailOrPhone}
-                  onChange={setSignUpData}
-                  id="emailOrPhone"
-                  htmlFor="emailOrPhone"
-                />
-                {emailOrPhone && (
-                  <span>
-                    <CheckCircleOutlineIcon />
+          {!takeBirthday ? (
+            <Signup>
+              <Form onSubmit={createUserAccount}>
+                <div className="instaLogo">
+                  <ImageComponent
+                    image={`/images/instagram.jpg`}
+                    style={{ width: 183, height: 60 }}
+                  />
+                </div>
+                <H2>Sign up to see photos and videos from your friends.</H2>
+                <CustomButtonComponent>
+                  <span className="fbIcon">
+                    <FacebookIcon />
                   </span>
-                )}
-              </FormLayer>
-              <FormLayer>
-                <FormInputComponent
-                  label="Full Name"
-                  name="fullName"
-                  onChange={setSignUpData}
-                  value={fullName}
-                  id="fullName"
-                  htmlFor="fullName"
-                />
-                {fullName && (
-                  <span>
-                    <CheckCircleOutlineIcon />
-                  </span>
-                )}
-              </FormLayer>
-              <FormLayer>
-                <FormInputComponent
-                  label="Username"
-                  name="userName"
-                  onChange={setSignUpData}
-                  value={userName}
-                  id="userName"
-                  htmlFor="userName"
-                />
-                {userName && (
-                  <span>
-                    <CheckCircleOutlineIcon />
-                  </span>
-                )}
-              </FormLayer>
-              <FormLayer>
-                <FormInputComponent
-                  label="Password"
-                  name="password"
-                  type="password"
-                  autoComplete="off"
-                  onChange={setSignUpData}
-                  value={password}
-                  id="password"
-                  htmlFor="password"
-                />
-                {password && (
-                  <span>
-                    <CheckCircleOutlineIcon />
-                  </span>
-                )}
-              </FormLayer>
-              <CustomButtonComponent>
-                <span className="fbLogin">Sign up</span>
-              </CustomButtonComponent>
+                  <span className="fbLogin">Log in with Facebook</span>
+                </CustomButtonComponent>
+                <div className="or">
+                  <div className="first"></div>
+                  <div className="sec">OR</div>
+                  <div className="third"></div>
+                </div>
+                <FormLayer>
+                  <FormInputComponent
+                    label="Mobile Number or Email"
+                    name="emailOrPhone"
+                    value={emailOrPhone}
+                    onChange={setSignUpData}
+                    id="emailOrPhone"
+                    htmlFor="emailOrPhone"
+                  />
+                  {emailOrPhone && (
+                    <span>
+                      <CheckCircleOutlineIcon />
+                    </span>
+                  )}
+                </FormLayer>
+                <FormLayer>
+                  <FormInputComponent
+                    label="Full Name"
+                    name="fullName"
+                    onChange={setSignUpData}
+                    value={fullName}
+                    id="fullName"
+                    htmlFor="fullName"
+                  />
+                  {fullName && (
+                    <span>
+                      <CheckCircleOutlineIcon />
+                    </span>
+                  )}
+                </FormLayer>
+                <FormLayer>
+                  <FormInputComponent
+                    label="Username"
+                    name="userName"
+                    onChange={setSignUpData}
+                    value={userName}
+                    id="userName"
+                    htmlFor="userName"
+                  />
+                  {userName && (
+                    <span>
+                      <CheckCircleOutlineIcon />
+                    </span>
+                  )}
+                </FormLayer>
+                <FormLayer>
+                  <FormInputComponent
+                    label="Password"
+                    name="password"
+                    type="password"
+                    autoComplete="off"
+                    onChange={setSignUpData}
+                    value={password}
+                    id="password"
+                    htmlFor="password"
+                  />
+                  {password && (
+                    <span>
+                      <CheckCircleOutlineIcon />
+                    </span>
+                  )}
+                </FormLayer>
+                <CustomButtonComponent>
+                  <span className="fbLogin">Sign up</span>
+                </CustomButtonComponent>
 
-              <P>
-                By signing up, you agree to our Terms , Data Policy and Cookies
-                Policy .
-              </P>
-            </Form> */}
-          </Signup>
-          <Birthday>
-            <ImageBackGround image="/images/allInOne.jpg" />
+                <P>
+                  By signing up, you agree to our Terms , Data Policy and
+                  Cookies Policy .
+                </P>
+              </Form>
+            </Signup>
+          ) : (
+            <Birthday>
+              <ImageBackGround image="/images/allInOne.jpg" />
 
-            <div className="addBird">
-              <P>Add Your Birthday</P>
-            </div>
-            <div className="description">
-              <span>This won't be a part of your public profile.</span>
-              <span>Why do I need to provide my birthday?</span>
-            </div>
-            <Date>
-              <div className="user_selection">
-                <div className="select">
-                  <select
-                    name="month"
-                    id="month"
-                    className="selectItem"
-                    value={month}
-                    onChange={setSignUpData}
-                  >
-                    {onSelectData("month")}
-                  </select>
-                  <select
-                    name="day"
-                    id="day"
-                    className="selectItem"
-                    value={day}
-                    onChange={setSignUpData}
-                  >
-                    {onSelectData("day")}
-                  </select>
-                  <select
-                    name="year"
-                    id="year"
-                    className="selectItem"
-                    onChange={setSignUpData}
-                    value={year}
-                  >
-                    {onSelectData("year")}
-                  </select>
+              <div className="addBird">
+                <P>Add Your Birthday</P>
+              </div>
+              <div className="description">
+                <span>This won't be a part of your public profile.</span>
+                <span>Why do I need to provide my birthday?</span>
+              </div>
+              <Date>
+                <div className="user_selection">
+                  <div className="select">
+                    <select
+                      name="month"
+                      id="month"
+                      className="selectItem"
+                      value={month}
+                      onChange={setSignUpData}
+                    >
+                      {onSelectData("month")}
+                    </select>
+                    <select
+                      name="day"
+                      id="day"
+                      className="selectItem"
+                      value={day}
+                      onChange={setSignUpData}
+                    >
+                      {onSelectData("day")}
+                    </select>
+                    <select
+                      name="year"
+                      id="year"
+                      className="selectItem"
+                      onChange={setSignUpData}
+                      value={year}
+                    >
+                      {onSelectData("year")}
+                    </select>
+                  </div>
+                </div>
+              </Date>
+
+              <div className="why">
+                <div> You need to enter the date you were born</div>
+                <div>
+                  Use your own birthday, even if this account is for a business,
+                  a pet, or something else
                 </div>
               </div>
-            </Date>
-
-            <div className="why">
-              <div> You need to enter the date you were born</div>
-              <div>
-                Use your own birthday, even if this account is for a business, a
-                pet, or something else
+              <div className="btn">
+                <CustomButtonComponent>
+                  <span className="fbLogin">Next</span>
+                </CustomButtonComponent>
               </div>
-            </div>
-            <div className="btn">
-              <CustomButtonComponent>
-                <span className="fbLogin">Next</span>
-              </CustomButtonComponent>
-            </div>
-            <div className="goBack">Go Back</div>
-          </Birthday>
+              <div className="goBack">Go Back</div>
+            </Birthday>
+          )}{" "}
         </ContainerComponent>
         <Login>
           <ContainerComponent>
