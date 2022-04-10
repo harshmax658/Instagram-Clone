@@ -8,7 +8,7 @@ export const USER_SIGN_IN_FAILURE = "USER_SIGN_IN_FAILURE";
 
 export const signInStart = (data) => {
   return {
-    type: USER_SIGN_UP_START,
+    type: USER_SIGN_IN_START,
     data,
   };
 };

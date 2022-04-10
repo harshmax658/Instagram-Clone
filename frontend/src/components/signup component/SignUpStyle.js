@@ -1,5 +1,4 @@
 import styled, { css, createGlobalStyle } from "styled-components";
-import { Image } from "../../pages/Message/MessageStyle";
 
 const displayFlexJCAIC = css`
   display: flex;

@@ -7,10 +7,16 @@ const displayFlexJCAIC = css`
 `;
 
 export const GlobalCssForLogin = createGlobalStyle`
+ button:disabled,
+  button[disabled] {
+    background-color: #0095f675;
+    cursor: initial;
+  }
   .or{
    ${displayFlexJCAIC} 
   width: 100%;
   color: gray;
+
 
   .first,.third{
 border-bottom: 1px solid lightgray;
@@ -26,7 +32,13 @@ height: 1px;
   }
 }
 `;
-
+export const P = styled.p`
+  font-size: 14px;
+  text-align: center;
+  &.danger {
+    color: red !important;
+  }
+`;
 export const FormContainer = styled.div`
   /* width: 34%; */
   width: 355px;
@@ -41,11 +53,9 @@ export const Form = styled.form`
   padding: 36px;
 
   input {
+    width: 100%;
     margin: 4px 0;
-    border-radius: 5px;
-    padding-top: 16px;
-    padding-bottom: 4px;
-    font-size: 12px;
+    border-radius: 3px;
   }
 
   .instaLogo {

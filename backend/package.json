@@ -10,8 +10,12 @@
   "author": "harsh_&_hem",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.10",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0"
   }
 }

@@ -3,11 +3,16 @@ import { signUpFailure, signInFailure } from "./action";
 
 import { takeLatest, all, call, put } from "@redux-saga/core/effects";
 
-function* userSignInStart() {
+function* userSignInStart({ data }) {
   try {
-    const response = yield fetch();
-    const dataInJson = yield response.kson();
+    const response = yield fetch("/api/user/login", {
+      method: "Post",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    const dataInJson = yield response.json();
     if (response.status === 200) {
+      console.log(dataInJson);
     } else {
       throw new Error(dataInJson.message);
     }
@@ -21,7 +26,6 @@ function* userSignIn() {
 
 function* signUpStart({ data }) {
   try {
-    yield console.log(JSON.stringify(data));
     const response = yield fetch("/api/user/create-new-user", {
       method: "Post",
       headers: { "Content-Type": "application/json" },
@@ -42,5 +46,5 @@ function* userSignUp() {
 }
 
 export default function* userSaga() {
-  yield all([call(userSignUp)]);
+  yield all([call(userSignUp), call(userSignIn)]);
 }

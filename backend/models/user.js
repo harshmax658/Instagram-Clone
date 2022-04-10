@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
 
-const UserSchema = new mongoose.Schema(
+const userSchema = mongoose.Schema(
   {
     userName: {
       type: String,
@@ -61,4 +62,8 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("User", UserSchema);
+userSchema.statics.generateToken = (data, key, exprire = "10d") => {
+  return jwt.sign(data.toJSON(), key, { expiresIn: exprire });
+};
+const User = mongoose.model("User", userSchema);
+module.exports = User;

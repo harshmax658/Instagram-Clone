@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { MainPage } from "./RouterHandlerStyle";
 import Header from "../../components/header/Header";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -16,6 +16,19 @@ const PostCalling = createContext();
 const ProfilePageCalling = createContext();
 
 const RouterHandler = () => {
+  useEffect(() => {
+    const checkAuthorization = async () => {
+      const r = await fetch("/api/user/isAuthorized", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      console.log(await r.json());
+    };
+    checkAuthorization();
+  }, []);
   const navigate = useNavigate();
   const [newPost, setNewPost] = useState(false);
   const [directCallPostPage, setDirectCallPostPage] = useState({

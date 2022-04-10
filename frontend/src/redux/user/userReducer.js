@@ -1,5 +1,6 @@
 import {
   USER_SIGN_UP_START,
+  USER_SIGN_IN_FAILURE,
   // USER_SIGN_UP_SUCCESS,
   USER_SIGN_UP_FAILURE,
 } from "./action";
@@ -18,6 +19,7 @@ const userReducer = (state = initialUserState, action) => {
     //   return { ...state };
     // }
 
+    case USER_SIGN_IN_FAILURE:
     case USER_SIGN_UP_FAILURE: {
       return { ...state, error: action.data };
     }
