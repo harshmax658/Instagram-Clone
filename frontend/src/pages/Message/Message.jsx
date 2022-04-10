@@ -22,10 +22,63 @@ import DownSvg from "../../svg/DownSvg";
 import NewMessageSvg from "../../svg/NewMessageSvg";
 
 const Message = () => {
-  // const user = [
-  //   name:"Hem singh dhoni",
-  // ]
-  // https://hemsingh780.github.io/hosted-assest/image1.jpeg
+  const  userMessages = [
+    {
+      image:"https://hemsingh780.github.io/hosted-assest/image1.jpeg",
+      userName:"Rohit",
+      lastMessage:"hello",
+      time:"12w",
+    },
+    {
+      image:"https://hemsingh780.github.io/hosted-assest/image1.jpeg",
+      userName:"Rohit",
+      lastMessage:"hello",
+      time:"12w",
+    },
+    {
+      image:"https://hemsingh780.github.io/hosted-assest/image1.jpeg",
+      userName:"Rohit",
+      lastMessage:"hello",
+      time:"12w",
+    },
+    {
+      image:"https://hemsingh780.github.io/hosted-assest/image1.jpeg",
+      userName:"Rohit",
+      lastMessage:"hello",
+      time:"12w",
+    },
+    {
+      image:"https://hemsingh780.github.io/hosted-assest/image1.jpeg",
+      userName:"Rohit",
+      lastMessage:"hello",
+      time:"12w",
+    },
+    {
+      image:"https://hemsingh780.github.io/hosted-assest/image1.jpeg",
+      userName:"Rohit",
+      lastMessage:"hello",
+      time:"12w",
+    },
+    {
+      image:"https://hemsingh780.github.io/hosted-assest/image1.jpeg",
+      userName:"Rohit",
+      lastMessage:"hello",
+      time:"12w",
+    },
+    {
+      image:"https://hemsingh780.github.io/hosted-assest/image1.jpeg",
+      userName:"Rohit",
+      lastMessage:"hello",
+      time:"12w",
+    },
+    {
+      image:"https://hemsingh780.github.io/hosted-assest/image1.jpeg",
+      userName:"Rohit",
+      lastMessage:"hello",
+      time:"12w",
+    },
+
+  ]
   return (
     <Container>
       {/* parent */}
@@ -49,123 +102,31 @@ const Message = () => {
               1 <span> Request </span>
             </div>
           </SecondTwo>
-          <SecondOne>
-            <ImageDiv>
-              <ImageSpan>
-                <Image src="https://hemsingh780.github.io/hosted-assest/image1.jpeg" />
-              </ImageSpan>
-            </ImageDiv>
-            <SOContent>
-              <SOContentName>Rohit</SOContentName>
-              <SOContentDetail>
-                hello<SoSpan>.12w</SoSpan>
-              </SOContentDetail>
-            </SOContent>
-          </SecondOne>
-          <SecondOne>
-            <ImageDiv>
-              <ImageSpan>
-                <Image src="https://hemsingh780.github.io/hosted-assest/image1.jpeg" />
-              </ImageSpan>
-            </ImageDiv>
-            <SOContent>
-              <SOContentName>Rohit</SOContentName>
-              <SOContentDetail>
-                hello<SoSpan>.12w</SoSpan>
-              </SOContentDetail>
-            </SOContent>
-          </SecondOne>
-          <SecondOne>
-            <ImageDiv>
-              <ImageSpan>
-                <Image src="https://hemsingh780.github.io/hosted-assest/image1.jpeg" />
-              </ImageSpan>
-            </ImageDiv>
-            <SOContent>
-              <SOContentName>Rohit</SOContentName>
-              <SOContentDetail>
-                hello<SoSpan>.12w</SoSpan>
-              </SOContentDetail>
-            </SOContent>
-          </SecondOne>
-          <SecondOne>
-            <ImageDiv>
-              <ImageSpan>
-                <Image src="https://hemsingh780.github.io/hosted-assest/image1.jpeg" />
-              </ImageSpan>
-            </ImageDiv>
-            <SOContent>
-              <SOContentName>Rohit</SOContentName>
-              <SOContentDetail>
-                hello<SoSpan>.12w</SoSpan>
-              </SOContentDetail>
-            </SOContent>
-          </SecondOne>
-          <SecondOne>
-            <ImageDiv>
-              <ImageSpan>
-                <Image src="https://hemsingh780.github.io/hosted-assest/image1.jpeg" />
-              </ImageSpan>
-            </ImageDiv>
-            <SOContent>
-              <SOContentName>Rohit</SOContentName>
-              <SOContentDetail>
-                hello<SoSpan>.12w</SoSpan>
-              </SOContentDetail>
-            </SOContent>
-          </SecondOne>
-          <SecondOne>
-            <ImageDiv>
-              <ImageSpan>
-                <Image src="https://hemsingh780.github.io/hosted-assest/image1.jpeg" />
-              </ImageSpan>
-            </ImageDiv>
-            <SOContent>
-              <SOContentName>Rohit</SOContentName>
-              <SOContentDetail>
-                hello<SoSpan>.12w</SoSpan>
-              </SOContentDetail>
-            </SOContent>
-          </SecondOne>
-          <SecondOne>
-            <ImageDiv>
-              <ImageSpan>
-                <Image src="https://hemsingh780.github.io/hosted-assest/image1.jpeg" />
-              </ImageSpan>
-            </ImageDiv>
-            <SOContent>
-              <SOContentName>Rohit</SOContentName>
-              <SOContentDetail>
-                hello<SoSpan>.12w</SoSpan>
-              </SOContentDetail>
-            </SOContent>
-          </SecondOne>
-          <SecondOne>
-            <ImageDiv>
-              <ImageSpan>
-                <Image src="https://hemsingh780.github.io/hosted-assest/image1.jpeg" />
-              </ImageSpan>
-            </ImageDiv>
-            <SOContent>
-              <SOContentName>Rohit</SOContentName>
-              <SOContentDetail>
-                hello<SoSpan>.12w</SoSpan>
-              </SOContentDetail>
-            </SOContent>
-          </SecondOne>
-          <SecondOne>
-            <ImageDiv>
-              <ImageSpan>
-                <Image src="https://hemsingh780.github.io/hosted-assest/image1.jpeg" />
-              </ImageSpan>
-            </ImageDiv>
-            <SOContent>
-              <SOContentName>Rohit</SOContentName>
-              <SOContentDetail>
-                hello<SoSpan>.12w</SoSpan>
-              </SOContentDetail>
-            </SOContent>
-          </SecondOne>
+
+
+          {   
+            userMessages.map(user => 
+                    { 
+              return (
+                      <SecondOne>
+                        <ImageDiv>
+                          <ImageSpan>
+                          <Image src={user.image} />
+                        </ImageSpan>
+                        </ImageDiv>
+                        <SOContent>
+                          <SOContentName>{user.userName}</SOContentName>
+                          <SOContentDetail>
+                        {user.lastMessage}<SoSpan>{user.time}</SoSpan>
+                          </SOContentDetail>
+                        </SOContent>
+                      </SecondOne>
+                      )
+                  }
+                )
+          }
+
+
         </FirstinnerTwo>
       </First>
       <Second>

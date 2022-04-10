@@ -20,7 +20,7 @@ const createPost = async (req, res) => {
 };
 
 //updating post
-router.put("/:id", async (req, res) => {
+const updatePost  = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.userId == req.body.id) {
@@ -30,10 +30,10 @@ router.put("/:id", async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
 //for deleting post
-router.delete("/:id", async (req, res) => {
+const deletePost = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.userId == req.body.id) {
@@ -43,6 +43,6 @@ router.delete("/:id", async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
 module.exports = { createPost };
