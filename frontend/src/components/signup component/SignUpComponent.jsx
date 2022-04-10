@@ -30,33 +30,34 @@ import useLoginSignup from "../../Custom Hooks/useLoginSignup";
 import { useDispatch } from "react-redux";
 import { signUpStart } from "../../redux/user/action";
 
+const monthsArray = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const date = new window.Date();
+
 const SignUpComponent = ({ login }) => {
-  const [takeBirthday, setTakeBirthday] = useState(false);
-
-  const monthsArray = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const date = new window.Date();
-
   const [data] = useState({
     day: date.getDate(),
     month: monthsArray[date.getMonth()],
     year: date.getFullYear(),
   });
+  const [takeBirthday, setTakeBirthday] = useState(false);
+  const dispatch = useDispatch();
 
   const [signUpData, setSignUpData] = useLoginSignup({
-    emailOrPhone: "",
+    emailOrMobile: "",
     fullName: "",
     userName: "",
     password: "",
@@ -65,7 +66,7 @@ const SignUpComponent = ({ login }) => {
     year: date.getFullYear(),
   });
 
-  const { emailOrPhone, fullName, userName, password, day, month, year } =
+  const { emailOrMobile, fullName, userName, password, day, month, year } =
     signUpData;
 
   const datesGenerator = (name) => {
@@ -94,13 +95,25 @@ const SignUpComponent = ({ login }) => {
       );
     });
   };
-  const dispatch = useDispatch();
   const createUserAccount = (event) => {
     event.preventDefault();
     if (takeBirthday) {
-      dispatch(signUpStart(signUpData));
+      // dispatch(signUpStart(signUpData));
+      const call = async () => {
+        const response = await fetch("/api/user/create-new-user", {
+          method: "Post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(signUpData),
+        });
+        // console.log(response.json());
+        console.log(response);
+      };
+      // const bb =aa
+      call();
     } else {
-      setTakeBirthday(true);
+      if (emailOrMobile && fullName && userName && password) {
+        setTakeBirthday(true);
+      }
     }
   };
   return (
@@ -131,13 +144,13 @@ const SignUpComponent = ({ login }) => {
                 <FormLayer>
                   <FormInputComponent
                     label="Mobile Number or Email"
-                    name="emailOrPhone"
-                    value={emailOrPhone}
+                    name="emailOrMobile"
+                    value={emailOrMobile}
                     onChange={setSignUpData}
-                    id="emailOrPhone"
-                    htmlFor="emailOrPhone"
+                    id="emailOrMobile"
+                    htmlFor="emailOrMobile"
                   />
-                  {emailOrPhone && (
+                  {emailOrMobile && (
                     <span>
                       <CheckCircleOutlineIcon />
                     </span>
@@ -190,7 +203,11 @@ const SignUpComponent = ({ login }) => {
                     </span>
                   )}
                 </FormLayer>
-                <CustomButtonComponent>
+                <CustomButtonComponent
+                  disabled={
+                    !(emailOrMobile && fullName && userName && password) && true
+                  }
+                >
                   <span className="fbLogin">Sign up</span>
                 </CustomButtonComponent>
 
@@ -236,8 +253,8 @@ const SignUpComponent = ({ login }) => {
                       name="year"
                       id="year"
                       className="selectItem"
-                      onChange={setSignUpData}
                       value={year}
+                      onChange={setSignUpData}
                     >
                       {onSelectData("year")}
                     </select>
@@ -253,13 +270,21 @@ const SignUpComponent = ({ login }) => {
                 </div>
               </div>
               <div className="btn">
-                <CustomButtonComponent>
+                <CustomButtonComponent
+                  disabled={year > 2017 && true}
+                  onClick={createUserAccount}
+                >
                   <span className="fbLogin">Next</span>
                 </CustomButtonComponent>
               </div>
-              <div className="goBack">Go Back</div>
+              <div
+                className="goBack"
+                onClick={() => setTakeBirthday(!takeBirthday)}
+              >
+                Go Back
+              </div>
             </Birthday>
-          )}{" "}
+          )}
         </ContainerComponent>
         <Login>
           <ContainerComponent>
