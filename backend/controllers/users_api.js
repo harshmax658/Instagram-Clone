@@ -1,8 +1,9 @@
 const User = require("../models/User");
 
+const userLogin = async (request, response) => {};
+
 const createNewUser = async (request, response) => {
   try {
-    console.log(request.body);
     const user = await User.findOne({
       emailOrMobile: request.body.emailOrMobile,
     });
@@ -19,6 +20,7 @@ const createNewUser = async (request, response) => {
           message: "User registerd succesfully",
         });
       } catch (error) {
+        console.log(error);
         return response.status(422).json({
           message: "Error while creating user",
         });
@@ -32,4 +34,4 @@ const createNewUser = async (request, response) => {
   }
 };
 
-module.exports = { createNewUser };
+module.exports = { createNewUser, userLogin };

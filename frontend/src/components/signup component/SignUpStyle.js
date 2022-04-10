@@ -24,6 +24,11 @@ export const Box = styled.div`
   width: 355px;
   display: flex;
   flex-direction: column;
+  button:disabled,
+  button[disabled] {
+    background-color: #0095f675;
+    cursor: initial;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -104,6 +109,11 @@ height: 1px;
   .third{
     margin-left: 22px;
   }
+
+}
+.error{
+  color:red
+  
 }
 `;
 export const GetTheApp = styled.div`
@@ -147,6 +157,7 @@ export const Birthday = styled.div`
   .goBack {
     margin-top: 10px;
     color: #0095f6;
+    cursor: pointer;
   }
 
   .addBird {
