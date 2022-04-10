@@ -27,7 +27,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 import useLoginSignup from "../../Custom Hooks/useLoginSignup";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signUpStart } from "../../redux/user/action";
 
 const monthsArray = [
@@ -54,8 +54,9 @@ const SignUpComponent = ({ login }) => {
     year: date.getFullYear(),
   });
   const [takeBirthday, setTakeBirthday] = useState(false);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  const { error } = useSelector(({ userReducer }) => userReducer);
   const [signUpData, setSignUpData] = useLoginSignup({
     emailOrMobile: "",
     fullName: "",
@@ -98,18 +99,7 @@ const SignUpComponent = ({ login }) => {
   const createUserAccount = (event) => {
     event.preventDefault();
     if (takeBirthday) {
-      // dispatch(signUpStart(signUpData));
-      const call = async () => {
-        const response = await fetch("/api/user/create-new-user", {
-          method: "Post",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(signUpData),
-        });
-        // console.log(response.json());
-        console.log(response);
-      };
-      // const bb =aa
-      call();
+      dispatch(signUpStart(signUpData));
     } else {
       if (emailOrMobile && fullName && userName && password) {
         setTakeBirthday(true);
@@ -285,6 +275,7 @@ const SignUpComponent = ({ login }) => {
               </div>
             </Birthday>
           )}
+          {error?.message && <P className="error">{error.message}</P>}
         </ContainerComponent>
         <Login>
           <ContainerComponent>

@@ -1,5 +1,7 @@
 const User = require("../models/User");
 
+const userLogin = async (request, response) => {};
+
 const createNewUser = async (request, response) => {
   try {
     const user = await User.findOne({
@@ -33,4 +35,4 @@ const createNewUser = async (request, response) => {
   }
 };
 
-module.exports = { createNewUser };
+module.exports = { createNewUser, userLogin };

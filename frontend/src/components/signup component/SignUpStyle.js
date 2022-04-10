@@ -109,6 +109,11 @@ height: 1px;
   .third{
     margin-left: 22px;
   }
+
+}
+.error{
+  color:red
+  
 }
 `;
 export const GetTheApp = styled.div`
