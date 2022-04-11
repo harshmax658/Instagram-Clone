@@ -32,9 +32,15 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import PostPage from "../Post Page/PostPage";
 import { ProfilePageCalling } from "../../pages/InstaHome/RouterHandler";
 import UserPost from "../../components/UserPosts/UserPost";
+import { useSelector } from "react-redux";
+
 const ProfilePage = () => {
   const nav = useNavigate();
   const location = useLocation();
+  const { post, followers, following, userName, fullName } = useSelector(
+    ({ userReducer }) => userReducer
+  );
+
   const postCalling = useContext(ProfilePageCalling);
 
   useEffect(() => {
@@ -55,7 +61,7 @@ const ProfilePage = () => {
             </UserProfileImage>
             <UserInformation>
               <Row>
-                <H2>harshk1611</H2>
+                <H2>{userName}</H2>
                 <EditButton>
                   <EditProfileButton>Edit Profile</EditProfileButton>
                 </EditButton>
@@ -67,22 +73,22 @@ const ProfilePage = () => {
               <UL>
                 <li>
                   <PostCount>
-                    <span>3</span> posts
+                    <span>{post.length}</span> posts
                   </PostCount>
                 </li>
                 <li>
                   <FollowersCount>
-                    <span>70</span> followers
+                    <span>{followers.length}</span> followers
                   </FollowersCount>
                 </li>
                 <li>
                   <FollowingCount>
-                    <span>66</span> following
+                    <span>{following.length}</span> following
                   </FollowingCount>
                 </li>
               </UL>
               <UserBioData>
-                <P username>Harsh</P>
+                <P username>{fullName}</P>
 
                 <UserBio>Ram Ram</UserBio>
               </UserBioData>

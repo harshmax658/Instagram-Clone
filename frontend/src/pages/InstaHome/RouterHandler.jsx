@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { MainPage } from "./RouterHandlerStyle";
 import Header from "../../components/header/Header";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import HomePage from "../Home Page/HomePage";
 import ProfilePage from "../Profile page/ProfilePage";
 // import Inbox from "../Inbox/Inbox";
@@ -13,6 +13,7 @@ import CreateNewPost from "../../components/Create new Post/CreateNewPost";
 import Message from "../Message/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { userDataFetchStart } from "../../redux/user/action";
+import EditProfile from "../Edit profile/EditProfile";
 
 const PostCalling = createContext();
 const ProfilePageCalling = createContext();
@@ -72,6 +73,12 @@ const RouterHandler = () => {
             />
 
             <Route path="inbox" element={<Message />} />
+
+            <Route path="account" element={<EditProfile />}>
+              {/* <Route path="edit" element={null} />
+              <Route path="password/change" element={null} /> */}
+            </Route>
+
             <Route
               path="profile"
               element={
@@ -97,11 +104,11 @@ const RouterHandler = () => {
                 element={<PostPage call={directCallPostPage.direct} />}
               />
             )}
-            {/* {!directCallPostPage.direct &&
-            (!directCallPostPage.profilePage ||
-              !directCallPostPage.profilePageDirect) && (
-              <Route path="*" element={<NotFoundPage />} />
-            )} */}
+            {!directCallPostPage.direct &&
+              (!directCallPostPage.profilePage ||
+                !directCallPostPage.profilePageDirect) && (
+                <Route path="*" element={<NotFoundPage />} />
+              )}
             {/* <Route /> */}
             {directCallPostPage.direct && (
               <Route

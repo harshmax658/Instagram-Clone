@@ -13,6 +13,7 @@ const initialUserState = {
   avatar: null,
   followers: [],
   following: [],
+  post: [],
   token: null,
   error: null,
 };
@@ -33,6 +34,7 @@ const userReducer = (state = initialUserState, action) => {
         userData: action.data.data,
         userName: action.data.data.userName,
         fullName: action.data.data.fullName,
+        post: action.data.data.post,
         avatar: action.data.data.avatar,
         followers: [],
         following: [],

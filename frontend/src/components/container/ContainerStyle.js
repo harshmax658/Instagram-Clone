@@ -4,6 +4,7 @@ const border = css`
 `;
 
 export const Container = styled.div`
+  ${({ width }) => width && `width:${width}`};
   ${border}
 `;
 //Harsh

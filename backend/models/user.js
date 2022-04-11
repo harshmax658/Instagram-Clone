@@ -55,6 +55,10 @@ const userSchema = mongoose.Schema(
       type: String,
       max: 20,
     },
+    post: {
+      type: Array,
+      default: [],
+    },
     desc: {
       type: String,
       max: 50,
