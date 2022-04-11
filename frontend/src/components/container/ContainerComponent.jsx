@@ -2,8 +2,8 @@ import React from "react";
 
 import { Container } from "./ContainerStyle";
 
-const ContainerComponent = ({ children }) => {
-  return <Container>{children}</Container>;
+const ContainerComponent = ({ children, width }) => {
+  return <Container width={width}>{children}</Container>;
 };
 
 export default ContainerComponent;

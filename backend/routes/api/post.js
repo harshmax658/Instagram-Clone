@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+<<<<<<< HEAD
 const { createPost , updatePost , deletePost } = require("../../controllers/post_api");
 const multer =  require("multer");
 const path  = require('path')
@@ -20,5 +21,16 @@ router.post("/create-post", upload.single("post") ,createPost);
 router.post("/update-post/:id" , updatePost);
 router.post("/delete-post/:id" , deletePost);
 
+=======
+const {
+  createPost,
+  updatePost,
+  deletePost,
+} = require("../../controllers/post_api");
+
+router.post("/create-post", createPost);
+router.post("/update-post/:id", updatePost);
+router.post("/delete-post/:id", deletePost);
+>>>>>>> 023665faff6329e3efd29e34c2d47650b1cf8276
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
 
-const UserSchema = new mongoose.Schema(
+const userSchema = mongoose.Schema(
   {
     userName: {
       type: String,
@@ -18,6 +19,7 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+      select: false,
       min: 6,
     },
     fullName: {
@@ -53,6 +55,10 @@ const UserSchema = new mongoose.Schema(
       type: String,
       max: 20,
     },
+    post: {
+      type: Array,
+      default: [],
+    },
     desc: {
       type: String,
       max: 50,
@@ -61,4 +67,8 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("User", UserSchema);
+userSchema.statics.generateToken = (data, key, exprire = "10d") => {
+  return `Bearer ${jwt.sign(data.toJSON(), key, { expiresIn: exprire })}`;
+};
+const User = mongoose.model("User", userSchema);
+module.exports = User;

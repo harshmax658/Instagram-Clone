@@ -25,7 +25,7 @@ const createPost = async (req, res) => {
 
 
 //updating post
-const updatePost  = async (req, res) => {
+const updatePost = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.userId == req.body.id) {
@@ -50,4 +50,4 @@ const deletePost = async (req, res) => {
   }
 };
 
-module.exports = { createPost };
+module.exports = { createPost, updatePost, deletePost };

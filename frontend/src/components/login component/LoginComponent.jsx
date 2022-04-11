@@ -14,6 +14,7 @@ import {
   GetTheApp,
   StoreLink,
   GlobalCssForLogin,
+  P,
 } from "./LoginStyle";
 
 // Material UI
@@ -23,19 +24,27 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import useLoginSignup from "../../Custom Hooks/useLoginSignup";
 
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { signInStart } from "../../redux/user/action";
 
 const LoginComponent = ({ login }) => {
+  const { error } = useSelector(({ userReducer }) => userReducer);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loginData, setLoginData] = useLoginSignup({
     username: "",
     password: "",
   });
   const { username, password } = loginData;
-
+  const loginuser = (event) => {
+    event.preventDefault();
+    dispatch(signInStart(loginData));
+  };
   return (
     <FormContainer>
       <ContainerComponent>
-        <Form>
+        <Form onSubmit={loginuser}>
           <div className="instaLogo">
             <ImageComponent
               image={`/images/instagram.jpg`}
@@ -46,6 +55,8 @@ const LoginComponent = ({ login }) => {
             label="Phone number, username, or email"
             name="username"
             type="text"
+            id="username"
+            htmlFor="username"
             value={username}
             onChange={setLoginData}
           />
@@ -53,19 +64,19 @@ const LoginComponent = ({ login }) => {
             label="Password"
             name="password"
             type="password"
+            id="password"
+            htmlFor="password"
             autoComplete="off"
             value={password}
             onChange={setLoginData}
           />
           <LoginButton>
-            <CustomButtonComponent
-              disabled={"disabled"}
-              // onClick={() => console.log("da")}
-            >
+            <CustomButtonComponent disabled={!(username && password) && true}>
               Log in
             </CustomButtonComponent>
           </LoginButton>
 
+          {error && <P className="danger">{error.message}</P>}
           <div className="or">
             <div className="first"></div>
             <div className="sec">OR</div>
@@ -84,7 +95,7 @@ const LoginComponent = ({ login }) => {
       <Signup>
         <ContainerComponent>
           <div>
-            Don't have an account?{" "}
+            Don't have an account?
             <span
               onClick={() => (login ? login(false) : navigate("/emailsignup"))}
             >
