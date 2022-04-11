@@ -7,6 +7,8 @@ require("./config/mongoose/config");
 app.use(express.json());
 
 const routerPath = path.join(__dirname, "/routes");
+const imagePath  = express.static(__dirname+"/Images")
+app.use('/images',imagePath);
 app.use(require(routerPath));
 
 app.listen(8000, () => {

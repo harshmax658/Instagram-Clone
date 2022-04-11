@@ -5,6 +5,6 @@ const user = require("./users");
 const post = require("./post");
 
 router.use("/user", user);
-router.use("/post", user);
+router.use("/post", post);
 
 module.exports = router;

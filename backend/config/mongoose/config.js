@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 
 const url = `mongodb+srv://harshhem658:jaishreeram@cluster0.xs2qs.mongodb.net/instagram?retryWrites=true&w=majority`;
