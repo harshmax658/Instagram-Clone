@@ -19,6 +19,7 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: true,
+      select: false,
       min: 6,
     },
     fullName: {
@@ -63,7 +64,7 @@ const userSchema = mongoose.Schema(
 );
 
 userSchema.statics.generateToken = (data, key, exprire = "10d") => {
-  return jwt.sign(data.toJSON(), key, { expiresIn: exprire });
+  return `Bearer ${jwt.sign(data.toJSON(), key, { expiresIn: exprire })}`;
 };
 const User = mongoose.model("User", userSchema);
 module.exports = User;

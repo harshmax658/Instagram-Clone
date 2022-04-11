@@ -15,11 +15,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.10",
     "nodemon": "^2.0.15",
-<<<<<<< HEAD
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0"
-=======
-    "redux": "^4.1.2"
->>>>>>> 32eb91403449d54874164ac39d1baa583cf3444e
   }
 }

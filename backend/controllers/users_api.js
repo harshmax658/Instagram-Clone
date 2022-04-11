@@ -1,5 +1,36 @@
 const User = require("../models/User");
 
+const getUserDetails = async (request, response) => {
+  try {
+    console.log();
+    const id = request.user.id;
+    const user = await User.findById(id);
+    if (user) {
+      return response.status(200).json({
+        message: "user datails found",
+        data: {
+          data: user,
+        },
+      });
+    }
+    return response.status(422).json({
+      message: "user datails not found",
+    });
+  } catch (error) {
+    console.log(error);
+    return response.status(500).json({
+      message: "Internal Server error",
+    });
+  }
+};
+
+const sendUserJwt = async (request, response) => {
+  return response.status(200).json({
+    message: "user token",
+    userToken: request.cookies.userToken,
+  });
+};
+
 const userLogin = async (request, response) => {
   try {
     const user = await User.findOne({
@@ -7,7 +38,7 @@ const userLogin = async (request, response) => {
         { usernNme: request.body.userName },
         { emailOrMobile: request.body.userName },
       ],
-    });
+    }).select("password");
     if (user.password === request.body.password) {
       user["password"] = null;
       const token = User.generateToken(user, "H@rsh", "30d");
@@ -62,4 +93,4 @@ const createNewUser = async (request, response) => {
   }
 };
 
-module.exports = { createNewUser, userLogin };
+module.exports = { createNewUser, userLogin, sendUserJwt, getUserDetails };

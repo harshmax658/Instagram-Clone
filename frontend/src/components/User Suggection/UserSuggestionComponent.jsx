@@ -10,8 +10,10 @@ import {
 
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const UserSuggestionComponent = () => {
+  const { userName, fullName } = useSelector(({ userReducer }) => userReducer);
   const navigate = useNavigate();
   return (
     <UserSuggestion>
@@ -23,8 +25,8 @@ const UserSuggestionComponent = () => {
             width="56px"
           />
           <CurrentUserName>
-            <p onClick={() => navigate("profile")}>harshk1611</p>
-            <p>Harsh</p>
+            <p onClick={() => navigate("profile")}>{userName && userName}</p>
+            <p>{fullName?.substring(0, fullName.indexOf(" "))}</p>
           </CurrentUserName>
         </CurrentUserData>
         <UserSwitchButton>Switch</UserSwitchButton>
