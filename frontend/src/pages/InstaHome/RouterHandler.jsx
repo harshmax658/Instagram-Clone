@@ -13,14 +13,15 @@ import CreateNewPost from "../../components/Create new Post/CreateNewPost";
 import Message from "../Message/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { userDataFetchStart } from "../../redux/user/action";
-import EditProfile from "../Edit profile/EditProfile";
+import EditProfile from "../../components/Edit Profile/EditProfile";
+import ProfileSetting from "../Profile Setting/ProfileSetting";
 
 const PostCalling = createContext();
 const ProfilePageCalling = createContext();
 
 const RouterHandler = () => {
   const dispatch = useDispatch();
-  const { token } = useSelector(({ userReducer }) => userReducer);
+  const { token, userPresent } = useSelector(({ userReducer }) => userReducer);
 
   useEffect(() => {
     if (token) {
@@ -55,7 +56,7 @@ const RouterHandler = () => {
     <>
       {newPost && <CreateNewPost close={closeCreateNewPostPopUp} />}
       <Header call={directCallPostPage} setNewPost={setNewPost} />
-      {token && (
+      {token && userPresent && (
         <MainPage newPost={newPost}>
           <Routes>
             <Route
@@ -74,9 +75,18 @@ const RouterHandler = () => {
 
             <Route path="inbox" element={<Message />} />
 
-            <Route path="account" element={<EditProfile />}>
-              {/* <Route path="edit" element={null} />
-              <Route path="password/change" element={null} /> */}
+            <Route path="account" element={<ProfileSetting />}>
+              <Route path="edit" element={<EditProfile />} />
+              <Route path="account2" element={null} />
+              <Route path="account3" element={null} />
+              <Route path="account4" element={null} />
+              <Route path="account5" element={null} />
+              <Route path="account6" element={null} />
+              <Route path="account7" element={null} />
+              <Route path="account8" element={null} />
+              <Route path="account9" element={null} />
+
+              <Route path="password/change" element={null} />
             </Route>
 
             <Route

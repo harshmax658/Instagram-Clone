@@ -16,6 +16,7 @@ const initialUserState = {
   post: [],
   token: null,
   error: null,
+  userPresent: false,
 };
 
 const userReducer = (state = initialUserState, action) => {
@@ -38,6 +39,7 @@ const userReducer = (state = initialUserState, action) => {
         avatar: action.data.data.avatar,
         followers: [],
         following: [],
+        userPresent: true,
       };
     }
 
