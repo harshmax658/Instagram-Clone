@@ -13,7 +13,12 @@ app.use(cookieParser());
 require("./config/passport js/config");
 app.use(passport.initialize());
 const routerPath = path.join(__dirname, "/routes");
+<<<<<<< HEAD
+const imagePath  = express.static(__dirname+"/Images")
+app.use('/images',imagePath);
+=======
 
+>>>>>>> 023665faff6329e3efd29e34c2d47650b1cf8276
 app.use(require(routerPath));
 
 app.listen(8000, () => {

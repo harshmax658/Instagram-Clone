@@ -1,14 +1,17 @@
 const Post = require("../models/Post");
 const router = require("express").Router();
-// const path = require("path");
 
 //creating post
-
 const createPost = async (req, res) => {
+      
+      const url = req.protocol + '://' + req.get('host')
+      let pimage = url + '/images/' + req.file.filename
+
   try {
     const newPost = new Post({
-      ...req.body,
+      ...req.body,image:pimage
     });
+
     const savedPost = await newPost.save();
     res.status(200).json(savedPost);
   } catch (error) {
@@ -18,6 +21,8 @@ const createPost = async (req, res) => {
     });
   }
 };
+
+
 
 //updating post
 const updatePost = async (req, res) => {
