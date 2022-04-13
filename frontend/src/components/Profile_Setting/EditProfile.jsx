@@ -20,14 +20,19 @@ import {
 } from "./EditProfileStyle";
 
 const EditProfile = () => {
-  const { userName, fullName } = useSelector(({ userReducer }) => userReducer);
+  const { userName, fullName, emailOrMobile } = useSelector(
+    ({ userReducer }) => userReducer
+  );
   const [formData, setFormData] = useLoginSignup({
     name: fullName,
     username: userName,
     bio: "",
     website: "",
+    email: emailOrMobile,
+    phone: emailOrMobile,
+    gender: "",
   });
-  const { name, username, bio, website } = formData;
+  const { name, username, email, bio, website, phone, gender } = formData;
   return (
     <Center>
       <Container>
@@ -123,7 +128,7 @@ const EditProfile = () => {
               <Notice>
                 <FormmInputComponent
                   name="email"
-                  value={website}
+                  value={email}
                   onChange={setFormData}
                   id="email"
                   placeholder="email"
@@ -137,7 +142,7 @@ const EditProfile = () => {
               <Notice>
                 <FormmInputComponent
                   name="phone"
-                  value={website}
+                  value={phone}
                   onChange={setFormData}
                   id="phone"
                   placeholder="phone"
@@ -151,7 +156,7 @@ const EditProfile = () => {
               <Notice>
                 <FormmInputComponent
                   name="gender"
-                  value={website}
+                  value={gender}
                   onChange={setFormData}
                   id="gender"
                   placeholder="gender"

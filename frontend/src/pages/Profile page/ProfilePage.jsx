@@ -35,7 +35,7 @@ import UserPost from "../../components/UserPosts/UserPost";
 import { useSelector } from "react-redux";
 
 const ProfilePage = () => {
-  const nav = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
   const { post, followers, following, userName, fullName } = useSelector(
     ({ userReducer }) => userReducer
@@ -63,7 +63,9 @@ const ProfilePage = () => {
               <Row>
                 <H2>{userName}</H2>
                 <EditButton>
-                  <EditProfileButton>Edit Profile</EditProfileButton>
+                  <EditProfileButton onClick={() => navigate("/account/edit")}>
+                    Edit Profile
+                  </EditProfileButton>
                 </EditButton>
                 <SettingProfileButton>
                   <SettingProfileSvg />
@@ -105,7 +107,7 @@ const ProfilePage = () => {
                   POSTs
                 </PostLinks>
               ) : (
-                <PostLinksDiv onClick={() => nav("")}>
+                <PostLinksDiv onClick={() => navigate("")}>
                   <span>
                     <GridOnIcon />
                   </span>

@@ -13,7 +13,7 @@ import CreateNewPost from "../../components/Create new Post/CreateNewPost";
 import Message from "../Message/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { userDataFetchStart } from "../../redux/user/action";
-import EditProfile from "../../components/Edit Profile/EditProfile";
+import EditProfile from "../../components/Profile_Setting/EditProfile";
 import ProfileSetting from "../Profile Setting/ProfileSetting";
 
 const PostCalling = createContext();
