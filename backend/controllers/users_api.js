@@ -1,8 +1,5 @@
 const User = require("../models/User");
 
-<<<<<<< HEAD
-const userLogin = async (request, response) => {};
-=======
 const getUserDetails = async (request, response) => {
   try {
     console.log();
@@ -64,7 +61,6 @@ const userLogin = async (request, response) => {
   }
 };
 
->>>>>>> 023665faff6329e3efd29e34c2d47650b1cf8276
 const createNewUser = async (request, response) => {
   try {
     const user = await User.findOne({

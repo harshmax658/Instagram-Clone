@@ -9,7 +9,7 @@ export const Left = styled.div`
 
   flex-direction: column;
   border-right: 1px solid lightgray;
-  width: 30%;
+  width: 26%;
 
   a {
     color: black;

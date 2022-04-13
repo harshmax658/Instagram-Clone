@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
 import FormmInputComponent from "../Form Input/FormInputComponent";
 
+import CustomButtonComponent from "../custom button/CustomButtonComponent";
 import useLoginSignup from "../../Custom Hooks/useLoginSignup";
 import {
   ChangeProfilePhoto,
@@ -12,6 +13,10 @@ import {
   Center,
   Input,
   Notice,
+  UserImg,
+  PersonalInformation,
+  PersonalInformationNotice,
+  SubmitButton,
 } from "./EditProfileStyle";
 
 const EditProfile = () => {
@@ -27,15 +32,19 @@ const EditProfile = () => {
     <Center>
       <Container>
         <ChangeProfilePhoto>
-          <LogedUserImage style={{ width: "32px", height: "32px" }} />
+          <UserImg className="l30p">
+            <LogedUserImage style={{ width: "32px", height: "32px" }} />
+          </UserImg>
           <ChangeButton>
-            <div>{userName}</div>
+            <h2>{userName}</h2>
             <div>Change Profile Photo</div>
           </ChangeButton>
         </ChangeProfilePhoto>
         <Form>
           <Input>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name" className="l30p">
+              Name
+            </label>
             <Notice>
               <FormmInputComponent
                 name="name"
@@ -53,7 +62,9 @@ const EditProfile = () => {
           </Input>
 
           <Input>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username" className="l30p">
+              Username
+            </label>
             <Notice>
               <FormmInputComponent
                 name="username"
@@ -69,27 +80,88 @@ const EditProfile = () => {
           </Input>
 
           <Input>
-            <label htmlFor="website">Website</label>{" "}
+            <label htmlFor="website" className="l30p">
+              Website
+            </label>
             <Notice>
               <FormmInputComponent
                 name="website"
                 value={website}
                 onChange={setFormData}
                 id="website"
+                placeholder="Website"
               />
             </Notice>
           </Input>
           <Input>
-            <label htmlFor="bio">Bio</label>
+            <label htmlFor="bio" className="l30p">
+              Bio
+            </label>
             <Notice>
-              <FormmInputComponent
+              <textarea
+                type="textarea"
                 name="bio"
                 value={bio}
                 onChange={setFormData}
                 id="bio"
-              />{" "}
+              />
+              <PersonalInformationNotice>
+                <h2>Personal Information</h2>
+                <p>
+                  Provide your personal information, even if the account is used
+                  for a business, a pet or something else. This won't be a part
+                  of your public profile.
+                </p>
+              </PersonalInformationNotice>
             </Notice>
           </Input>
+          <PersonalInformation>
+            <Input>
+              <label htmlFor="email" className="l30p">
+                Email
+              </label>
+              <Notice>
+                <FormmInputComponent
+                  name="email"
+                  value={website}
+                  onChange={setFormData}
+                  id="email"
+                  placeholder="email"
+                />
+              </Notice>
+            </Input>
+            <Input>
+              <label htmlFor="phone" className="l30p">
+                Phone Number
+              </label>
+              <Notice>
+                <FormmInputComponent
+                  name="phone"
+                  value={website}
+                  onChange={setFormData}
+                  id="phone"
+                  placeholder="phone"
+                />
+              </Notice>
+            </Input>
+            <Input>
+              <label htmlFor="gender" className="l30p">
+                Gender
+              </label>
+              <Notice>
+                <FormmInputComponent
+                  name="gender"
+                  value={website}
+                  onChange={setFormData}
+                  id="gender"
+                  placeholder="gender"
+                />
+              </Notice>
+            </Input>
+          </PersonalInformation>
+          <SubmitButton>
+            <CustomButtonComponent>Submit</CustomButtonComponent>
+          </SubmitButton>
         </Form>
       </Container>
     </Center>
