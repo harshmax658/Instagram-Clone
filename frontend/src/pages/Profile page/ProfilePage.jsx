@@ -63,7 +63,7 @@ const ProfilePage = () => {
               <Row>
                 <H2>{userName}</H2>
                 <EditButton>
-                  <EditProfileButton onClick={() => navigate("/account/edit")}>
+                  <EditProfileButton onClick={() => navigate("/accounts/edit")}>
                     Edit Profile
                   </EditProfileButton>
                 </EditButton>

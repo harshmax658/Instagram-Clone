@@ -27,6 +27,7 @@ export const Container = styled.div`
 export const ChangeProfilePhoto = styled.div`
   display: flex;
   margin-bottom: 10px;
+  ${({ cngp }) => cngp && "align-items: center;"}
 `;
 export const ChangeButton = styled.div`
   h2 {

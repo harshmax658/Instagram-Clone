@@ -14,6 +14,7 @@ import Message from "../Message/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { userDataFetchStart } from "../../redux/user/action";
 import EditProfile from "../../components/Profile_Setting/EditProfile";
+import ChangePassword from "../../components/Profile_Setting/ChangePassword";
 import ProfileSetting from "../Profile Setting/ProfileSetting";
 
 const PostCalling = createContext();
@@ -75,9 +76,9 @@ const RouterHandler = () => {
 
             <Route path="inbox" element={<Message />} />
 
-            <Route path="account" element={<ProfileSetting />}>
+            <Route path="accounts" element={<ProfileSetting />}>
               <Route path="edit" element={<EditProfile />} />
-              <Route path="account2" element={null} />
+              <Route path="password/change" element={<ChangePassword />} />
               <Route path="account3" element={null} />
               <Route path="account4" element={null} />
               <Route path="account5" element={null} />

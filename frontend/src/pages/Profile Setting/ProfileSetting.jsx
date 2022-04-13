@@ -15,7 +15,7 @@ const EditProfile = () => {
             >
               EditProfile
             </NavLink>
-            <NavLink activeclassname="active" to="account2">
+            <NavLink activeclassname="active" to="password/change">
               Change Password
             </NavLink>
             <NavLink activeclassname="active" to="account2">

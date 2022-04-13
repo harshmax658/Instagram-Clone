@@ -17,7 +17,7 @@ import {
   PersonalInformation,
   PersonalInformationNotice,
   SubmitButton,
-} from "./EditProfileStyle";
+} from "./ProfileSettingStyle";
 
 const EditProfile = () => {
   const { userName, fullName, emailOrMobile } = useSelector(
