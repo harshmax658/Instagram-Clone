@@ -33,12 +33,14 @@ const sendUserJwt = async (request, response) => {
 
 const userLogin = async (request, response) => {
   try {
+    console.log(request.body);
     const user = await User.findOne({
       $or: [
-        { usernNme: request.body.userName },
+        { userName: request.body.userName },
         { emailOrMobile: request.body.userName },
       ],
     }).select("password");
+    console.log(user);
     if (user.password === request.body.password) {
       user["password"] = null;
       const token = User.generateToken(user, "H@rsh", "30d");
@@ -57,11 +59,13 @@ const userLogin = async (request, response) => {
         .json({ message: "User login details did'nt match" });
     }
   } catch (error) {
+    console.log(error);
     return response.status(500).json({ message: "Internal server error" });
   }
 };
 
 const createNewUser = async (request, response) => {
+  console.log(request.body);
   try {
     const user = await User.findOne({
       emailOrMobile: request.body.emailOrMobile,
@@ -79,7 +83,7 @@ const createNewUser = async (request, response) => {
           message: "User registerd succesfully",
         });
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         return response.status(422).json({
           message: "Error while creating user",
         });

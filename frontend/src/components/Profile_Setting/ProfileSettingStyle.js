@@ -17,6 +17,8 @@ export const Container = styled.div`
 
   margin-right: 40px;
 
+  margin-left: 50px;
+
   .l30p {
     width: 20%;
     display: flex;
@@ -27,7 +29,7 @@ export const Container = styled.div`
 export const ChangeProfilePhoto = styled.div`
   display: flex;
   margin-bottom: 10px;
-  ${({ cngp }) => cngp && "align-items: center;"}
+  ${({ cngp }) => cngp && "align-items: center; .input{height:40px!important}"}
 `;
 export const ChangeButton = styled.div`
   h2 {
@@ -42,19 +44,20 @@ export const ChangeButton = styled.div`
 `;
 export const Input = styled.div`
   display: flex;
-  /* flex-direction: column; */
-  align-items: baseline;
+
+  align-items: ${({ cngp }) => (cngp ? "center" : "baseline")};
   margin-bottom: 15px;
   label {
     font-size: 1rem;
     font-weight: bold;
+    text-align: end;
   }
   input,
   textarea {
     border-radius: 3px;
     width: 100%;
     padding: 0px 11px;
-    height: 30px;
+    height: ${({ cngp }) => (cngp ? "40px" : "30px")};
     background: none;
     border: 1px solid lightgray;
     font-size: 17px;
@@ -71,9 +74,20 @@ export const Form = styled.form`
 export const SubmitButton = styled.div`
   width: 68%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   button {
-    width: 25%;
+    min-width: 25%;
+    width: auto;
+    padding: 0 5px;
+    font-size: 14px;
+  }
+
+  .forgotPassword {
+    margin-top: 30px;
+    text-align: start;
+    cursor: pointer;
+    color: #0095f6;
   }
 `;
 export const Notice = styled.div`

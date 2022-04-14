@@ -31,9 +31,10 @@ export const userDataFetchFailure = (data) => {
   };
 };
 
-export const checkAuthorization = () => {
+export const checkAuthorization = (data) => {
   return {
     type: CHECK_AUTHORIZATION,
+    data,
   };
 };
 export const signInStart = (data) => {

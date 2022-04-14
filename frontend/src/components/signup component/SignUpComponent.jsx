@@ -29,6 +29,7 @@ import useLoginSignup from "../../Custom Hooks/useLoginSignup";
 
 import { useDispatch, useSelector } from "react-redux";
 import { signUpStart } from "../../redux/user/action";
+import { useNavigate } from "react-router-dom";
 
 const monthsArray = [
   "January",
@@ -48,6 +49,7 @@ const monthsArray = [
 const date = new window.Date();
 
 const SignUpComponent = ({ login }) => {
+  const navigate = useNavigate();
   const [data] = useState({
     day: date.getDate(),
     month: monthsArray[date.getMonth()],
@@ -99,7 +101,19 @@ const SignUpComponent = ({ login }) => {
   const createUserAccount = (event) => {
     event.preventDefault();
     if (takeBirthday) {
-      dispatch(signUpStart(signUpData));
+      if (
+        emailOrMobile &&
+        fullName &&
+        userName &&
+        password &&
+        day &&
+        month &&
+        year
+      ) {
+        dispatch(signUpStart({ signUpData, navigate }));
+      } else {
+        console.log("nhi ho payega");
+      }
     } else {
       if (emailOrMobile && fullName && userName && password) {
         setTakeBirthday(true);
