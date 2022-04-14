@@ -9,8 +9,14 @@ const {
   userLogin,
   sendUserJwt,
   getUserDetails,
+  updateUserProfile,
 } = require("../../controllers/users_api");
 
+router.post(
+  "/update-user-profile",
+  passport.authenticate("jwt", { session: false }),
+  updateUserProfile
+);
 router.get(
   "/isAuthorized",
   userPresent,

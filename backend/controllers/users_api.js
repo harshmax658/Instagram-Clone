@@ -1,10 +1,37 @@
 const User = require("../models/User");
 
+const updateUserProfile = async (request, response) => {
+  try {
+    console.log(request.user.id);
+    let user = await User.findById(request.user.id);
+    if (user) {
+      if (request.body.userName) user.userName = request.body["userName"];
+      if (request.body.fullName) user.fullName = request.body["fullName"];
+      if (request.body.emailOrMobile)
+        user.emailOrMobile = request.body["emailOrMobile"];
+      await user.save();
+
+      await user.save();
+      return response.status(200).json({
+        message: "user Update",
+      });
+    }
+    return response.status(400).json({
+      message: "Failed user Update",
+    });
+  } catch (error) {
+    console.log(error);
+    return response.status(500).json({
+      message: "Internal Server error",
+    });
+  }
+};
 const getUserDetails = async (request, response) => {
   try {
     console.log();
     const id = request.user.id;
     const user = await User.findById(id);
+    console.log(user);
     if (user) {
       return response.status(200).json({
         message: "user datails found",
@@ -33,7 +60,6 @@ const sendUserJwt = async (request, response) => {
 
 const userLogin = async (request, response) => {
   try {
-    console.log(request.body);
     const user = await User.findOne({
       $or: [
         { userName: request.body.userName },
@@ -97,4 +123,10 @@ const createNewUser = async (request, response) => {
   }
 };
 
-module.exports = { createNewUser, userLogin, sendUserJwt, getUserDetails };
+module.exports = {
+  createNewUser,
+  userLogin,
+  sendUserJwt,
+  getUserDetails,
+  updateUserProfile,
+};

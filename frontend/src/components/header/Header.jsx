@@ -19,6 +19,7 @@ import { useState } from "react";
 
 import ImageComponent from "../IMG/ImageComponent";
 import { useLocation } from "react-router-dom";
+import LogedUserImage from "../LogedUserImage/LogedUserImage";
 
 const Header = ({ call, setNewPost }) => {
   const [value, setValue] = useState(false);
@@ -76,6 +77,16 @@ const Header = ({ call, setNewPost }) => {
             <LinkItem
               Icon={<LoveSvg location={checkActive("/likes")} />}
               pathname="/likes"
+            />
+            <LinkItem
+              Icon={
+                <LogedUserImage
+                  width="23px"
+                  height="23px"
+                  location={checkActive("/likes")}
+                />
+              }
+              pathname="profile"
             />
           </IconsContainer>
         </Center>
