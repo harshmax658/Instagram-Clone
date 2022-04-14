@@ -20,8 +20,11 @@ function App() {
       <AppStyle>
         <Routes>
           {!token && <Route path="/" element={<LoginSignupPage />} />}
+          <Route
+            path="/emailsignup"
+            element={token ? <Navigate to="/" /> : <EmailSignupPage />}
+          />
           <Route path="/*" element={<RouterHandler />} />
-          <Route path="/emailsignup" element={<EmailSignupPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         {/* Style */}
