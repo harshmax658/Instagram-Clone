@@ -5,10 +5,11 @@ const updateUserProfile = async (request, response) => {
     console.log(request.user.id);
     let user = await User.findById(request.user.id);
     if (user) {
-      if (request.body.userName) user.userName = request.body["userName"];
-      if (request.body.fullName) user.fullName = request.body["fullName"];
+      if (request.body.username) user.userName = request.body["username"];
+      if (request.body.name) user.fullName = request.body["name"];
       if (request.body.emailOrMobile)
         user.emailOrMobile = request.body["emailOrMobile"];
+      if (request.body.gender) user.gender = request.body["gender"];
       await user.save();
 
       await user.save();

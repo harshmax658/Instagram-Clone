@@ -33,6 +33,10 @@ const EditProfile = () => {
     gender: "",
   });
   const { name, username, email, bio, website, phone, gender } = formData;
+
+  const updateProfile = (event) => {
+    event.preventDefault();
+  };
   return (
     <Center>
       <Container>
@@ -45,7 +49,7 @@ const EditProfile = () => {
             <div>Change Profile Photo</div>
           </ChangeButton>
         </ChangeProfilePhoto>
-        <Form>
+        <Form onSubmit={updateProfile}>
           <Input>
             <label htmlFor="name" className="l30p">
               Name
