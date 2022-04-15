@@ -47,4 +47,17 @@ export const Center = styled.div`
   width: 100%;
   align-items: center;
 `;
+
+
+export const ImageDiv = styled.div`
+      
+`
+export const ImageIcon = styled.img`
+  width:24px;
+  height:24px;
+  cursor:pointer;
+  border-radius:50%;
+
+`
+
 //hem
