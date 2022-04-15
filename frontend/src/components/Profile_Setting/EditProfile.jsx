@@ -47,21 +47,21 @@ const EditProfile = () => {
   useEffect(() => {
     if (isPhotoSelected && profilePhoto) {
       console.log("execute");
-      const form = new FormData();
+      const profilePhotoImg = new FormData();
 
-      form.append("avatar", profilePhoto);
+      profilePhotoImg.append("avatar", profilePhoto);
 
-      // dispatch(userDataUpdateStart({ form, token }));
+      dispatch(userDataUpdateStart({ profilePhotoImg, token }));
       const a = async () => {
         const response = await fetch("/api/user/update-user-profile", {
           method: "Post",
           headers: {
             Authorization: token,
           },
-          body: form,
+          body: profilePhotoImg,
         });
       };
-      a();
+      // a();
     }
   }, [isPhotoSelected, profilePhoto]);
   const setProfilePhoto = (event) => {

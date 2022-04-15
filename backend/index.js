@@ -14,8 +14,9 @@ require("./config/passport js/config");
 app.use(passport.initialize());
 const routerPath = path.join(__dirname, "/routes");
 
-const imagePath  = express.static(__dirname+"/Images")
-app.use('/images',imagePath);
+const imagePath = express.static(__dirname + "/Images");
+app.use("/images", imagePath);
+app.use("/uploads", express.static(__dirname + "/uploads"));
 
 app.use(require(routerPath));
 

@@ -16,20 +16,36 @@ import {
   userDataUpdateFailure,
 } from "./action";
 
-function* updateuserDataStart({ data: { form, token } }) {
+function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
   try {
-    const response = yield fetch("/api/user/update-user-profile", {
-      method: "Post",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-      body: form,
-    });
+    let response;
+    if (profilePhotoImg) {
+      response = yield fetch("/api/user/update-user-profile", {
+        method: "Post",
+        headers: {
+          Authorization: token,
+        },
+        body: profilePhotoImg,
+      });
+    } else {
+      response = yield fetch("/api/user/update-user-profile", {
+        method: "Post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify(formData),
+      });
+    }
+    //
     const dataJson = yield response.json();
+
     if (response.status === 200) {
-      console.log();
-      yield put(userDataUpdateSuccess(dataJson.data.userData));
+      if (profilePhotoImg) {
+        console.log(dataJson);
+      } else {
+        yield put(userDataUpdateSuccess(dataJson.data.userData));
+      }
     } else {
       throw new Error(dataJson.message);
     }

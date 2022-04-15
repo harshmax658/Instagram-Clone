@@ -2,8 +2,7 @@ const User = require("../models/User");
 
 const updateUserProfile = async (request, response) => {
   try {
-    console.log("aya");
-    let user = await User.findById(request.user.id);
+    const user = await User.findById(request.user.id);
     User.uploadAvatar(request, response, async (error) => {
       if (error) {
         return response.status(400).json({
@@ -12,9 +11,13 @@ const updateUserProfile = async (request, response) => {
       }
 
       if (request.file) {
+        user.avatar = User.avatarPath + "/" + request.file.filename;
+
+        await user.save();
+
         return response.status(200).json({
-          // pathLocation: user.avatar,
-          msg: "Image Upload",
+          message: "Image Upload",
+          path: user.avatar,
         });
       } else {
         const userData = {};
