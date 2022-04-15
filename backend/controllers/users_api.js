@@ -1,5 +1,8 @@
 const User = require("../models/User");
 
+<<<<<<< HEAD
+
+=======
 const updateUserProfile = async (request, response) => {
   try {
     console.log(request.user.id);
@@ -27,6 +30,7 @@ const updateUserProfile = async (request, response) => {
     });
   }
 };
+>>>>>>> d2c42ca0a31d67bb0555521214757f7b8eaa1ce5
 const getUserDetails = async (request, response) => {
   try {
     console.log();

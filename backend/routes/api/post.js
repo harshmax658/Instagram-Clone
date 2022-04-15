@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
+<<<<<<< HEAD
+=======
 
+>>>>>>> d2c42ca0a31d67bb0555521214757f7b8eaa1ce5
 const {
   createPost,
   updatePost,
