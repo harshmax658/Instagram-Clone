@@ -4,22 +4,22 @@ const router = require("express").Router();
 //creating post
 const createPost = async (req, res) => {
       
-      const url = req.protocol + '://' + req.get('host')
-      let pimage = url + '/images/' + req.file.filename
+  //     const url = req.protocol + '://' + req.get('host')
+  //     let pimage = url + '/images/' + req.file.filename
 
-  try {
-    const newPost = new Post({
-      ...req.body,image:pimage
-    });
+  // try {
+  //   const newPost = new Post({
+  //     ...req.body,image:pimage
+  //   });
 
-    const savedPost = await newPost.save();
-    res.status(200).json(savedPost);
-  } catch (error) {
-    res.status(500).json({
-      message: "Internal server error",
-      error,
-    });
-  }
+  //   const savedPost = await newPost.save();
+  //   res.status(200).json(savedPost);
+  // } catch (error) {
+  //   res.status(500).json({
+  //     message: "Internal server error",
+  //     error,
+  //   });
+  // }
 };
 
 

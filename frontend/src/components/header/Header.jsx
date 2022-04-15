@@ -21,6 +21,11 @@ import { useState } from "react";
 import Dropdown from './Dropdown/Dropdown';
 import ImageComponent from "../IMG/ImageComponent";
 import { useLocation } from "react-router-dom";
+<<<<<<< HEAD
+=======
+import LogedUserImage from "../LogedUserImage/LogedUserImage";
+
+>>>>>>> d2c42ca0a31d67bb0555521214757f7b8eaa1ce5
 const Header = ({ call, setNewPost }) => {
   const [renderProfileDrop , setRenderProfileDrop] = useState(false);
   const [renderLikeDrop , setRenderLikeDrop] = useState(false);
@@ -131,6 +136,41 @@ const Header = ({ call, setNewPost }) => {
         /> : null
 }      </div>
 
+<<<<<<< HEAD
+=======
+            <LinkItem
+              Icon={<HomeSvg location={checkActive("/")} />}
+              pathname="/"
+            />
+            <LinkItem
+              Icon={<MessageSvg location={checkActive("/inbox")} />}
+              pathname="/inbox"
+              onClick={() => setValue(true)}
+            />
+            <LinkItem
+              Icon={<AddSvg location={checkActive("/")} />}
+              pathname="/ss"
+              setNewPost={setNewPost}
+            />
+            <LinkItem
+              Icon={<ExploreSvg location={checkActive("/explore")} />}
+              pathname="/explore"
+            />
+            <LinkItem
+              Icon={<LoveSvg location={checkActive("/likes")} />}
+              pathname="/likes"
+            />
+            <LinkItem
+              Icon={
+                <LogedUserImage
+                  width="23px"
+                  height="23px"
+                  location={checkActive("/likes")}
+                />
+              }
+              pathname="profile"
+            />
+>>>>>>> d2c42ca0a31d67bb0555521214757f7b8eaa1ce5
           </IconsContainer>
         </Center>
       </Container>

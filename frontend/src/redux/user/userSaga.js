@@ -38,7 +38,7 @@ function* fetchUserData() {
   yield takeLatest(USER_DATA_FETCH_START, fetchUserDataStart);
 }
 
-function* userAuthorizationProcessStart() {
+function* userAuthorizationProcessStart({ data }) {
   try {
     const response = yield fetch("/api/user/isAuthorized", {
       headers: {
@@ -48,12 +48,13 @@ function* userAuthorizationProcessStart() {
       credentials: "include",
     });
 
-    const dataInJson = yield response.json();
-    console.log(dataInJson);
     if (response.status === 200) {
+      const dataInJson = yield response.json();
+      console.log(dataInJson);
       yield put(signInSuccess(dataInJson.userToken));
     } else {
-      throw new Error(dataInJson.message);
+      // throw new Error(dataInJson.message);
+      data("");
     }
   } catch (error) {
     console.log(error);
@@ -86,15 +87,16 @@ function* userSignIn() {
   yield takeLatest(USER_SIGN_IN_START, userSignInStart);
 }
 
-function* signUpStart({ data }) {
+function* signUpStart({ data: { signUpData, navigate } }) {
   try {
     const response = yield fetch("/api/user/create-new-user", {
       method: "Post",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(signUpData),
     });
     const dataInJson = yield response.json();
     if (response.status === 200) {
+      navigate("/");
     } else {
       throw new Error(dataInJson.message);
     }

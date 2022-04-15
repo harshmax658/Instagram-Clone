@@ -16,6 +16,10 @@
     "mongoose": "^6.2.10",
     "multer": "^1.4.4",
     "nodemon": "^2.0.15",
+<<<<<<< HEAD
+=======
+    "path": "^0.12.7",
+>>>>>>> d2c42ca0a31d67bb0555521214757f7b8eaa1ce5
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0"
   }

@@ -33,10 +33,10 @@ const LoginComponent = ({ login }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loginData, setLoginData] = useLoginSignup({
-    username: "",
+    userName: "",
     password: "",
   });
-  const { username, password } = loginData;
+  const { userName, password } = loginData;
   const loginuser = (event) => {
     event.preventDefault();
     dispatch(signInStart(loginData));
@@ -53,11 +53,11 @@ const LoginComponent = ({ login }) => {
           </div>
           <FormInputComponent
             label="Phone number, username, or email"
-            name="username"
+            name="userName"
             type="text"
-            id="username"
-            htmlFor="username"
-            value={username}
+            id="userName"
+            htmlFor="userName"
+            value={userName}
             onChange={setLoginData}
           />
           <FormInputComponent
@@ -71,7 +71,7 @@ const LoginComponent = ({ login }) => {
             onChange={setLoginData}
           />
           <LoginButton>
-            <CustomButtonComponent disabled={!(username && password) && true}>
+            <CustomButtonComponent disabled={!(userName && password) && true}>
               Log in
             </CustomButtonComponent>
           </LoginButton>

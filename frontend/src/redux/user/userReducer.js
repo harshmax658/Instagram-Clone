@@ -40,6 +40,7 @@ const userReducer = (state = initialUserState, action) => {
         followers: [],
         following: [],
         userPresent: true,
+        emailOrMobile: action.data.data.emailOrMobile,
       };
     }
 
