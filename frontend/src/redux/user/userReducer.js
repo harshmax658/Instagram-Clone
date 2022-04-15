@@ -5,6 +5,7 @@ import {
   USER_SIGN_IN_SUCCESS,
   USER_SIGN_UP_FAILURE,
   USER_DATA_FETCH_SUCCESS,
+  USER_DATA_UPDATE_SUCCESS,
 } from "./action";
 const initialUserState = {
   userData: null,
@@ -42,6 +43,9 @@ const userReducer = (state = initialUserState, action) => {
         userPresent: true,
         emailOrMobile: action.data.data.emailOrMobile,
       };
+    }
+    case USER_DATA_UPDATE_SUCCESS: {
+      return { ...state, ...action.data };
     }
 
     case USER_SIGN_IN_FAILURE:

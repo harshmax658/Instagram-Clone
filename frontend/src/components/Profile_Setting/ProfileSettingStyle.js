@@ -36,10 +36,13 @@ export const ChangeButton = styled.div`
     font-weight: 300;
     font-size: 1.4rem;
   }
-  div {
+  label {
     cursor: pointer;
     color: #0095f6;
     font-weight: bold;
+  }
+  input {
+    display: none;
   }
 `;
 export const Input = styled.div`

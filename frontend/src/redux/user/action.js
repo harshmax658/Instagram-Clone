@@ -10,7 +10,30 @@ export const USER_DATA_FETCH_START = "USER_DATA_FETCH_START";
 export const USER_DATA_FETCH_SUCCESS = "USER_DATA_FETCH_SUCCESS";
 export const USER_DATA_FETCH_FAILURE = "USER_DATA_FETCH_FAILURE";
 
+export const USER_DATA_UPDATE_START = "USER_DATA_UPDATE_START";
+export const USER_DATA_UPDATE_SUCCESS = "USER_DATA_UPDATE_SUCCESS";
+export const USER_DATA_UPDATE_FAILURE = "USER_DATA_UPDATE_FAILURE";
+
 export const CHECK_AUTHORIZATION = "CHECK_AUTHORIZATION";
+
+export const userDataUpdateStart = (data) => {
+  return {
+    type: USER_DATA_UPDATE_START,
+    data,
+  };
+};
+export const userDataUpdateSuccess = (data) => {
+  return {
+    type: USER_DATA_UPDATE_SUCCESS,
+    data,
+  };
+};
+export const userDataUpdateFailure = (data) => {
+  return {
+    type: USER_DATA_UPDATE_FAILURE,
+    data,
+  };
+};
 
 export const userDataFetchStart = (data) => {
   return {

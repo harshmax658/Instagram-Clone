@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
 import FormmInputComponent from "../Form Input/FormInputComponent";
 
@@ -19,8 +19,13 @@ import {
   SubmitButton,
 } from "./ProfileSettingStyle";
 
+import { userDataUpdateStart } from "../../redux/user/action";
+
 const EditProfile = () => {
-  const { userName, fullName, emailOrMobile } = useSelector(
+  const dispatch = useDispatch();
+  const [isPhotoSelected, setIsPhotoSelected] = useState(false);
+  const [profilePhoto, setprofilePhoto] = useState("");
+  const { userName, fullName, emailOrMobile, token, userData } = useSelector(
     ({ userReducer }) => userReducer
   );
   const [formData, setFormData] = useLoginSignup({
@@ -30,12 +35,39 @@ const EditProfile = () => {
     website: "",
     email: emailOrMobile,
     phone: emailOrMobile,
-    gender: "",
+    gender: userData.gender,
   });
   const { name, username, email, bio, website, phone, gender } = formData;
 
   const updateProfile = (event) => {
     event.preventDefault();
+
+    dispatch(userDataUpdateStart({ formData, token }));
+  };
+  useEffect(() => {
+    if (isPhotoSelected && profilePhoto) {
+      console.log("execute");
+      const form = new FormData();
+
+      form.append("avatar", profilePhoto);
+
+      // dispatch(userDataUpdateStart({ form, token }));
+      const a = async () => {
+        const response = await fetch("/api/user/update-user-profile", {
+          method: "Post",
+          headers: {
+            Authorization: token,
+          },
+          body: form,
+        });
+      };
+      a();
+    }
+  }, [isPhotoSelected, profilePhoto]);
+  const setProfilePhoto = (event) => {
+    setIsPhotoSelected(true);
+
+    setprofilePhoto(event.target.files[0]);
   };
   return (
     <Center>
@@ -46,7 +78,13 @@ const EditProfile = () => {
           </UserImg>
           <ChangeButton>
             <h2>{userName}</h2>
-            <div>Change Profile Photo</div>
+            <label htmlFor="profilePhoto">Change Profile Photo</label>
+            <input
+              onChange={setProfilePhoto}
+              type="file"
+              name="profilePhoto"
+              id="profilePhoto"
+            />
           </ChangeButton>
         </ChangeProfilePhoto>
         <Form onSubmit={updateProfile}>

@@ -1,28 +1,52 @@
 const User = require("../models/User");
 
-<<<<<<< HEAD
-
-=======
 const updateUserProfile = async (request, response) => {
   try {
-    console.log(request.user.id);
+    console.log("aya");
     let user = await User.findById(request.user.id);
-    if (user) {
-      if (request.body.username) user.userName = request.body["username"];
-      if (request.body.name) user.fullName = request.body["name"];
-      if (request.body.emailOrMobile)
-        user.emailOrMobile = request.body["emailOrMobile"];
-      if (request.body.gender) user.gender = request.body["gender"];
-      await user.save();
+    User.uploadAvatar(request, response, async (error) => {
+      if (error) {
+        return response.status(400).json({
+          message: "error in upload image",
+        });
+      }
 
-      await user.save();
-      return response.status(200).json({
-        message: "user Update",
-      });
-    }
-    return response.status(400).json({
-      message: "Failed user Update",
+      if (request.file) {
+        return response.status(200).json({
+          // pathLocation: user.avatar,
+          msg: "Image Upload",
+        });
+      } else {
+        const userData = {};
+
+        if (request.body.username) {
+          user.userName = request.body["username"];
+          userData["userName"] = user.userName;
+        }
+        if (request.body.name) {
+          user.fullName = request.body["name"];
+          userData["fullName"] = user.fullName;
+        }
+        if (request.body.emailOrMobile) {
+          user.emailOrMobile = request.body["emailOrMobile"];
+          userData["emailOrMobile"] = user.emailOrMobile;
+        }
+        if (request.body.gender) {
+          user.gender = request.body["gender"];
+          userData["gender"] = user.gender;
+        }
+        await user.save();
+
+        return response.status(200).json({
+          message: "user Update",
+          data: { userData },
+        });
+      }
     });
+
+    // return response.status(400).json({
+    //   message: "Failed user Update",
+    // });
   } catch (error) {
     console.log(error);
     return response.status(500).json({
@@ -30,13 +54,12 @@ const updateUserProfile = async (request, response) => {
     });
   }
 };
->>>>>>> d2c42ca0a31d67bb0555521214757f7b8eaa1ce5
+
 const getUserDetails = async (request, response) => {
   try {
-    console.log();
     const id = request.user.id;
     const user = await User.findById(id);
-    console.log(user);
+
     if (user) {
       return response.status(200).json({
         message: "user datails found",
@@ -71,7 +94,7 @@ const userLogin = async (request, response) => {
         { emailOrMobile: request.body.userName },
       ],
     }).select("password");
-    console.log(user);
+
     if (user.password === request.body.password) {
       user["password"] = null;
       const token = User.generateToken(user, "H@rsh", "30d");
@@ -96,7 +119,6 @@ const userLogin = async (request, response) => {
 };
 
 const createNewUser = async (request, response) => {
-  console.log(request.body);
   try {
     const user = await User.findOne({
       emailOrMobile: request.body.emailOrMobile,
@@ -114,14 +136,12 @@ const createNewUser = async (request, response) => {
           message: "User registerd succesfully",
         });
       } catch (error) {
-        // console.log(error);
         return response.status(422).json({
           message: "Error while creating user",
         });
       }
     }
   } catch (error) {
-    // console.log(error);
     return response.status(500).json({
       message: "Internal server Error",
     });
