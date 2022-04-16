@@ -25,9 +25,8 @@ const EditProfile = () => {
   const dispatch = useDispatch();
   const [isPhotoSelected, setIsPhotoSelected] = useState(false);
   const [profilePhoto, setprofilePhoto] = useState("");
-  const { userName, fullName, emailOrMobile, token, userData } = useSelector(
-    ({ userReducer }) => userReducer
-  );
+  const { userName, fullName, emailOrMobile, token, userData, avatar } =
+    useSelector(({ userReducer }) => userReducer);
   const [formData, setFormData] = useLoginSignup({
     name: fullName,
     username: userName,
@@ -46,29 +45,19 @@ const EditProfile = () => {
   };
   useEffect(() => {
     if (isPhotoSelected && profilePhoto) {
-      console.log("execute");
       const profilePhotoImg = new FormData();
 
       profilePhotoImg.append("avatar", profilePhoto);
 
       dispatch(userDataUpdateStart({ profilePhotoImg, token }));
-      const a = async () => {
-        const response = await fetch("/api/user/update-user-profile", {
-          method: "Post",
-          headers: {
-            Authorization: token,
-          },
-          body: profilePhotoImg,
-        });
-      };
-      // a();
     }
-  }, [isPhotoSelected, profilePhoto]);
+  }, [isPhotoSelected, profilePhoto, dispatch, token]);
   const setProfilePhoto = (event) => {
     setIsPhotoSelected(true);
 
     setprofilePhoto(event.target.files[0]);
   };
+  console.log(avatar);
   return (
     <Center>
       <Container>

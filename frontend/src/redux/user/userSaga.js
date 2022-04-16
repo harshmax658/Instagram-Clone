@@ -14,6 +14,7 @@ import {
   signInSuccess,
   userDataUpdateSuccess,
   userDataUpdateFailure,
+  setUserProfilePicture,
 } from "./action";
 
 function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
@@ -42,7 +43,7 @@ function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
 
     if (response.status === 200) {
       if (profilePhotoImg) {
-        console.log(dataJson);
+        yield put(setUserProfilePicture(dataJson.path));
       } else {
         yield put(userDataUpdateSuccess(dataJson.data.userData));
       }

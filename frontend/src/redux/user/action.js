@@ -16,6 +16,15 @@ export const USER_DATA_UPDATE_FAILURE = "USER_DATA_UPDATE_FAILURE";
 
 export const CHECK_AUTHORIZATION = "CHECK_AUTHORIZATION";
 
+export const SET_USER_PROFILE_PICTURE = "SET_USER_PROFILE_PICTURE";
+
+export const setUserProfilePicture = (data) => {
+  return {
+    type: SET_USER_PROFILE_PICTURE,
+    data,
+  };
+};
+
 export const userDataUpdateStart = (data) => {
   return {
     type: USER_DATA_UPDATE_START,
