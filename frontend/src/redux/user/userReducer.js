@@ -5,6 +5,8 @@ import {
   USER_SIGN_IN_SUCCESS,
   USER_SIGN_UP_FAILURE,
   USER_DATA_FETCH_SUCCESS,
+  USER_DATA_UPDATE_SUCCESS,
+  SET_USER_PROFILE_PICTURE,
 } from "./action";
 const initialUserState = {
   userData: null,
@@ -28,6 +30,9 @@ const userReducer = (state = initialUserState, action) => {
     case USER_SIGN_IN_SUCCESS: {
       return { ...state, token: action.data };
     }
+    case SET_USER_PROFILE_PICTURE: {
+      return { ...state, avatar: action.data };
+    }
     case USER_DATA_FETCH_SUCCESS: {
       return {
         ...state,
@@ -42,6 +47,9 @@ const userReducer = (state = initialUserState, action) => {
         userPresent: true,
         emailOrMobile: action.data.data.emailOrMobile,
       };
+    }
+    case USER_DATA_UPDATE_SUCCESS: {
+      return { ...state, ...action.data };
     }
 
     case USER_SIGN_IN_FAILURE:

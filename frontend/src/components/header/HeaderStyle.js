@@ -48,16 +48,14 @@ export const Center = styled.div`
   align-items: center;
 `;
 
-
 export const ImageDiv = styled.div`
-      
-`
+  cursor: pointer;
+`;
 export const ImageIcon = styled.img`
-  width:24px;
-  height:24px;
-  cursor:pointer;
-  border-radius:50%;
-
-`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+`;
 
 //hem

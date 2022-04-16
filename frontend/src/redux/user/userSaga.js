@@ -1,8 +1,10 @@
+import { takeLatest, all, call, put } from "@redux-saga/core/effects";
 import {
   USER_SIGN_UP_START,
   USER_SIGN_IN_START,
   CHECK_AUTHORIZATION,
   USER_DATA_FETCH_START,
+  USER_DATA_UPDATE_START,
 } from "./action";
 import {
   signUpFailure,
@@ -10,9 +12,53 @@ import {
   userDataFetchFailure,
   signInFailure,
   signInSuccess,
+  userDataUpdateSuccess,
+  userDataUpdateFailure,
+  setUserProfilePicture,
 } from "./action";
 
-import { takeLatest, all, call, put } from "@redux-saga/core/effects";
+function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
+  try {
+    let response;
+    if (profilePhotoImg) {
+      response = yield fetch("/api/user/update-user-profile", {
+        method: "Post",
+        headers: {
+          Authorization: token,
+        },
+        body: profilePhotoImg,
+      });
+    } else {
+      response = yield fetch("/api/user/update-user-profile", {
+        method: "Post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify(formData),
+      });
+    }
+    //
+    const dataJson = yield response.json();
+
+    if (response.status === 200) {
+      if (profilePhotoImg) {
+        yield put(setUserProfilePicture(dataJson.path));
+      } else {
+        yield put(userDataUpdateSuccess(dataJson.data.userData));
+      }
+    } else {
+      throw new Error(dataJson.message);
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(userDataUpdateFailure(error));
+  }
+}
+
+function* updateuserData() {
+  yield takeLatest(USER_DATA_UPDATE_START, updateuserDataStart);
+}
 
 function* fetchUserDataStart({ data }) {
   try {
@@ -23,7 +69,7 @@ function* fetchUserDataStart({ data }) {
       },
     });
     const dataInJson = yield response.json();
-    if (response.status == 200) {
+    if (response.status === 200) {
       yield put(userDataFetchSuccess(dataInJson.data));
     } else {
       console.log(dataInJson);
@@ -115,5 +161,6 @@ export default function* userSaga() {
     call(userSignIn),
     call(checkAuthorizationStart),
     call(fetchUserData),
+    call(updateuserData),
   ]);
 }
