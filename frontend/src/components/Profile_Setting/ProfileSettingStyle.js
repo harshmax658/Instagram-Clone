@@ -5,6 +5,18 @@ export const Center = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  z-index: 1;
+  ${({ selectPopUp }) => selectPopUp && "postion:fixed;"}
+`;
+export const CenterOverlay = styled.div`
+  position: absolute;
+  top: 10vh;
+  /* position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center; */
+  /* width: 100%; */
+  /* height: 100vh; */
 `;
 export const Container = styled.div`
   /* position: relative; */
@@ -121,5 +133,49 @@ export const PersonalInformationNotice = styled.div`
   h2 {
     font-size: 1rem;
     font-weight: 600;
+  }
+`;
+export const ChangeProfileBackdrop = styled.div`
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  h2 {
+    height: 40%;
+    width: 100%;
+    text-align: center;
+    /* border: 2px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid lightgray;
+  }
+  div,
+  label,
+  p {
+    font-weight: bold;
+    font-size: 1rem;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  input {
+    display: none;
+  }
+  p {
+    font-weight: 100;
+  }
+  div {
+    color: red;
+  }
+  label {
+    color: #0095f6;
   }
 `;

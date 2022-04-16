@@ -5,7 +5,7 @@ import { Center, Left, Right, Dinline } from "./ProfileSettingStyle";
 import { NavLink, Outlet } from "react-router-dom";
 const EditProfile = () => {
   return (
-    <Center>
+    <Center id="profileSetting">
       <ContainerComponent width="70%">
         <Dinline>
           <Left>

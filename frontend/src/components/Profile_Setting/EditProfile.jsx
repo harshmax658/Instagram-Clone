@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactDom from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
 import FormmInputComponent from "../Form Input/FormInputComponent";
@@ -21,7 +22,12 @@ import {
 
 import { userDataUpdateStart } from "../../redux/user/action";
 
+import BackDrop from "./BackDrop";
+
+import ChangeProfilePhotoBackDrop from "./ChangeProfilePhotoBackDrop";
+
 const EditProfile = () => {
+  const [selectPopUp, setSelectPopUp] = useState(false);
   const dispatch = useDispatch();
   const [isPhotoSelected, setIsPhotoSelected] = useState(false);
   const [profilePhoto, setprofilePhoto] = useState("");
@@ -37,12 +43,14 @@ const EditProfile = () => {
     gender: userData.gender,
   });
   const { name, username, email, bio, website, phone, gender } = formData;
-
   const updateProfile = (event) => {
+    console.log(profilePhoto);
     event.preventDefault();
 
     dispatch(userDataUpdateStart({ formData, token }));
+    console.log(profilePhoto);
   };
+
   useEffect(() => {
     if (isPhotoSelected && profilePhoto) {
       const profilePhotoImg = new FormData();
@@ -52,14 +60,26 @@ const EditProfile = () => {
       dispatch(userDataUpdateStart({ profilePhotoImg, token }));
     }
   }, [isPhotoSelected, profilePhoto, dispatch, token]);
-  const setProfilePhoto = (event) => {
-    setIsPhotoSelected(true);
 
-    setprofilePhoto(event.target.files[0]);
+  const setProfilePhoto = (event) => {
+    console.log("click setProfile");
+    if (avatar) {
+      setIsPhotoSelected(true);
+      setprofilePhoto(event.target.files[0]);
+    }
   };
-  console.log(avatar);
+
+  const profilePhotoPop = () => {
+    console.log("click");
+  };
+
+  const handleSelectPopUp = () => {
+    setSelectPopUp(!selectPopUp);
+    document.getElementById("profileSetting").style.position = "relative";
+  };
+
   return (
-    <Center>
+    <Center className="center" selectPopUp={selectPopUp}>
       <Container>
         <ChangeProfilePhoto>
           <UserImg className="l30p">
@@ -67,7 +87,22 @@ const EditProfile = () => {
           </UserImg>
           <ChangeButton>
             <h2>{userName}</h2>
-            <label htmlFor="profilePhoto">Change Profile Photo</label>
+
+            <label
+              htmlFor={!avatar ? "profilePhoto" : null}
+              onClick={
+                avatar
+                  ? () => {
+                      document.getElementById("profileSetting").style.position =
+                        "fixed";
+                      setSelectPopUp(true);
+                      profilePhotoPop();
+                    }
+                  : null
+              }
+            >
+              Change Profile Photo
+            </label>
             <input
               onChange={setProfilePhoto}
               type="file"
@@ -200,6 +235,15 @@ const EditProfile = () => {
           </SubmitButton>
         </Form>
       </Container>
+      <BackDrop
+        call={selectPopUp}
+        closeBtn={handleSelectPopUp}
+        forProfilePhoto={true}
+        callBy={true}
+        component={
+          <ChangeProfilePhotoBackDrop setProfilePhoto={setProfilePhoto} />
+        }
+      />
     </Center>
   );
 };

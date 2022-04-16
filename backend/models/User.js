@@ -31,6 +31,7 @@ const userSchema = mongoose.Schema(
     },
     avatar: {
       type: String,
+      default: null,
     },
     day: {
       type: Number,

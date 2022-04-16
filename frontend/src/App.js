@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import LoginSignupPage from "./pages/LoginSignup/LoginSignupPage";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { AppStyle, GlobalStyleCss } from "./AppStyle";
@@ -9,12 +9,14 @@ import { checkAuthorization } from "./redux/user/action";
 
 function App() {
   const navigate = useNavigate();
+  const [popup, setPopup] = useState(false);
   const { token } = useSelector(({ userReducer }) => userReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkAuthorization(navigate));
   }, []);
+
   return (
     <>
       <AppStyle>
