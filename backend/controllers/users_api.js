@@ -139,6 +139,7 @@ const createNewUser = async (request, response) => {
           message: "User registerd succesfully",
         });
       } catch (error) {
+        console.log(error);
         return response.status(422).json({
           message: "Error while creating user",
         });
