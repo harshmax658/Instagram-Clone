@@ -21,9 +21,7 @@ import { useState } from "react";
 import Dropdown from "./Dropdown/Dropdown";
 import ImageComponent from "../IMG/ImageComponent";
 import { useLocation } from "react-router-dom";
-
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
-
 const Header = ({ call, setNewPost }) => {
   const [renderProfileDrop, setRenderProfileDrop] = useState(false);
   const [renderLikeDrop, setRenderLikeDrop] = useState(false);
