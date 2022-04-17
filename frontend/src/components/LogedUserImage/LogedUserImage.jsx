@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const LogedUserImage = ({ style, ...props }) => {
   const { avatar } = useSelector(({ userReducer }) => userReducer);
-  console.log(avatar);
+
   const defaultImg = "/uploads/default_images/defaultProfileImage.jpg";
   return (
     <ImageComponent

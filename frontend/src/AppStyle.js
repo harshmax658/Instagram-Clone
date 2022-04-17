@@ -15,11 +15,12 @@ body {
   height: 100vh;
 }
 #root{
-  height: 100%;
+  height: 100%
 }
 
 #overlay{
   display: flex;
   justify-content:center;
+  /* align-items: center; */
 }
 `;

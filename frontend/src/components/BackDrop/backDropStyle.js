@@ -38,13 +38,15 @@ export const Section = styled.section`
 export const Post = styled.div`
   ${({ call }) => call && "position: fixed;"}
   /* top: 3.5vh; */
-  top: ${({ createNewPost }) => (createNewPost ? "15vh" : "3.5vh")};
+  top: ${({ createNewPost, forProfilePhoto }) =>
+    createNewPost ? (forProfilePhoto ? "32vh" : "15vh") : "3.5vh"};
   border-radius: ${({ createNewPost }) => (createNewPost ? "15px" : "5px")};
   margin: 0 auto;
   z-index: 30;
-  height: ${({ createNewPost }) => (createNewPost ? "70vh" : "92.5vh")};
+  height: ${({ createNewPost, forProfilePhoto }) =>
+    createNewPost ? (forProfilePhoto ? "36vh" : "70vh") : "92.5vh"};
 
-  width: ${({ createNewPost }) => (createNewPost ? "30%" : "77%")};
+  width: ${({ createNewPost }) => (createNewPost ? "32%" : "77%")};
   background: white;
   overflow: hidden;
 `;
