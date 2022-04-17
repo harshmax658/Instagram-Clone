@@ -1,16 +1,14 @@
 import React from "react";
-
+import UploadProfilePhoto from "./UploadProfilePhoto";
 import { ChangeProfileBackdrop } from "./ProfileSettingStyle";
-const ChangeProfilePhotoBackDrop = ({ setProfilePhoto }) => {
+const ChangeProfilePhotoBackDrop = ({ setSelectPopUp }) => {
   return (
     <ChangeProfileBackdrop>
       <h2>Change Profile Photo</h2>
-      <label htmlFor="profilePhoto">Upload photo</label>
-      <input
-        onChange={setProfilePhoto}
-        type="file"
-        name="profilePhoto"
-        id="profilePhoto"
+      <UploadProfilePhoto
+        backDrop={true}
+        label="Upload photo"
+        setSelectPopUp={setSelectPopUp}
       />
       <div>Remove Current Photo</div>
       <p>Cancel</p>

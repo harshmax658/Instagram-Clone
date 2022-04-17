@@ -25,14 +25,16 @@ import { userDataUpdateStart } from "../../redux/user/action";
 import BackDrop from "./BackDrop";
 
 import ChangeProfilePhotoBackDrop from "./ChangeProfilePhotoBackDrop";
+import UploadProfilePhoto from "./UploadProfilePhoto";
 
 const EditProfile = () => {
-  const [selectPopUp, setSelectPopUp] = useState(false);
   const dispatch = useDispatch();
-  const [isPhotoSelected, setIsPhotoSelected] = useState(false);
-  const [profilePhoto, setprofilePhoto] = useState("");
+
+  const [selectPopUp, setSelectPopUp] = useState(false);
+
   const { userName, fullName, emailOrMobile, token, userData, avatar } =
     useSelector(({ userReducer }) => userReducer);
+
   const [formData, setFormData] = useLoginSignup({
     name: fullName,
     username: userName,
@@ -42,37 +44,16 @@ const EditProfile = () => {
     phone: emailOrMobile,
     gender: userData.gender,
   });
+
   const { name, username, email, bio, website, phone, gender } = formData;
+
   const updateProfile = (event) => {
-    console.log(profilePhoto);
     event.preventDefault();
 
     dispatch(userDataUpdateStart({ formData, token }));
-    console.log(profilePhoto);
   };
 
-  useEffect(() => {
-    if (isPhotoSelected && profilePhoto) {
-      const profilePhotoImg = new FormData();
-
-      profilePhotoImg.append("avatar", profilePhoto);
-
-      dispatch(userDataUpdateStart({ profilePhotoImg, token }));
-    }
-  }, [isPhotoSelected, profilePhoto, dispatch, token]);
-
-  const setProfilePhoto = (event) => {
-    console.log("click setProfile");
-    if (avatar) {
-      setIsPhotoSelected(true);
-      setprofilePhoto(event.target.files[0]);
-    }
-  };
-
-  const profilePhotoPop = () => {
-    console.log("click");
-  };
-
+  //close Button
   const handleSelectPopUp = () => {
     setSelectPopUp(!selectPopUp);
     document.getElementById("profileSetting").style.position = "relative";
@@ -88,26 +69,10 @@ const EditProfile = () => {
           <ChangeButton>
             <h2>{userName}</h2>
 
-            <label
-              htmlFor={!avatar ? "profilePhoto" : null}
-              onClick={
-                avatar
-                  ? () => {
-                      document.getElementById("profileSetting").style.position =
-                        "fixed";
-                      setSelectPopUp(true);
-                      profilePhotoPop();
-                    }
-                  : null
-              }
-            >
-              Change Profile Photo
-            </label>
-            <input
-              onChange={setProfilePhoto}
-              type="file"
-              name="profilePhoto"
-              id="profilePhoto"
+            <UploadProfilePhoto
+              avatar={avatar}
+              setSelectPopUp={setSelectPopUp}
+              label=" Change Profile Photo"
             />
           </ChangeButton>
         </ChangeProfilePhoto>
@@ -241,7 +206,7 @@ const EditProfile = () => {
         forProfilePhoto={true}
         callBy={true}
         component={
-          <ChangeProfilePhotoBackDrop setProfilePhoto={setProfilePhoto} />
+          <ChangeProfilePhotoBackDrop setSelectPopUp={setSelectPopUp} />
         }
       />
     </Center>
