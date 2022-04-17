@@ -5,7 +5,8 @@ import { AppStyle, GlobalStyleCss } from "./AppStyle";
 import RouterHandler from "./pages/InstaHome/RouterHandler";
 import EmailSignupPage from "./pages/Email Signup Page/EmailSignupPage";
 import { useDispatch, useSelector } from "react-redux";
-import { checkAuthorization } from "./redux/user/action";
+import { checkAuthorization  } from "./redux/user/action";
+
 
 function App() {
   const navigate = useNavigate();
@@ -15,9 +16,15 @@ function App() {
   useEffect(() => {
     dispatch(checkAuthorization(navigate));
   }, []);
+
+  const RenderOffDropdown = () => {
+    // dispatch(setOffDropDown());
+    console.log("hello");
+  }
+
   return (
     <>
-      <AppStyle>
+      <AppStyle onClick={RenderOffDropdown}>
         <Routes>
           {!token && <Route path="/" element={<LoginSignupPage />} />}
           <Route

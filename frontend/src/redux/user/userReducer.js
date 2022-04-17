@@ -7,6 +7,7 @@ import {
   USER_DATA_FETCH_SUCCESS,
   USER_DATA_UPDATE_SUCCESS,
   SET_USER_PROFILE_PICTURE,
+  OFF_DROPDOWN
 } from "./action";
 const initialUserState = {
   userData: null,
@@ -19,6 +20,7 @@ const initialUserState = {
   token: null,
   error: null,
   userPresent: false,
+  // renderDropdown:true,
 };
 
 const userReducer = (state = initialUserState, action) => {
@@ -56,6 +58,9 @@ const userReducer = (state = initialUserState, action) => {
     case USER_SIGN_UP_FAILURE: {
       return { ...state, error: action.data };
     }
+    // case OFF_DROPDOWN:{
+    //   return { ...state,renderDropdown:action.data}
+    // }
     default: {
       return { ...state };
     }
