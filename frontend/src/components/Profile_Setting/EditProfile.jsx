@@ -70,7 +70,6 @@ const EditProfile = () => {
             <h2>{userName}</h2>
 
             <UploadProfilePhoto
-              avatar={avatar}
               setSelectPopUp={setSelectPopUp}
               label=" Change Profile Photo"
             />

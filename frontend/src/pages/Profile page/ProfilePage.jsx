@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   UserProfilePage,
   UserProfile,
@@ -28,20 +28,33 @@ import SettingProfileSvg from "../../svg/SettingProfileSvg";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import SavedSvg from "../../svg/SavedSvg";
 import TagSvg from "../../svg/TagSvg";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import PostPage from "../Post Page/PostPage";
 import { ProfilePageCalling } from "../../pages/InstaHome/RouterHandler";
 import UserPost from "../../components/UserPosts/UserPost";
 import { useSelector } from "react-redux";
 
+import UploadProfilePhoto from "../../components/Profile_Setting/UploadProfilePhoto";
+
+import ChangeProfilePhotoBackDrop from "../../components/Profile_Setting/ChangeProfilePhotoBackDrop";
+import BackDrop from "../../components/Profile_Setting/BackDrop";
+
 const ProfilePage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [selectPopUp, setSelectPopUp] = useState(false);
+
   const { post, followers, following, userName, fullName } = useSelector(
     ({ userReducer }) => userReducer
   );
 
   const postCalling = useContext(ProfilePageCalling);
+
+  //close Button
+  const handleSelectPopUp = () => {
+    setSelectPopUp(!selectPopUp);
+    document.getElementById("root").style.position = "relative";
+  };
 
   useEffect(() => {
     postCalling?.setDirectCallPostPage((prev) => {
@@ -57,7 +70,12 @@ const ProfilePage = () => {
         <UserProfile>
           <UserData>
             <UserProfileImage>
-              <LogedUserImage height="150px" width="150px" />
+              <UploadProfilePhoto
+                setSelectPopUp={setSelectPopUp}
+                label="profilePhoto"
+                usingComponent={true}
+                component={<LogedUserImage height="150px" width="150px" />}
+              />
             </UserProfileImage>
             <UserInformation>
               <Row>
@@ -140,6 +158,18 @@ const ProfilePage = () => {
           closeBtn={postCalling.closeBackDropOfPost}
         />
       )}
+      <BackDrop
+        call={selectPopUp}
+        closeBtn={handleSelectPopUp}
+        forProfilePhoto={true}
+        callBy={true}
+        component={
+          <ChangeProfilePhotoBackDrop
+            usingComponent={true}
+            setSelectPopUp={setSelectPopUp}
+          />
+        }
+      />
     </>
   );
 };
