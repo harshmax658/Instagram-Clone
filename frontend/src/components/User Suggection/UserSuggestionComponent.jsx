@@ -16,6 +16,7 @@ const UserSuggestionComponent = () => {
   const { userName, fullName } = useSelector(({ userReducer }) => userReducer);
 
   const navigate = useNavigate();
+  
   return (
     <UserSuggestion>
       <CurrentUser>
