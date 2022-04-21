@@ -96,7 +96,7 @@ function* userAuthorizationProcessStart({ data }) {
 
     if (response.status === 200) {
       const dataInJson = yield response.json();
-      console.log(dataInJson);
+
       yield put(signInSuccess(dataInJson.userToken));
     } else {
       // throw new Error(dataInJson.message);

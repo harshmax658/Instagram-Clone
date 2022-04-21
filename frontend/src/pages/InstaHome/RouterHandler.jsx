@@ -26,7 +26,6 @@ const RouterHandler = () => {
 
   useEffect(() => {
     if (token) {
-      console.log("enter");
       dispatch(userDataFetchStart(token));
     }
   }, [token]);
