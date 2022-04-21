@@ -22,11 +22,15 @@ import Dropdown from "./Dropdown/Dropdown";
 import ImageComponent from "../IMG/ImageComponent";
 import { useLocation } from "react-router-dom";
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogoutStart } from "../../redux/user/action";
 
 const Header = ({ call, setNewPost }) => {
   const [renderProfileDrop, setRenderProfileDrop] = useState(false);
   const [renderLikeDrop, setRenderLikeDrop] = useState(false);
   const [renderList, setRenderList] = useState(true);
+  const { token } = useSelector(({ userReducer }) => userReducer);
+  const dispatch = useDispatch();
 
   const location = useLocation();
   const checkActive = (value) => {
@@ -172,6 +176,10 @@ const Header = ({ call, setNewPost }) => {
     {
       borderTop: "1px solid black",
       detail: "Log Out",
+      onClick: () => {
+        console.log(token);
+        dispatch(userLogoutStart(token));
+      },
     },
   ];
 

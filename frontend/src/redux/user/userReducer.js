@@ -7,7 +7,8 @@ import {
   USER_DATA_FETCH_SUCCESS,
   USER_DATA_UPDATE_SUCCESS,
   SET_USER_PROFILE_PICTURE,
-  OFF_DROPDOWN
+  USER_LOGOUT_SUCCESS,
+  USER_LOGOUT_FAILURE,
 } from "./action";
 const initialUserState = {
   userData: null,
@@ -29,6 +30,20 @@ const userReducer = (state = initialUserState, action) => {
       return { ...state };
     }
 
+    case USER_LOGOUT_SUCCESS: {
+      return {
+        userData: null,
+        userName: null,
+        fullName: null,
+        avatar: null,
+        followers: [],
+        following: [],
+        post: [],
+        token: null,
+        error: null,
+        userPresent: false,
+      };
+    }
     case USER_SIGN_IN_SUCCESS: {
       return { ...state, token: action.data };
     }
@@ -54,6 +69,7 @@ const userReducer = (state = initialUserState, action) => {
       return { ...state, ...action.data };
     }
 
+    case USER_LOGOUT_FAILURE:
     case USER_SIGN_IN_FAILURE:
     case USER_SIGN_UP_FAILURE: {
       return { ...state, error: action.data };

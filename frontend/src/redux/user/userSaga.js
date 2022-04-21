@@ -5,6 +5,7 @@ import {
   CHECK_AUTHORIZATION,
   USER_DATA_FETCH_START,
   USER_DATA_UPDATE_START,
+  USER_LOGOUT_START,
 } from "./action";
 import {
   signUpFailure,
@@ -15,7 +16,29 @@ import {
   userDataUpdateSuccess,
   userDataUpdateFailure,
   setUserProfilePicture,
+  userLogoutSuccess,
+  userLogoutFailure,
 } from "./action";
+
+function* userLogoutStart({ data }) {
+  try {
+    console.log(data);
+    const response = yield fetch("/api/user/destroy-session", {
+      headers: {
+        Authorization: data,
+      },
+    });
+    const dataInJson = yield response.json();
+    if (response.status === 200) {
+      yield put(userLogoutSuccess(dataInJson));
+    }
+  } catch (error) {
+    yield put(userLogoutFailure(error));
+  }
+}
+function* userLogoutt() {
+  yield takeLatest(USER_LOGOUT_START, userLogoutStart);
+}
 
 function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
   try {
@@ -162,5 +185,6 @@ export default function* userSaga() {
     call(checkAuthorizationStart),
     call(fetchUserData),
     call(updateuserData),
+    call(userLogoutt),
   ]);
 }

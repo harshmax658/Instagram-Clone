@@ -12,8 +12,12 @@ export const USER_DATA_UPDATE_SUCCESS = "USER_DATA_UPDATE_SUCCESS";
 export const USER_DATA_UPDATE_FAILURE = "USER_DATA_UPDATE_FAILURE";
 export const CHECK_AUTHORIZATION = "CHECK_AUTHORIZATION";
 export const SET_USER_PROFILE_PICTURE = "SET_USER_PROFILE_PICTURE";
-// export const OFF_DROPDOWN = "OFF_DROPDOWN"
 
+export const USER_LOGOUT_START = "USER_LOGOUT_START";
+export const USER_LOGOUT_SUCCESS = "USER_LOGOUT_SUCCESS";
+export const USER_LOGOUT_FAILURE = "USER_LOGOUT_FAILURE";
+
+// export const OFF_DROPDOWN = "OFF_DROPDOWN"
 
 // export const setOffDropDown = () => {
 //   return {
@@ -21,6 +25,24 @@ export const SET_USER_PROFILE_PICTURE = "SET_USER_PROFILE_PICTURE";
 //     data:false
 //   }
 // }
+export const userLogoutStart = (data) => {
+  return {
+    type: USER_LOGOUT_START,
+    data,
+  };
+};
+export const userLogoutSuccess = (data) => {
+  return {
+    type: USER_LOGOUT_SUCCESS,
+    data,
+  };
+};
+export const userLogoutFailure = (data) => {
+  return {
+    type: USER_LOGOUT_FAILURE,
+    data,
+  };
+};
 
 export const setUserProfilePicture = (data) => {
   return {

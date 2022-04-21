@@ -10,13 +10,16 @@ const UploadProfilePhoto = ({
   backDrop,
 }) => {
   const dispatch = useDispatch();
+
   const { avatar, token } = useSelector(({ userReducer }) => userReducer);
+
   const [render, setRender] = useState({
     oldAvatar: "",
     isRender: true,
   });
 
   const [isPhotoSelected, setIsPhotoSelected] = useState(false);
+
   const [profilePhoto, setprofilePhoto] = useState("");
 
   useEffect(() => {
