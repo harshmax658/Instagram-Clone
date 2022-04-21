@@ -22,8 +22,7 @@ import Dropdown from "./Dropdown/Dropdown";
 import ImageComponent from "../IMG/ImageComponent";
 import { useLocation } from "react-router-dom";
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
-// import ProfileIcon from "../../svg/ProfileIcon";
-import Notification from "./Dropdown/Notification";
+
 const Header = ({ call, setNewPost }) => {
   const [renderProfileDrop, setRenderProfileDrop] = useState(false);
   const [renderLikeDrop, setRenderLikeDrop] = useState(false);
@@ -94,6 +93,7 @@ const Header = ({ call, setNewPost }) => {
         </svg>
       ),
       detail: "Profile",
+      navigate: "profile",
     },
     {
       svg: (

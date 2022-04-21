@@ -4,8 +4,8 @@ export const Container = styled.div`
         width: ${(props) => {return props.width}};
         top:132%;
         min-height: ${(props) => {return props.minheight}};
-        // background: #fff;
-        background: red;
+        background: #fff;
+        // background: red;
         position: absolute;
         right: ${(props) => {return props.right}};  
         margin:1%;
@@ -15,12 +15,12 @@ export const Container = styled.div`
         &:after{
                 position: absolute;
                 top: -8px;
-                right: 9.3%;
+                right: 9.8%;
                 width: 0; 
                 height: 0; 
                 border-left: 8px solid transparent;
                 border-right: 8px solid transparent; 
-                border-bottom: 8px solid red;
+                border-bottom: 8px solid #fff;
                 // border:1px solid black;
                 content: '';
                 display: block;

@@ -1,14 +1,22 @@
-
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import {Container} from "./InnerComponentStyle"
+
 const InnerComponent = ({render}) => {
-return render.map((x,i) => {
-  return (
-      <div key = {i} style={{ display: "flex",alignItems: "center",gridGap:" 6px",padding: "8px" , borderTop:x.borderTop}  }>
-        {x.svg}
-        <span style={{
-        }}>{x.detail}</span>     
-      </div>
-   )
+  const navigate = useNavigate();
+ return render.map((x,i) => {
+    return (
+        <Container 
+          onClick={x.navigate ? () => navigate(x.navigate) : null}
+          key = {i} 
+          style={{ 
+            borderTop:x.borderTop
+            }}>
+          {x.svg}
+          <span style={{
+          }}>{x.detail}</span>     
+        </Container>
+    )
   })  
 }
 
