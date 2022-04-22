@@ -66,7 +66,10 @@ const ProfilePage = () => {
   }, []);
   return (
     <>
-      <UserProfilePage call={postCalling.directCallPostPage.profilePageDirect}>
+      <UserProfilePage
+        call={postCalling.directCallPostPage.profilePageDirect}
+        className="profilePage"
+      >
         <UserProfile>
           <UserData>
             <UserProfileImage>
@@ -158,18 +161,17 @@ const ProfilePage = () => {
           closeBtn={postCalling.closeBackDropOfPost}
         />
       )}
-      <BackDrop
-        call={selectPopUp}
-        closeBtn={handleSelectPopUp}
-        forProfilePhoto={true}
-        callBy={true}
-        component={
-          <ChangeProfilePhotoBackDrop
-            usingComponent={true}
-            setSelectPopUp={setSelectPopUp}
-          />
-        }
-      />
+      {selectPopUp && (
+        <BackDrop
+          call={selectPopUp}
+          closeBtn={handleSelectPopUp}
+          forProfilePhoto={true}
+          callBy={true}
+          component={
+            <ChangeProfilePhotoBackDrop setSelectPopUp={setSelectPopUp} />
+          }
+        />
+      )}
     </>
   );
 };

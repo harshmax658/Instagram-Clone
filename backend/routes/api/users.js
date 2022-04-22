@@ -15,7 +15,8 @@ const {
 
 router.get(
   "/destroy-session",
-  passport.authenticate("jwt", { session: false }, destroySession)
+  passport.authenticate("jwt", { session: false }),
+  destroySession
 );
 
 router.post(

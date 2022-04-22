@@ -1,19 +1,5 @@
 const User = require("../models/User");
 
-const destroySession = async (request, response) => {
-  try {
-    response.clearCookie("userToken");
-    return response.status(200).json({
-      messgae: "user logout",
-      token: null,
-    });
-  } catch (error) {
-    console.log("first");
-    return response.status(500).json({
-      message: "internal server error",
-    });
-  }
-};
 const updateUserProfile = async (request, response) => {
   try {
     const user = await User.findById(request.user.id);
@@ -70,6 +56,15 @@ const updateUserProfile = async (request, response) => {
       message: "Internal Server error",
     });
   }
+};
+
+const destroySession = async (request, response) => {
+  response.clearCookie("userToken");
+
+  return response.status(200).json({
+    messgae: "user logout",
+    token: null,
+  });
 };
 
 const getUserDetails = async (request, response) => {

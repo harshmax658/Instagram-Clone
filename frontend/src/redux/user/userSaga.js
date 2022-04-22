@@ -27,12 +27,15 @@ function* userLogoutStart({ data }) {
       headers: {
         Authorization: data,
       },
+      credentials: "include",
     });
     const dataInJson = yield response.json();
+    console.log(dataInJson);
     if (response.status === 200) {
       yield put(userLogoutSuccess(dataInJson));
     }
   } catch (error) {
+    console.log(error);
     yield put(userLogoutFailure(error));
   }
 }
@@ -49,6 +52,7 @@ function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
         headers: {
           Authorization: token,
         },
+        credentials: "include",
         body: profilePhotoImg,
       });
     } else {
@@ -58,6 +62,8 @@ function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
           "Content-type": "application/json",
           Authorization: token,
         },
+        credentials: "include",
+
         body: JSON.stringify(formData),
       });
     }
@@ -90,6 +96,7 @@ function* fetchUserDataStart({ data }) {
         "Content-type": "application/json",
         Authorization: data,
       },
+      credentials: "include",
     });
     const dataInJson = yield response.json();
     if (response.status === 200) {
@@ -139,6 +146,7 @@ function* userSignInStart({ data }) {
   try {
     const response = yield fetch("/api/user/login", {
       method: "Post",
+      credentials: "include",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(data),
     });
@@ -162,6 +170,7 @@ function* signUpStart({ data: { signUpData, navigate } }) {
       method: "Post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(signUpData),
+      credentials: "include",
     });
     const dataInJson = yield response.json();
     if (response.status === 200) {

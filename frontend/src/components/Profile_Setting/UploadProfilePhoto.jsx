@@ -2,13 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userDataUpdateStart } from "../../redux/user/action";
 
-const UploadProfilePhoto = ({
-  setSelectPopUp,
-  label,
-  component,
-  usingComponent = false,
-  backDrop,
-}) => {
+const UploadProfilePhoto = ({ setSelectPopUp, label, component, backDrop }) => {
   const dispatch = useDispatch();
 
   const { avatar, token } = useSelector(({ userReducer }) => userReducer);
@@ -32,14 +26,13 @@ const UploadProfilePhoto = ({
       const profilePhotoImg = new FormData();
 
       profilePhotoImg.append("avatar", profilePhoto);
-
-      console.log(avatar);
       dispatch(userDataUpdateStart({ profilePhotoImg, token }));
-
+      setIsPhotoSelected(false);
+    }
+    if (profilePhoto) {
       if (render.oldAvatar !== avatar) {
         setSelectPopUp(false);
       }
-      //   console.log(avatar);
     }
   }, [isPhotoSelected, profilePhoto, dispatch, token, avatar, setSelectPopUp]);
 
@@ -55,11 +48,8 @@ const UploadProfilePhoto = ({
         onClick={
           avatar
             ? () => {
-                usingComponent
-                  ? (document.getElementById("root").style.position = "fixed")
-                  : (document.getElementById("profileSetting").style.position =
-                      "fixed");
                 setSelectPopUp(true);
+                document.getElementById("root").style.position = "fixed";
               }
             : null
         }
