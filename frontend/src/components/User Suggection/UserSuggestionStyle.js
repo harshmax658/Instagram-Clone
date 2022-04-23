@@ -28,4 +28,19 @@ export const UserSwitchButton = styled.div`
   color: #0095f6;
   cursor: pointer;
 `;
-//Harsh
+
+export const OtherUserSuggestion = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+  color: gray;
+  font-weight: 500;
+`;
+export const SeeAllUser = styled.div`
+  display: flex;
+  align-items: center;
+  color: black;
+  cursor: pointer;
+`;
+//Harshs

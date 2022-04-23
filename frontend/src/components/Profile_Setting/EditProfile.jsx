@@ -56,6 +56,7 @@ const EditProfile = () => {
   //close Button
   const handleSelectPopUp = () => {
     setSelectPopUp(!selectPopUp);
+    console.log("edit");
     document.getElementById("root").style.position = "relative";
   };
 

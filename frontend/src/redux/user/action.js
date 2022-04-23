@@ -17,7 +17,7 @@ export const USER_LOGOUT_START = "USER_LOGOUT_START";
 export const USER_LOGOUT_SUCCESS = "USER_LOGOUT_SUCCESS";
 export const USER_LOGOUT_FAILURE = "USER_LOGOUT_FAILURE";
 
-// export const OFF_DROPDOWN = "OFF_DROPDOWN"
+export const SET_USERS_FOR_SUGGESTION = "SET_USERS_FOR_SUGGESTION";
 
 // export const setOffDropDown = () => {
 //   return {
@@ -25,6 +25,13 @@ export const USER_LOGOUT_FAILURE = "USER_LOGOUT_FAILURE";
 //     data:false
 //   }
 // }
+
+export const setUserSuggestions = (data) => {
+  return {
+    type: SET_USERS_FOR_SUGGESTION,
+    data,
+  };
+};
 export const userLogoutStart = (data) => {
   return {
     type: USER_LOGOUT_START,

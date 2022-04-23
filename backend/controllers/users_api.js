@@ -1,5 +1,18 @@
 const User = require("../models/User");
 
+const sendUsersSuggestions = async (request, response) => {
+  try {
+    const users = await User.find({});
+    return response.status(200).json({
+      data: users,
+    });
+  } catch (error) {
+    return response.status(500).json({
+      message: "internal server error",
+    });
+  }
+};
+
 const updateUserProfile = async (request, response) => {
   try {
     const user = await User.findById(request.user.id);
@@ -168,4 +181,5 @@ module.exports = {
   getUserDetails,
   updateUserProfile,
   destroySession,
+  sendUsersSuggestions,
 };

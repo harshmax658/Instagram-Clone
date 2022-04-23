@@ -16,6 +16,7 @@ import { userDataFetchStart } from "../../redux/user/action";
 import EditProfile from "../../components/Profile_Setting/EditProfile";
 import ChangePassword from "../../components/Profile_Setting/ChangePassword";
 import ProfileSetting from "../Profile Setting/ProfileSetting";
+import Explore from "../Explore Page/Explore";
 
 const PostCalling = createContext();
 const ProfilePageCalling = createContext();
@@ -74,6 +75,9 @@ const RouterHandler = () => {
             />
 
             <Route path="inbox" element={<Message />} />
+            <Route path="explore" element={<Explore />}>
+              <Route path="people" element={<Explore />} />
+            </Route>
 
             <Route path="accounts" element={<ProfileSetting />}>
               <Route path="edit" element={<EditProfile />} />

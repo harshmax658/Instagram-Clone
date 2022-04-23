@@ -32,6 +32,7 @@ const UploadProfilePhoto = ({ setSelectPopUp, label, component, backDrop }) => {
     if (profilePhoto) {
       if (render.oldAvatar !== avatar) {
         setSelectPopUp(false);
+        document.getElementById("root").style.position = "relative";
       }
     }
   }, [isPhotoSelected, profilePhoto, dispatch, token, avatar, setSelectPopUp]);

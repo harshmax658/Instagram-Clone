@@ -11,14 +11,19 @@ const {
   getUserDetails,
   updateUserProfile,
   destroySession,
+  sendUsersSuggestions,
 } = require("../../controllers/users_api");
 
+router.get(
+  "/users-suggestions",
+  passport.authenticate("jwt", { session: false }),
+  sendUsersSuggestions
+);
 router.get(
   "/destroy-session",
   passport.authenticate("jwt", { session: false }),
   destroySession
 );
-
 router.post(
   "/update-user-profile",
   passport.authenticate("jwt", { session: false }),
