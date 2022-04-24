@@ -5,6 +5,7 @@ import {
   CHECK_AUTHORIZATION,
   USER_DATA_FETCH_START,
   USER_DATA_UPDATE_START,
+  USER_LOGOUT_START,
 } from "./action";
 import {
   signUpFailure,
@@ -15,7 +16,32 @@ import {
   userDataUpdateSuccess,
   userDataUpdateFailure,
   setUserProfilePicture,
+  userLogoutSuccess,
+  userLogoutFailure,
 } from "./action";
+
+function* userLogoutStart({ data }) {
+  try {
+    console.log(data);
+    const response = yield fetch("/api/user/destroy-session", {
+      headers: {
+        Authorization: data,
+      },
+      credentials: "include",
+    });
+    const dataInJson = yield response.json();
+    console.log(dataInJson);
+    if (response.status === 200) {
+      yield put(userLogoutSuccess(dataInJson));
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(userLogoutFailure(error));
+  }
+}
+function* userLogoutt() {
+  yield takeLatest(USER_LOGOUT_START, userLogoutStart);
+}
 
 function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
   try {
@@ -26,6 +52,7 @@ function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
         headers: {
           Authorization: token,
         },
+        credentials: "include",
         body: profilePhotoImg,
       });
     } else {
@@ -35,6 +62,8 @@ function* updateuserDataStart({ data: { formData, token, profilePhotoImg } }) {
           "Content-type": "application/json",
           Authorization: token,
         },
+        credentials: "include",
+
         body: JSON.stringify(formData),
       });
     }
@@ -67,6 +96,7 @@ function* fetchUserDataStart({ data }) {
         "Content-type": "application/json",
         Authorization: data,
       },
+      credentials: "include",
     });
     const dataInJson = yield response.json();
     if (response.status === 200) {
@@ -96,7 +126,7 @@ function* userAuthorizationProcessStart({ data }) {
 
     if (response.status === 200) {
       const dataInJson = yield response.json();
-      console.log(dataInJson);
+
       yield put(signInSuccess(dataInJson.userToken));
     } else {
       // throw new Error(dataInJson.message);
@@ -116,6 +146,7 @@ function* userSignInStart({ data }) {
   try {
     const response = yield fetch("/api/user/login", {
       method: "Post",
+      credentials: "include",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(data),
     });
@@ -139,6 +170,7 @@ function* signUpStart({ data: { signUpData, navigate } }) {
       method: "Post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(signUpData),
+      credentials: "include",
     });
     const dataInJson = yield response.json();
     if (response.status === 200) {
@@ -162,5 +194,6 @@ export default function* userSaga() {
     call(checkAuthorizationStart),
     call(fetchUserData),
     call(updateuserData),
+    call(userLogoutt),
   ]);
 }

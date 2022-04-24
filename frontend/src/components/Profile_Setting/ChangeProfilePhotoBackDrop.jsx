@@ -1,7 +1,7 @@
 import React from "react";
 import UploadProfilePhoto from "./UploadProfilePhoto";
 import { ChangeProfileBackdrop } from "./ProfileSettingStyle";
-const ChangeProfilePhotoBackDrop = ({ setSelectPopUp }) => {
+const ChangeProfilePhotoBackDrop = ({ setSelectPopUp, selectPopUp }) => {
   return (
     <ChangeProfileBackdrop>
       <h2>Change Profile Photo</h2>
@@ -11,7 +11,7 @@ const ChangeProfilePhotoBackDrop = ({ setSelectPopUp }) => {
         setSelectPopUp={setSelectPopUp}
       />
       <div>Remove Current Photo</div>
-      <p>Cancel</p>
+      <p onClick={() => setSelectPopUp(false)}>Cancel</p>
     </ChangeProfileBackdrop>
   );
 };

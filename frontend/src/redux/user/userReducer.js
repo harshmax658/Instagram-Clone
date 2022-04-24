@@ -7,7 +7,9 @@ import {
   USER_DATA_FETCH_SUCCESS,
   USER_DATA_UPDATE_SUCCESS,
   SET_USER_PROFILE_PICTURE,
-  OFF_DROPDOWN
+  USER_LOGOUT_SUCCESS,
+  USER_LOGOUT_FAILURE,
+  SET_USERS_FOR_SUGGESTION,
 } from "./action";
 const initialUserState = {
   userData: null,
@@ -20,15 +22,34 @@ const initialUserState = {
   token: null,
   error: null,
   userPresent: false,
+  othersUser: [],
   // renderDropdown:true,
 };
 
 const userReducer = (state = initialUserState, action) => {
   switch (action.type) {
-    case USER_SIGN_UP_START: {
-      return { ...state };
+    // case USER_SIGN_UP_START: {
+    //   return { ...state };
+    // }
+    case SET_USERS_FOR_SUGGESTION: {
+      return { ...state, othersUser: action.data };
     }
 
+    case USER_LOGOUT_SUCCESS: {
+      return {
+        userData: null,
+        userName: null,
+        fullName: null,
+        avatar: null,
+        followers: [],
+        following: [],
+        post: [],
+        token: null,
+        error: null,
+        userPresent: false,
+        othersUser: [],
+      };
+    }
     case USER_SIGN_IN_SUCCESS: {
       return { ...state, token: action.data };
     }
@@ -54,6 +75,7 @@ const userReducer = (state = initialUserState, action) => {
       return { ...state, ...action.data };
     }
 
+    case USER_LOGOUT_FAILURE:
     case USER_SIGN_IN_FAILURE:
     case USER_SIGN_UP_FAILURE: {
       return { ...state, error: action.data };

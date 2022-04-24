@@ -1,7 +1,6 @@
 import React from "react";
 import { Post } from "./backDropStyle";
 const OverLay = ({ children, call, createNewPost, forProfilePhoto }) => {
-  console.log(forProfilePhoto);
   return (
     <Post
       className="ll"

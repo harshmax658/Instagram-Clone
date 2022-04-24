@@ -14,7 +14,11 @@ import { userDataFetchStart } from "../../redux/user/action";
 import EditProfile from "../../components/Profile_Setting/EditProfile";
 import ChangePassword from "../../components/Profile_Setting/ChangePassword";
 import ProfileSetting from "../Profile Setting/ProfileSetting";
+<<<<<<< HEAD
 import { red } from "@mui/material/colors";
+=======
+import Explore from "../Explore Page/Explore";
+>>>>>>> e20caf1853bdc86d0a25fc32ac5a1b11db9b720a
 
 const PostCalling = createContext();
 const ProfilePageCalling = createContext();
@@ -27,7 +31,6 @@ const RouterHandler = () => {
 
   useEffect(() => {
     if (token) {
-      console.log("enter");
       dispatch(userDataFetchStart(token));
     }
   }, [token]);
@@ -91,6 +94,9 @@ const RouterHandler = () => {
             />
 
             <Route path="inbox" element={<Message />} />
+            <Route path="explore" element={<Explore />}>
+              <Route path="people" element={<Explore />} />
+            </Route>
 
             <Route path="accounts" element={<ProfileSetting />}>
               <Route path="edit" element={<EditProfile />} />

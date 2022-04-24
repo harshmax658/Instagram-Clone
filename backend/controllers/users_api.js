@@ -1,5 +1,18 @@
 const User = require("../models/User");
 
+const sendUsersSuggestions = async (request, response) => {
+  try {
+    const users = await User.find({});
+    return response.status(200).json({
+      data: users,
+    });
+  } catch (error) {
+    return response.status(500).json({
+      message: "internal server error",
+    });
+  }
+};
+
 const updateUserProfile = async (request, response) => {
   try {
     const user = await User.findById(request.user.id);
@@ -56,6 +69,15 @@ const updateUserProfile = async (request, response) => {
       message: "Internal Server error",
     });
   }
+};
+
+const destroySession = async (request, response) => {
+  response.clearCookie("userToken");
+
+  return response.status(200).json({
+    messgae: "user logout",
+    token: null,
+  });
 };
 
 const getUserDetails = async (request, response) => {
@@ -158,4 +180,6 @@ module.exports = {
   sendUserJwt,
   getUserDetails,
   updateUserProfile,
+  destroySession,
+  sendUsersSuggestions,
 };

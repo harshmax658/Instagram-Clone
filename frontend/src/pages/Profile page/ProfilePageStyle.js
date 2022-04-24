@@ -36,6 +36,13 @@ export const UserProfileImage = styled.div`
   display: flex;
   justify-content: center;
   margin-right: 40px;
+
+  input {
+    display: none;
+  }
+  label {
+    cursor: pointer;
+  }
 `;
 export const UserInformation = styled.div`
   width: 70%;

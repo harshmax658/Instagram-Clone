@@ -56,7 +56,8 @@ const EditProfile = () => {
   //close Button
   const handleSelectPopUp = () => {
     setSelectPopUp(!selectPopUp);
-    document.getElementById("profileSetting").style.position = "relative";
+    console.log("edit");
+    document.getElementById("root").style.position = "relative";
   };
 
   return (
@@ -70,7 +71,6 @@ const EditProfile = () => {
             <h2>{userName}</h2>
 
             <UploadProfilePhoto
-              avatar={avatar}
               setSelectPopUp={setSelectPopUp}
               label=" Change Profile Photo"
             />
@@ -200,15 +200,18 @@ const EditProfile = () => {
           </SubmitButton>
         </Form>
       </Container>
-      <BackDrop
-        call={selectPopUp}
-        closeBtn={handleSelectPopUp}
-        forProfilePhoto={true}
-        callBy={true}
-        component={
-          <ChangeProfilePhotoBackDrop setSelectPopUp={setSelectPopUp} />
-        }
-      />
+
+      {selectPopUp && (
+        <BackDrop
+          call={selectPopUp}
+          closeBtn={handleSelectPopUp}
+          forProfilePhoto={true}
+          callBy={true}
+          component={
+            <ChangeProfilePhotoBackDrop setSelectPopUp={setSelectPopUp} />
+          }
+        />
+      )}
     </Center>
   );
 };
