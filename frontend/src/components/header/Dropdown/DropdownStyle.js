@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
         width: ${(props) => {return props.width}};
-        top:132%;
+        top:132%;s
         min-height: ${(props) => {return props.minheight}};
         background: #fff;
         // background: red;

@@ -9,6 +9,7 @@ import { checkAuthorization  } from "./redux/user/action";
 
 
 function App() {
+  
   const navigate = useNavigate();
   const [popup, setPopup] = useState(false);
   const { token } = useSelector(({ userReducer }) => userReducer);
@@ -18,13 +19,10 @@ function App() {
     dispatch(checkAuthorization(navigate));
   }, []);
 
-  const RenderOffDropdown = () => {
-    // dispatch(setOffDropDown());
-    console.log("hello");
-  }
+
   return (
     <>
-      <AppStyle onClick={RenderOffDropdown}>
+      <AppStyle >
         <Routes>
           {!token && <Route path="/" element={<LoginSignupPage />} />}
           <Route

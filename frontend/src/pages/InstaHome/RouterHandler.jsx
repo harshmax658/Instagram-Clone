@@ -5,9 +5,7 @@ import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import HomePage from "../Home Page/HomePage";
 import ProfilePage from "../Profile page/ProfilePage";
 // import Inbox from "../Inbox/Inbox";
-
 import NotFoundPage from "../Notfound Page/NotFoundPage";
-
 import PostPage from "../Post Page/PostPage";
 import CreateNewPost from "../../components/Create new Post/CreateNewPost";
 import Message from "../Message/Message";
@@ -16,11 +14,14 @@ import { userDataFetchStart } from "../../redux/user/action";
 import EditProfile from "../../components/Profile_Setting/EditProfile";
 import ChangePassword from "../../components/Profile_Setting/ChangePassword";
 import ProfileSetting from "../Profile Setting/ProfileSetting";
+import { red } from "@mui/material/colors";
 
 const PostCalling = createContext();
 const ProfilePageCalling = createContext();
 
 const RouterHandler = () => {
+  const [render,SetRender] = React.useState(false);
+  const [renderWithMain, SetRenderWithMain] = React.useState(false);
   const dispatch = useDispatch();
   const { token, userPresent } = useSelector(({ userReducer }) => userReducer);
 
@@ -53,12 +54,27 @@ const RouterHandler = () => {
     setNewPost(false);
   };
 
+  const renderDropDown = (renderProfileDrop ,ProfileDrop) => {
+      console.log("prfiledrop",ProfileDrop);
+      SetRender(false)
+      console.log("renderRouter",render);
+      if(ProfileDrop === true){
+        renderProfileDrop();
+      }
+  }
+
   return (
     <>
       {newPost && <CreateNewPost close={closeCreateNewPostPopUp} />}
-      <Header call={directCallPostPage} setNewPost={setNewPost} />
+      <Header 
+      renderWithMain={renderWithMain}
+      render = {render}
+      renderDropDown = {renderDropDown}
+      call={directCallPostPage} setNewPost={setNewPost} />
       {token && userPresent && (
-        <MainPage newPost={newPost}>
+        <MainPage newPost={newPost}
+         onClick={() => SetRenderWithMain(renderWithMain ? false : true)} 
+        >
           <Routes>
             <Route
               path="/"

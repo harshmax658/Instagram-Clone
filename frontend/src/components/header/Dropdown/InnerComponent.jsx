@@ -10,6 +10,7 @@ const InnerComponent = ({render}) => {
           onClick={x.navigate ? () => navigate(x.navigate) : null}
           key = {i} 
           style={{ 
+             gridGap:"8px",
             borderTop:x.borderTop
             }}>
           {x.svg}
