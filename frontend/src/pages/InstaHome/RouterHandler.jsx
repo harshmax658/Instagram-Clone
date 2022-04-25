@@ -14,17 +14,15 @@ import { userDataFetchStart } from "../../redux/user/action";
 import EditProfile from "../../components/Profile_Setting/EditProfile";
 import ChangePassword from "../../components/Profile_Setting/ChangePassword";
 import ProfileSetting from "../Profile Setting/ProfileSetting";
-<<<<<<< HEAD
-import { red } from "@mui/material/colors";
-=======
+
 import Explore from "../Explore Page/Explore";
->>>>>>> e20caf1853bdc86d0a25fc32ac5a1b11db9b720a
+import PeopleSuggestion from "../../components/People Suggestion/PeopleSuggestion";
 
 const PostCalling = createContext();
 const ProfilePageCalling = createContext();
 
 const RouterHandler = () => {
-  const [render,SetRender] = React.useState(false);
+  const [render, SetRender] = React.useState(false);
   const [renderWithMain, SetRenderWithMain] = React.useState(false);
   const dispatch = useDispatch();
   const { token, userPresent } = useSelector(({ userReducer }) => userReducer);
@@ -57,26 +55,29 @@ const RouterHandler = () => {
     setNewPost(false);
   };
 
-  const renderDropDown = (renderProfileDrop ,ProfileDrop) => {
-      console.log("prfiledrop",ProfileDrop);
-      SetRender(false)
-      console.log("renderRouter",render);
-      if(ProfileDrop === true){
-        renderProfileDrop();
-      }
-  }
+  const renderDropDown = (renderProfileDrop, ProfileDrop) => {
+    console.log("prfiledrop", ProfileDrop);
+    SetRender(false);
+    console.log("renderRouter", render);
+    if (ProfileDrop === true) {
+      renderProfileDrop();
+    }
+  };
 
   return (
     <>
       {newPost && <CreateNewPost close={closeCreateNewPostPopUp} />}
-      <Header 
-      renderWithMain={renderWithMain}
-      render = {render}
-      renderDropDown = {renderDropDown}
-      call={directCallPostPage} setNewPost={setNewPost} />
+      <Header
+        renderWithMain={renderWithMain}
+        render={render}
+        renderDropDown={renderDropDown}
+        call={directCallPostPage}
+        setNewPost={setNewPost}
+      />
       {token && userPresent && (
-        <MainPage newPost={newPost}
-         onClick={() => SetRenderWithMain(renderWithMain ? false : true)} 
+        <MainPage
+          newPost={newPost}
+          onClick={() => SetRenderWithMain(renderWithMain ? false : true)}
         >
           <Routes>
             <Route
@@ -95,8 +96,9 @@ const RouterHandler = () => {
 
             <Route path="inbox" element={<Message />} />
             <Route path="explore" element={<Explore />}>
-              <Route path="people" element={<Explore />} />
+              {/* <Route exact path="people" element={<PeopleSuggestion />} /> */}
             </Route>
+            <Route path="explore/people" element={<PeopleSuggestion />} />
 
             <Route path="accounts" element={<ProfileSetting />}>
               <Route path="edit" element={<EditProfile />} />

@@ -31,11 +31,15 @@ export const UserSwitchButton = styled.div`
 
 export const OtherUserSuggestion = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* align-items: space-between; */
   margin-top: 30px;
   color: gray;
   font-weight: 500;
+  flex-direction: column;
+  .topHead {
+    justify-content: space-between;
+    display: flex;
+  }
 `;
 export const SeeAllUser = styled.div`
   display: flex;
@@ -43,4 +47,6 @@ export const SeeAllUser = styled.div`
   color: black;
   cursor: pointer;
 `;
+export const Others = styled.div``;
+
 //Harshs

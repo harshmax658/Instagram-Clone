@@ -8,6 +8,7 @@ import {
   UserSwitchButton,
   OtherUserSuggestion,
   SeeAllUser,
+  Others,
 } from "./UserSuggestionStyle";
 
 import LogedUserImage from "../LogedUserImage/LogedUserImage";
@@ -37,8 +38,15 @@ const UserSuggestionComponent = () => {
         <UserSwitchButton>Switch</UserSwitchButton>
       </CurrentUser>
       <OtherUserSuggestion>
-        Suggestions For You <SeeAllUser>See All</SeeAllUser>
-        <PeopleSuggestion />
+        <div className="topHead">
+          Suggestions For You{" "}
+          <SeeAllUser onClick={() => navigate("explore/people")}>
+            See All
+          </SeeAllUser>
+        </div>
+        <Others>
+          <PeopleSuggestion fromUserSuggestion={true} />
+        </Others>
       </OtherUserSuggestion>
     </UserSuggestion>
   );
