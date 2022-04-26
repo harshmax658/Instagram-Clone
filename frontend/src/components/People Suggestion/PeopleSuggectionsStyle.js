@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const style = `    color: white;
+padding: 5px 8px;
+border-radius: 5px;
+background-color: #0095f6;`;
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -11,6 +15,8 @@ export const Wrapper = styled.div`
   }
   .follow {
     color: #0095f6;
+    cursor: pointer;
+    ${({ fromUserSuggestion }) => !fromUserSuggestion && style}
   }
 `;
 export const UserData = styled.div`
@@ -22,10 +28,12 @@ export const UserData = styled.div`
 export const Center = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: ${({ fromUserSuggestion }) => !fromUserSuggestion && "50px"};
+  width: 100%;
 `;
 export const Width = styled.div`
-  width: 40%;
+  width: ${({ fromUserSuggestion }) => (fromUserSuggestion ? "100%" : "45%")};
+
   .suggested {
     display: flex;
     justify-content: start;
